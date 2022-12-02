@@ -1,0 +1,32 @@
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	overflow: hidden;
+}
+ul.tabs li{
+	background: none;
+	color: #282828;
+	display: inline-block;
+	padding: 15px 0;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 16px;
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+ul.tabs li.current{
+	background: #282828;
+	color: #fff;
+	font-weight: 700;
+}
+
+.tab-content{
+	display: none;
+}
+
+.tab-content.current{
+	display: inherit;
+}
