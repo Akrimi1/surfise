@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Equipments;
-use App\Models\Categories;
+use App\Models\Images;
 
-class EquipmentsController extends Controller
+class equipImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class EquipmentsController extends Controller
      */
     public function index()
     {
-        
-
-        return view('equipments/admin.index');
+        return view('equipImage.index');
     }
 
     /**
@@ -27,8 +24,7 @@ class EquipmentsController extends Controller
      */
     public function create()
     {
-        $cat = Categories::all();
-        return view('equipments.create')->with('categories', $cat);
+        return view('equipImage.create');
     }
 
     /**
@@ -39,44 +35,61 @@ class EquipmentsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
-            'idCategory' => 'required',
-            'idVendor' => 'required',
-            'ref' => 'required',
-            'name'=> 'required',
-            'type' => 'required',
-            'description' => 'required',
-            'details' => 'required',
-            'equipImage' => 'required',
-            'equipVideos' => 'required'
+            'equip_image' => 'required'           
         ]);
+      
+        
 
-        $equip=new Equipments;
-        $equip->idCategory = $request->idCategory;
-        $equip->idVendor = $request->idVendor;
-        $equip->ref = $request->ref;
-        $equip->name = $request->name;
-        $equip->type = $request->type;
-        $equip->description = $request->description;
-        $equip->details = $request->details;
         if($request->file('equip_image')){
             $files= $request->file('equip_image');
             foreach($files as $file){
-                $image= new Images();
+                $data= new Images();
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $file-> move(public_path('images/equipments'), $filename);
                 //$check=in_array($extension,$allowedfileExtension);
                 //$filename= date('YmdHi').$file->getClientOriginalName();
-                $image->path= $filename;
-                //$data->idEquipment = 1;
-                $equip->images()->save($image);  
+                $data->path= $filename;
+                $data->idEquipment = 1;
+                $data->save();  
             }
+           
         }
-        //$equip->images = $request->equipImage;
-        $equip->save();
+          
 
-        return view();//redirect('admin/post/create')->with('success','Data has been added');
+        return $filename;
+
+
+
+
+/*
+
+        if($request->hasFile('equipImage'))
+        {
+            $allowedfileExtension=['jpg','png','docx'];
+            $files = $request->file('photos');
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check=in_array($extension,$allowedfileExtension);
+            //dd($check);
+                if($check)
+                {
+                    //$items= Item::create($request->all());
+                    foreach ($request->equipImage as $photo) {
+                        $filename = $photo->store('photos');
+                        ItemDetail::create([
+                        'item_id' => $items->id,
+                        'filename' => $filename
+                        ]);
+                    }
+                }
+            }
+            echo "Upload Successfully";
+        }*/
+        
     }
 
     /**

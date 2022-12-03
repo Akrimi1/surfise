@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EquipmentsController;
+use App\Http\Controllers\equipImageController;
+use App\Http\Controllers\equipVideosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,12 @@ Route::get('equipments/create', function(){
     return view('equipments.create');
 });
 
-Route::resource('equipments', EquipmentsController::class);
+Route::resources([
+    'equipments' => EquipmentsController::class,
+    'equipImage' => equipImageController::class,
+    'equipVideo' => equipVideosController::class,
+    'equipments/admin' => EquipmentsController::class
+]);
 
 /*
 Route::get('products', function() {
