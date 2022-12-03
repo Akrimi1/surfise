@@ -26,12 +26,7 @@ Route::get('equipments/create', function(){
     return view('equipments.create');
 });
 
-Route::resources([
-    'equipments' => EquipmentsController::class,
-    'equipImage' => equipImageController::class,
-    'equipVideo' => equipVideosController::class,
-    'equipments/admin' => EquipmentsController::class
-]);
+Route::resource('equipments', EquipmentsController::class);
 
 /*
 Route::get('products', function() {

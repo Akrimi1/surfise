@@ -15,9 +15,7 @@ class EquipmentsController extends Controller
      */
     public function index()
     {
-        
-
-        return view('equipments/admin.index');
+        //
     }
 
     /**
@@ -27,8 +25,7 @@ class EquipmentsController extends Controller
      */
     public function create()
     {
-        $cat = Categories::all();
-        return view('equipments.create')->with('categories', $cat);
+        return view('equipments.create');
     }
 
     /**
