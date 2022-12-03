@@ -27,6 +27,7 @@ Route::get('equipments/create', function(){
 });
 
 Route::resource('equipments', EquipmentsController::class);
+Route::resource('equipments/admin', EquipmentsController::class);
 
 /*
 Route::get('products', function() {
