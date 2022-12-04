@@ -29,9 +29,9 @@ class EquipmentsController extends Controller
     public function indexadmin()
     { 
         $equip = Equipments::all();
-        
         return view('equipments/admin.index', [
             'equipments'=>$equip
+            
         ]);
     }
 
