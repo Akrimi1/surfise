@@ -22,12 +22,10 @@ Route::get('/', function () {
 Route::get('equipments', function(){
     return view('equipments.index');
 });
-Route::get('equipments/create', function(){
-    return view('equipments.create');
-});
+
 
 Route::resource('equipments', EquipmentsController::class);
-Route::resource('equipments/admin', EquipmentsController::class);
+//Route::resource('equipments/admin', EquipmentsController::class);
 
 /*
 Route::get('products', function() {

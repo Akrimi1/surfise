@@ -4,11 +4,11 @@
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Form Components</h3>
         <!-- BASIC FORM ELELEMNTS -->
-        <from method="post" action="{{ route('equipments/admin.store') }}">
+       {!! Form::open(['route'=>'equipments.store']) !!}
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <form class="form-horizontal style-form" method="get">
+             
               <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
             >Vendor</label
@@ -122,7 +122,7 @@
                   <span class="fileupload-exists"
                      ><i class="fa fa-undo"></i> Change</span
                      >
-                  <input type="file" class="default" />
+                  <input type="file" name="equip_image" class="default" multiple />
                   </span>
                   <a
                      href="advanced_form_components.html#"
@@ -175,8 +175,8 @@
       <div>
       <button class="btn btn-primary " type="submit">Add equipments</button>
       </div>           
-   </form>
-            </div>
+{!!Form::close()!!}
+   </div>
           </div>
           <!-- col-lg-12-->
         </div>
@@ -185,6 +185,6 @@
         
             
         <!-- /row -->
-        </from>
+        
       </section>
       @endsection

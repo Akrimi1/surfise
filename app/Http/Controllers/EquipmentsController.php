@@ -36,7 +36,8 @@ class EquipmentsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+       
+       /* $request->validate([
             'idCategory' => 'required',
             'idVendor' => 'required',
             'ref' => 'required',
@@ -46,7 +47,7 @@ class EquipmentsController extends Controller
             'details' => 'required',
             'equipImage' => 'required',
             'equipVideos' => 'required'
-        ]);
+        ]);*/
 
         $equip=new Equipments;
         $equip->idCategory = $request->idCategory;
@@ -65,11 +66,16 @@ class EquipmentsController extends Controller
                 $file-> move(public_path('images/equipments'), $filename);
                 //$check=in_array($extension,$allowedfileExtension);
                 //$filename= date('YmdHi').$file->getClientOriginalName();
+               
                 $image->path= $filename;
                 //$data->idEquipment = 1;
+
                 $equip->images()->save($image);  
+               
             }
         }
+        //dd( $request  );
+        
         //$equip->images = $request->equipImage;
         $equip->save();
 
