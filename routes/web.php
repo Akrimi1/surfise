@@ -22,9 +22,6 @@ Route::get('/', function () {
 Route::get('equipments', function(){
     return view('equipments.index');
 });
-/*Route::get('equipments/admin', function(){
-    return view('equipments/admin.index')->name("indexadmin");
-});*/
 
 Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
 Route::resource('equipments', EquipmentsController::class);
