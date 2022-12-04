@@ -1,14 +1,11 @@
 @extends('layouts.admin')
 @section('content')
-
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Form Components</h3>
         <!-- BASIC FORM ELELEMNTS -->
-        <from method="post" action="{{ route('equipments/admin.store') }}">
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <form class="form-horizontal style-form" method="get">
               <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
             >Vendor</label
@@ -96,7 +93,6 @@
                ></textarea>
          </div>
       </div>
-      
       <div class="form-group last">
          <label class="control-label col-md-3">Image Upload</label>
          <div class="col-md-9">
@@ -122,7 +118,7 @@
                   <span class="fileupload-exists"
                      ><i class="fa fa-undo"></i> Change</span
                      >
-                  <input type="file" class="default" />
+                  <input type="file" name="equipImage" class="default" />
                   </span>
                   <a
                      href="advanced_form_components.html#"
@@ -172,10 +168,7 @@
             </div>
          </div>
       </div>
-      <div>
-      <button class="btn btn-primary " type="submit">Add equipments</button>
-      </div>           
-   </form>
+              </form>
             </div>
           </div>
           <!-- col-lg-12-->
@@ -185,6 +178,5 @@
         
             
         <!-- /row -->
-        </from>
       </section>
       @endsection

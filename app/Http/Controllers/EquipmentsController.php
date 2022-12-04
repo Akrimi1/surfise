@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Equipments;
 use App\Models\Categories;
+use App\Models\Images;
 
 class EquipmentsController extends Controller
 {
@@ -54,7 +55,7 @@ class EquipmentsController extends Controller
     public function store(Request $request)
     {
        
-       /* $request->validate([
+        /*$request->validate([
             'idCategory' => 'required',
             'idVendor' => 'required',
             'ref' => 'required',
@@ -62,8 +63,8 @@ class EquipmentsController extends Controller
             'type' => 'required',
             'description' => 'required',
             'details' => 'required',
-            'equipImage' => 'required',
-            'equipVideos' => 'required'
+            'equip_image' => 'required',
+            //'equipVideos' => 'required'
         ]);*/
 
         $equip=new Equipments;
@@ -74,29 +75,29 @@ class EquipmentsController extends Controller
         $equip->type = $request->type;
         $equip->description = $request->description;
         $equip->details = $request->details;
-        if($request->file('equip_image')){
-            $files= $request->file('equip_image');
-            foreach($files as $file){
-                $image= new Images();
+        $equip->save();
+        //dd($request->hasfile('equip_image'));
+        if($request->hasfile('equip_image')){
+            $file= $request->file('equip_image');
+            //foreach($files as $file){
+                $img= new Images;
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $file-> move(public_path('images/equipments'), $filename);
                 //$check=in_array($extension,$allowedfileExtension);
                 //$filename= date('YmdHi').$file->getClientOriginalName();
-               
-                $image->path= $filename;
-                //$data->idEquipment = 1;
+                $img->path= $filename;
 
-                $equip->images()->save($image);  
+                $equip->images()->save($img);  
                
-            }
+            //}
         }
         //dd( $request  );
         
         //$equip->images = $request->equipImage;
-        $equip->save();
+        
 
-        return view();//redirect('admin/post/create')->with('success','Data has been added');
+        //return view();//redirect('admin/post/create')->with('success','Data has been added');
     }
 
     /**

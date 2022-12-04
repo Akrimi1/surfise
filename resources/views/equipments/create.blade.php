@@ -4,7 +4,7 @@
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Form Components</h3>
         <!-- BASIC FORM ELELEMNTS -->
-       {!! Form::open(['route'=>'equipments.store']) !!}
+       {!! Form::open(['route'=>'equipments.store', 'files' => true]) !!}
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
@@ -41,6 +41,7 @@
                class="form-control"
                placeholder="Referance"
                name="ref"
+               value="test"
                />
          </div>
       </div>
@@ -52,6 +53,7 @@
                class="form-control"
                placeholder="name"
                name="name"
+               value="test"
                />
          </div>
       </div>
@@ -63,6 +65,7 @@
                class="form-control"
                placeholder="type"
                name="type"
+               value="test"
                />
          </div>
       </div>
@@ -78,7 +81,8 @@
                cols="30"
                rows="10"
                name="description"
-               ></textarea>
+               
+               > value="test"</textarea>
          </div>
       </div>
       <div class="form-group">
@@ -93,10 +97,10 @@
                cols="30"
                rows="10"
                name="details"
-               ></textarea>
+               > value="test"</textarea>
          </div>
       </div>
-      
+       
       <div class="form-group last">
          <label class="control-label col-md-3">Image Upload</label>
          <div class="col-md-9">
@@ -122,7 +126,7 @@
                   <span class="fileupload-exists"
                      ><i class="fa fa-undo"></i> Change</span
                      >
-                  <input type="file" name="equip_image" class="default" multiple />
+                     <input type="file" name="equip_image" class="default" multiple />
                   </span>
                   <a
                      href="advanced_form_components.html#"

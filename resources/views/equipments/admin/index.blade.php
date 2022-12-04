@@ -22,18 +22,24 @@
                       <th></th>
                     </tr>
                   </thead>
+                  @foreach($equipments as $equip)
+                  
                   <tbody>
                     <tr>
                         <td  class="text-center">
                             <img class="img-responsive" src="https://unsplash.it/164/90"/>
                         </td>
                       <td>
-                        <a href="basic_table.html#">Company Ltd</a>
+                      {{$equip->ref}}
+                      Referance
                       </td>
-                      <td class="hidden-phone">Lorem Ipsum dolor</td>
-                      <td>12000.00$</td>
+                      <td class="hidden-phone">{{$equip->name}}</td>
+                      <td>{{$equip->type}}</td>
                       <td>
-                        <span class="label label-info label-mini">Due</span>
+                      {{$equip->description}}
+                      </td>
+                      <td>
+                      {{$equip->details}}
                       </td>
                       <td>
                         <button class="btn btn-success btn-xs">
@@ -49,6 +55,7 @@
                     </tr>
                     
                   </tbody>
+                  @endforeach
                 </table>
               </div>
               <!-- /content-panel -->
