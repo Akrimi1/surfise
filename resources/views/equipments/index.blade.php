@@ -400,8 +400,7 @@
                   </div>
                   
                   <div class="row prod_main">
-                    
-
+                  @foreach($equipments as $equip)
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog_block">
                       <div class="product_block">
                          <img src="{{ asset('/images/alter.jpg') }}"  alt=""  class="img-responsive col"/>
@@ -409,12 +408,10 @@
                             <h4>
                                <a
                                   href="./productdetail"
-                                  >Lorem Ipsum is simply dummy text</a>
+                                  >{{$equip->name}}</a>
                             </h4>
                             <p>
-                               Lorem Ipsum is simply dummy text of the printing and
-                               typesetting industry. Lorem Ipsum has been the
-                               industry’s.
+                              {{$equip->details}}
                             </p>
                             <div class="row">
                             <div class="col-md-12 d-flex p-2"> 
@@ -468,148 +465,16 @@
                                </div>-->
                          </div>
                       </div>
+                      
                    </div>
-
-                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog_block">
-                    <div class="product_block">
-                       <img src="{{ asset('/images/alter.jpg') }}"  alt=""  class="img-responsive col"/>
-                       <div class="prod_info">
-                          <h4>
-                             <a
-                                href="./productdetail"
-                                >Lorem Ipsum is simply dummy text</a>
-                          </h4>
-                          <p>
-                             Lorem Ipsum is simply dummy text of the printing and
-                             typesetting industry. Lorem Ipsum has been the
-                             industry’s.
-                          </p>
-                          <div class="row">
-                          <div class="col-md-12 d-flex p-2"> 
-                            <p class="rating">
-                              <a href="" class="active">1</a>
-                              <a href="" class="active">2</a>
-                              <a href="" class="active">3</a>
-                              <a href="" class="">4</a>
-                              <a href="">5</a>
-                            </p>
-                          </div>
-                        <div class="col">
-                          <h5>
-                       
-                             <a
-                                href="./categories#"
-                                >View More</a
-                                >
-                          </h5>
-                        </div>
-                        </div>
-                          <hr size="10" />
-                          <div class="row">
-                            <div class="col-md-3">
-                              <img
-                                src="{{ asset('/images/sportshop.png') }}"
-                                alt="Avatar"
-                                style="
-                                  position: relative;
-                                  width: 50px;
-                                  height: 50px;
-                                  overflow: hidden;
-                                  border-radius: 50%;
-                                "
-                              />
-                            </div>
-                            <div class="col-md-9">SPORT SHOP</div>
-                          </div>
-                            <!-- <div class="row">
-                                <div class="col">
-                                   <img
-                                      src="{{ asset('/images/img_avatar.png')}}"
-                                      alt="Avatar"
-                                      class="img-responsive col"
-                                      style="border-radius: 50%;"
-                                      />
-                                </div>
-                                <div class="col">
-                                   <span>Vendor name</span>
-                                </div>
-                             </div>-->
-                       </div>
-                    </div>
-                 </div>
+                
 
 
-                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog_block">
-                  <div class="product_block">
-                     <img src="{{ asset('/images/alter.jpg') }}"  alt=""  class="img-responsive col"/>
-                     <div class="prod_info">
-                        <h4>
-                           <a
-                              href="./productdetail"
-                              >Lorem Ipsum is simply dummy text</a>
-                        </h4>
-                        <p>
-                           Lorem Ipsum is simply dummy text of the printing and
-                           typesetting industry. Lorem Ipsum has been the
-                           industry’s.
-                        </p>
-                        <div class="row">
-                        <div class="col-md-12 d-flex p-2"> 
-                          <p class="rating">
-                            <a href="" class="active">1</a>
-                            <a href="" class="active">2</a>
-                            <a href="" class="active">3</a>
-                            <a href="" class="">4</a>
-                            <a href="">5</a>
-                          </p>
-                        </div>
-                      <div class="col">
-                        <h5>
-                     
-                           <a
-                              href="./categories#"
-                              >View More</a
-                              >
-                        </h5>
-                      </div>
-                      </div>
-                        <hr size="10" />
-                        <div class="row">
-                          <div class="col-md-3">
-                            <img
-                              src="{{ asset('/images/sportshop.png') }}"
-                              alt="Avatar"
-                              style="
-                                position: relative;
-                                width: 50px;
-                                height: 50px;
-                                overflow: hidden;
-                                border-radius: 50%;
-                              "
-                            />
-                          </div>
-                          <div class="col-md-9">SPORT SHOP</div>
-                        </div>
-                          <!-- <div class="row">
-                              <div class="col">
-                                 <img
-                                    src="{{ asset('/images/img_avatar.png')}}"
-                                    alt="Avatar"
-                                    class="img-responsive col"
-                                    style="border-radius: 50%;"
-                                    />
-                              </div>
-                              <div class="col">
-                                 <span>Vendor name</span>
-                              </div>
-                           </div>-->
-                     </div>
-                  </div>
-               </div>
+                   @endforeach
 
                  </div>
-                </div>
-              </div>
+                 
+                
               <div class="row pagination_cont">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <ul>

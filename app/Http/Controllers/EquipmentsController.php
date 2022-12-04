@@ -14,8 +14,25 @@ class EquipmentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    { 
+        $equip = Equipments::all();
+        
+        return view('equipments.index', [
+            'equipments'=>$equip
+        ]);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexadmin()
+    { 
+        $equip = Equipments::all();
+        
+        return view('equipments/admin.index', [
+            'equipments'=>$equip
+        ]);
     }
 
     /**
