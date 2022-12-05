@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\Vendors;
+use App\Models\Vendors;
+use App\Models\Country;
 
 class VendorsController extends Controller
 {
@@ -24,7 +25,12 @@ class VendorsController extends Controller
      */
     public function create()
     {
-        return view('vendors/admin.create');
+        $c = Country::all();
+        
+        return view('vendors/admin.create',[
+            'countries'=> $c
+        ]);
+        
     }
 
     /**
@@ -52,6 +58,7 @@ class VendorsController extends Controller
         $vendor->longitude = $request->longitude;
         $vendor->latitude = $request->latitude;
         $vendor->save();
+        return view();
     }
 
     /**

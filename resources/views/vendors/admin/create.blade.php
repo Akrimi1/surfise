@@ -3,6 +3,7 @@
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Create Vendor</h3>
         <!-- BASIC FORM ELELEMNTS -->
+        {!! Form::open(['route'=>'vendors.store', 'files' => true]) !!}
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
@@ -25,7 +26,7 @@
             >
          <div class="col-sm-10">
             <textarea
-               id="Description"
+               id="description"
                placeholder="your Description"
                class="box form-control"
                cols="30"
@@ -36,16 +37,13 @@
       </div>
       <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
-            >Country</label
-            >
-         <div class="col-sm-10">
-            <input
-               type="text"
-               class="form-control"
-               placeholder="country"
-               name="country"
-               />
-         </div>
+            >Select Country:</label
+            >          
+             <select class="form-control" name="country">
+                @foreach ($countries as $country)
+                 <option value="{{$country->id}}" >{{$country->name}} - {{$country->code}}</option>
+                  @endforeach
+            </select>
       </div>
       <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label">State</label>
@@ -80,7 +78,7 @@
                />
          </div>
       </div>
-      <div class="form-group last">
+     <!-- <div class="form-group last">
          <label class="control-label col-md-3">Image Upload</label>
          <div class="col-md-9">
             <div
@@ -153,9 +151,16 @@
                      >
                </div>
             </div>
-         </div>
+         </div>-->
+         <div>
+      <button class="btn btn-primary " type="submit">Add vendors</button>
       </div>
-              </form>
+     
+      </div>
+    
+            
+
+
             </div>
           </div>
           <!-- col-lg-12-->
@@ -163,7 +168,7 @@
         <!-- /row -->
         <!-- INLINE FORM ELELEMNTS -->
         
-            
+        {!!Form::close()!!}
         <!-- /row -->
       </section>
       @endsection

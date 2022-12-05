@@ -5,6 +5,7 @@ use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\equipImageController;
 use App\Http\Controllers\equipVideosController;
 use App\Http\Controllers\VendorsController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::get('equipments', function(){
 Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
 Route::resource('equipments', EquipmentsController::class);
 Route::resource('vendors/admin', VendorsController::class);
+Route::resource('vendors', VendorsController::class);
+//Route::resource('vendors/admin', CountryController::class);
 
 //Route::resource('equipments/admin', EquipmentsController::class);
 
