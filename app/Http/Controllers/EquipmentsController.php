@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Equipments;
 use App\Models\Categories;
 use App\Models\Images;
+use App\Models\Videos;
 
 class EquipmentsController extends Controller
 {
@@ -78,8 +79,9 @@ class EquipmentsController extends Controller
         $equip->save();
         //dd($request->hasfile('equip_image'));
         if($request->hasfile('equip_image')){
-            $file= $request->file('equip_image');
-            //foreach($files as $file){
+            $files= $request->file('equip_image');
+            //dd($files);
+            foreach($files as $file){
                 $img= new Images;
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
@@ -90,7 +92,23 @@ class EquipmentsController extends Controller
 
                 $equip->images()->save($img);  
                
-            //}
+            }
+        }
+        if($request->hasfile('equip_video')){
+            $files = $request->file('equip_video');
+            //dd($file);
+            foreach($files as $file){
+                $vid= new Videos;
+                $filename = date('YmdHi').$file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $file-> move(public_path('videos/equipments'), $filename);
+                //$check=in_array($extension,$allowedfileExtension);
+                //$filename= date('YmdHi').$file->getClientOriginalName();
+                $vid->path= $filename;
+
+                $equip->videos()->save($vid);  
+               
+            }
         }
         //dd( $request  );
         

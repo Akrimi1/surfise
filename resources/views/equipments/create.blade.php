@@ -126,7 +126,7 @@
                   <span class="fileupload-exists"
                      ><i class="fa fa-undo"></i> Change</span
                      >
-                     <input type="file" name="equip_image" class="default" multiple />
+                     <input type="file" name="equip_image[]" class="default" multiple />
                   </span>
                   <a
                      href="advanced_form_components.html#"
@@ -164,7 +164,7 @@
                   <span class="fileupload-exists"
                      ><i class="fa fa-undo"></i> Change</span
                      >
-                  <input type="file" class="default" />
+                  <input type="file" name="equip_video[]" class="default" multiple/>
                   </span>
                   <a
                      href="advanced_form_components.html#"
