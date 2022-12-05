@@ -33,17 +33,20 @@ Route::resource('vendors', VendorsController::class);
 
 //Route::resource('equipments/admin', EquipmentsController::class);
 
-/*
+
 Route::get('products', function() {
     return view('products.index');
 });
 
-Route::get('retaurants', function() {
+Route::get('restaurants', function() {
     return view('restaurants.index');
 });
 
 Route::get('rmr', function() {
     return view('rmr.index');
+});
+Route::get('thr', function() {
+    return view('thr.index');
 });
 
 Route::get('services', function() {
@@ -53,4 +56,6 @@ Route::get('services', function() {
 Route::get('clubs', function() {
     return view('clubs.index');
 });
-*/
+Route::get('blog', function() {
+    return view('blog.index');
+});

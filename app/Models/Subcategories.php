@@ -9,6 +9,7 @@ use App\Models\Categories;
 class Subcategories extends Model
 {
     use HasFactory;
+    
     protected $fillabel = [
         'idCategory',
         'subcategory'
