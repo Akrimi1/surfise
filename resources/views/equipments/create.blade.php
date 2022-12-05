@@ -2,7 +2,7 @@
 @section('content')
 
 <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Form Components</h3>
+        <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
         <!-- BASIC FORM ELELEMNTS -->
        {!! Form::open(['route'=>'equipments.store', 'files' => true]) !!}
         <div class="row mt">
@@ -30,6 +30,19 @@
                <option>1</option>
             </select>
          </div>
+      </div>
+      <div class="form-group">
+      <label class="col-sm-2 col-sm-2 control-label"
+            >Sub Category</label>
+            <div class="col-sm-10">
+      <select multiple data-role="tagsinput">
+         <option value="Amsterdam">Amsterdam</option>
+         <option value="Washington">Washington</option>
+         <option value="Sydney">Sydney</option>
+         <option value="Beijing">Beijing</option>
+         <option value="Cairo">Cairo</option>
+      </select>
+      </div>
       </div>
       <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"

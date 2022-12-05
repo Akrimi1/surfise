@@ -11,6 +11,8 @@ class Vendors extends Model
 
     protected $fillable=[
         'vendor_name',
+        'logo',
+        'photo',
         'description',
         'country',
         'state',
