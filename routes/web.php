@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\equipImageController;
 use App\Http\Controllers\equipVideosController;
+use App\Http\Controllers\VendorsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('equipments', function(){
 
 Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
 Route::resource('equipments', EquipmentsController::class);
+Route::resource('vendors/admin', VendorsController::class);
 
 //Route::resource('equipments/admin', EquipmentsController::class);
 
