@@ -26,6 +26,9 @@ Route::get('equipments', function(){
 });
 
 Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
+Route::get('equipments/equipment_informations', function() {
+    return view('equipments.equipment_informations');
+});
 Route::resource('equipments', EquipmentsController::class);
 Route::resource('vendors/admin', VendorsController::class);
 Route::resource('vendors', VendorsController::class);
@@ -37,10 +40,21 @@ Route::resource('vendors', VendorsController::class);
 Route::get('products', function() {
     return view('products.index');
 });
+Route::get('products/product_details', function() {
+    return view('products.product_details');
+});
+Route::get('products/product_informations', function() {
+    return view('products.product_informations');
+});
 
 Route::get('restaurants', function() {
     return view('restaurants.index');
 });
+
+Route::get('restaurants/restaurant_details', function() {
+    return view('restaurants.restaurant_details');
+});
+
 
 Route::get('rmr', function() {
     return view('rmr.index');
@@ -58,4 +72,15 @@ Route::get('clubs', function() {
 });
 Route::get('blog', function() {
     return view('blog.index');
+});
+Route::get('bmi', function() {
+    return view('bmi.index');
+});
+
+Route::get('medias', function() {
+    return view('medias.gallery');
+});
+
+Route::get('blog/post', function(){
+    return view('blog/post');
 });

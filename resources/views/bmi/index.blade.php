@@ -1,5 +1,6 @@
-@extend('layouts.app')
+@extends('layouts.app')
 @section('content')
+
 <div class="col-md-12">
       <section class="container-fluid  border border-white m-2">
          <section class="bmi-calculator ng-scope" data-ng-app="bmi" data-ng-controller="BmiCtrl" data-novalidate="">
@@ -232,4 +233,4 @@
          </section>
       </section>
     </div>
-    @ensection
+    @endsection

@@ -67,12 +67,12 @@
           <section class="header_top">
             <div class="header_top_inner clearfix">
               <div class="left_part">
-                <a href="./welcome.html"><img src="images/logo.png" alt="" /></a>
+                <a href="/"><img src="images/logo.png" alt="" /></a>
                 <ul>
                   <li><a href="/">H2O</a></li>
-                  <li><a href="./bmi.html">BMI</a></li>
-                  <li><a href="./rmr.html">RMR</a></li>
-                  <li><a href="./thr.html">THR</a></li>
+                  <li><a href="{{ url('bmi')}}">BMI</a></li>
+                  <li><a href="{{ url('rmr') }}">RMR</a></li>
+                  <li><a href="{{ url('thr') }}">THR</a></li>
                  
                 </ul>
               </div>
@@ -106,29 +106,29 @@
                   <li><a href="/user/login">Login</a></li>
                 </ul>
                 <ul class="navigation">
-                  <li><a href="./BlogSurfise.html">Blog</a></li>
-                  <li><a href="./Club_Gyms.html">Clubs/Gyms</a></li>
-                  <li><a href="./Equipment.html">Equipment</a></li>
-                  <li><a href="./products.html">Products</a></li>
-                  <li><a href="./Restaurants.html">Restaurants</a></li>
-                  <li><a href="./Services.html">Services</a></li>
-                  <li><a href="/node">Other/Info</a></li>
-                  <li><a href="/node/25">Sign Up</a></li>
+                  <li><a href="{{ url('blog') }}">Blog</a></li>
+                  <li><a href="{{ url('clubs') }}">Clubs/Gyms</a></li>
+                  <li><a href="{{ url('equipments') }}">Equipment</a></li>
+                  <li><a href="{{ url('products') }}">Products</a></li>
+                  <li><a href="{{ url('restaurats') }}">Restaurants</a></li>
+                  <li><a href="{{ url('Services') }}">Services</a></li>
+                  <li><a href="{{ url('node') }}">Other/Info</a></li>
+                  <li><a href="{{ url('/node/25') }}">Sign Up</a></li>
                 </ul>
               </div>
             </div>
           </section>
           <nav>
             <ul>
-              <li><a href="./BlogSurfise.html">Blog</a></li>
-              <li><a href="./Club_Gyms.html">Clubs/Gyms</a></li>
-              <li><a href="./Equipment.html">Equipment</a></li>
-              <li><a href="./products.html">Products</a></li>
-              <li><a href="./Restaurants.html">Restaurants</a></li>
-              <li><a href="./Services.html">Services</a></li>
+              <li><a href="{{ url('blog') }}">Blog</a></li>
+              <li><a href="{{ url('clubs') }}">Clubs/Gyms</a></li>
+              <li><a href="{{ url('equipments') }}">Equipment</a></li>
+              <li><a href="{{ url('products') }}">Products</a></li>
+              <li><a href="{{ url('restaurants') }}">Restaurants</a></li>
+              <li><a href="{{ url('services') }}">Services</a></li>
 
-              <li><a href="/node">Other/Info</a></li>
-              <li><a href="/node/25">Sign Up</a></li>
+              <li><a href="{{ url('node') }}">Other/Info</a></li>
+              <li><a href="{{ url('/node/25') }}">Sign Up</a></li>
             </ul>
           </nav>
           <div class="container">
@@ -144,58 +144,58 @@
                 <h3>Surfise</h3>
                 <ul>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >Home</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >About Surfise</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >Our Services</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >Our Locations</a
                     >
                   </li>
                   <li>
                     <a
-                      href="./videogallery"
+                      href="{{ url('videogallery') }}"
                       >Gallery</a
                     >
                   </li>
                   <li>
-                    <a href="./BlogSurfise.html"
+                    <a href="{{ url('blog') }}"
                       >Blog</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >How It Works</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >Features</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >Pricing</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >FAQs</a
                     >
                   </li>
                   <li>
-                    <a href="./node"
+                    <a href="{{ url('node') }}"
                       >Advertise with us</a
                     >
                   </li>
@@ -256,7 +256,7 @@
                 <p>
                   Website designed and developed by
                   <a
-                    href="./categories#"
+                    href="{{ url('categories') }}"
                     >www.rdinteractive.net</a
                   >
                 </p>
@@ -270,24 +270,24 @@
 </div>
    <!--End Header & Navbar -->
 
-	<script src="{{asset('/js/jquery.js') }}"></script>
-	<script src="{{asset('/js/jquery.fancybox.min.js') }}"></script>
-	<link rel="stylesheet" href="{{asset('/css/jquery.fancybox.min.css') }}" />
+	<script src="{{ asset('/js/jquery.js') }}"></script>
+	<script src="{{ asset('/js/jquery.fancybox.min.js') }}"></script>
+	<link rel="stylesheet" href="{{ asset('/css/jquery.fancybox.min.css') }}" />
 
-	<script src="{{asset('/js/jquery.uniform.standalone.js') }}"></script>
-	<script src="{{asset('/js/jquery.cssslider.js') }}"></script>
-	<script src="{{asset('/js/ready.min.js') }}"></script>
-	<script src="{{asset('/js/jquery.once.min.js') }}"></script>
-	<script src="{{asset('/js/slick.min.js') }}"></script>
-	<script src="{{asset('/js/counter.js') }}"></script>
-	<script src="{{asset('/js/responsiveslides.js') }}"></script>
-	<script src="{{asset('/js/jquery.min.js') }}"></script>
-	<script src="{{asset('/js/simplegallery.min.js') }}"></script>
-	<script src="{{asset('/js/qty.js') }}"></script>
-	<script src="{{asset('/js/tabs.js') }}"></script>
-	<script src="{{asset('/js/toggles.js') }}"></script>
-	<script src="{{asset('/js/jquery.tinyscrollbar.js') }}"></script>
-	<script src="{{asset('/js/jquery.cookie.min.js') }}"></script>
-	<script src="{{asset('/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('/js/jquery.uniform.standalone.js') }}"></script>
+	<script src="{{ asset('/js/jquery.cssslider.js') }}"></script>
+	<script src="{{ asset('/js/ready.min.js') }}"></script>
+	<script src="{{ asset('/js/jquery.once.min.js') }}"></script>
+	<script src="{{ asset('/js/slick.min.js') }}"></script>
+	<script src="{{ asset('/js/counter.js') }}"></script>
+	<script src="{{ asset('/js/responsiveslides.js') }}"></script>
+	<script src="{{ asset('/js/jquery.min.js') }}"></script>
+	<script src="{{ asset('/js/simplegallery.min.js') }}"></script>
+	<script src="{{ asset('/js/qty.js') }}"></script>
+	<script src="{{ asset('/js/tabs.js') }}"></script>
+	<script src="{{ asset('/js/toggles.js') }}"></script>
+	<script src="{{ asset('/js/jquery.tinyscrollbar.js') }}"></script>
+	<script src="{{ asset('/js/jquery.cookie.min.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
    </body>
    </html>
