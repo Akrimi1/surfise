@@ -1,10 +1,15 @@
 @extends('layouts.app')
+@stack('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/ng-slider.min.css')}}">	
+	
+		 		
+   <link rel="stylesheet" type="text/css" href="{{ asset('/css/bmi-calculator.css') }}">			
+
 @section('content')
 
-<div class="col-md-12">
-      <section class="container-fluid  border border-white m-2">
-         <section class="bmi-calculator ng-scope" data-ng-app="bmi" data-ng-controller="BmiCtrl" data-novalidate="">
-            <div class="col-md-12">
+
+         <section class="bmi-calculator ng-scope container-fluid m-3" data-ng-app="bmi" data-ng-controller="BmiCtrl" data-novalidate="">
+            
             <div class="row">
                
             <div class="col-md-5">
@@ -228,9 +233,15 @@
                </div>
             </div>
          </div>
-         </div>
       </div>
          </section>
-      </section>
-    </div>
+         </div>
+
+    @endsection
+    @section('bmi-scripts')
+    <script type="text/javascript" src="{{ asset('/js/angular.min.js') }}"></script>
+		 
+       <script type="text/javascript" src="{{ asset('/js/bmi-calculator-js.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ asset('/js/slider.min.js') }}"></script>
     @endsection

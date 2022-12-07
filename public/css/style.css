@@ -197,7 +197,6 @@ header{}
 			
 		.inner_top .prof_main .prof_desc{margin-bottom: 50px;}
 			.inner_top .prof_main .prof_desc h3{font-family: 'Impact'; font-size: 19px; line-height: 24px; font-weight: normal; color: #ff0022; margin: 0 0 25px; text-transform: uppercase;}
-			 .profile_info h5{font-size: 16px; line-height: 20px; font-weight: normal; color: #fff;}
 			 .help_user a{color: #ff0022; font-weight: bold; font-size: 15px;}
 				.inner_top .prof_main .prof_desc.prod h3{margin: 0 0 5px;}
 			.inner_top .prof_main .prof_desc p{font-size: 14px; line-height: 24px; color: #fff; margin: 0 0 15px;}
@@ -1425,7 +1424,6 @@ footer{}
 .inner_top .prof_main{padding: 120px 0; background-image: none; background-color: transparent;}
 .inner_top .prof_main .container{padding-top: 35px; padding-bottom: 35px; border: #adadad 2px solid; max-width: 1200px;}
 .inner_top .prof_main .product_container{padding-top: 5px; padding-bottom: 5px; border: #adadad 2px solid; max-width: 1200px;}
-.btn-profile{background:#ff0022; color:white; border-radius: 0; border:#ff0022 1px solid}
 /*test1*/
 
 .inner_top .prof_main .prof_info .prof_pic{width: auto;}

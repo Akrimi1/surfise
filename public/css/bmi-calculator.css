@@ -1,0 +1,212 @@
+.bmi-calculator {
+	min-height: 490px;
+	width: 593px;
+	background: url(https://www.heartonline.org.au/images/heart/calculators/BMI_Calc/bg.jpg) no-repeat 0 0;
+}
+
+.bmi-calculator select{
+   height: 38px;
+   width: 252px;
+   background: #ffffff url(https://www.heartonline.org.au/images/heart/calculators/BMI_Calc/dropdown.svg) no-repeat right; 
+   color:#5e5e5e;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   cursor: pointer;
+   padding-left: 5px;
+}
+
+.bmi-calculator select::-ms-expand {
+    display: none;
+}
+
+.bmi-options {
+	margin-left: 34px;
+}
+
+.bmi-options img {
+	cursor: pointer;
+}
+
+.height-wrapper {
+}
+
+.height-value, .height-slider-wrapper, .weight-value, .weight-slider-wrapper {
+	height: 50px;
+}
+
+.gender{
+	width: 120px;
+	height: 38px;
+	
+	margin-top: 30px;
+}
+
+.value{
+    width: 55px;
+	height: 38px;
+	color: #fb0e1d;
+	padding-left: 9px;
+	border: none;
+}
+
+.height-weight{
+	margin-top: 20px;
+	margin-left: 34px;
+}
+
+.bmi-images
+{
+	height: 400px;
+	width: 129px;
+	float: right;
+	margin-top: -365px;
+	margin-right: -62px;
+}
+
+.bmi-images img{
+	height: 100%;
+}
+
+#system{
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin: 10px 0;
+	color:#242424;
+}
+
+#male{
+	
+}
+
+#female{
+	margin-left: 12px;
+}
+
+#height-metric, #weight-metric ,#height-imperial,#weight-imperial{
+	float: left;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.button {
+	height: 38px;
+	width:185px;
+	cursor: pointer;
+}
+
+.bmi-result {
+	margin-top: 60px;
+}
+
+#recalculate_tip{
+	color:#fb0e1d;
+	margin-bottom:25px;
+}
+
+.bmi-result-text {
+	padding: 5px;
+
+	float: left;
+	text-align: right;
+	font-size: 14px;
+	height: 50px;
+	width: 150px;
+
+	border: 1px solid black;	
+}
+
+.bmi-result-value {
+	padding: 5px;
+
+	text-align: left;
+	float: right;
+	font-size: 17px;
+	color: white;
+	
+	height: 50px;
+	width: 150px;
+
+	background-color: #fb0e1d;
+
+	border: 1px solid black;
+}
+
+.human-responsive {
+}
+
+.result_title{
+   background-color:#fb0e1d;
+   color:#ffffff;
+}
+ 
+ td{
+    vertical-align: top;
+ }
+ 
+.result th{
+	vertical-align: middle;
+	padding: 0 17px;
+	font-weight:bold;
+}
+ 
+.result  tr{
+  height:45px;
+}
+
+.result td{
+   padding: 10px 17px;
+   vertical-align: middle;
+}
+
+.result_content{
+  color:#5d5d5d;
+}
+#second_tr{
+   background-color:#eeeeee;
+}
+#result_part{
+padding-right: 20px;
+}
+
+#summary_part{
+padding-left: 20px;
+}
+
+#summary_part h3{margin-top:0;}
+
+#last_tr{
+  background-color:#fb0e1d;
+  height:12px;
+}
+
+div.height-weight br{display:none;}
+
+@media screen and (min-width: 1025px){
+	.bmi-calculator{width: 593px;}
+	.bmi-result{width: 677px;}
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px){
+	.bmi-calculator{
+		width: 481px;
+		margin-left: 30px;
+		position: relative;
+		right: 30px;
+		margin: auto;
+	}
+	.bmi-result{width: 575px;}
+	#result_part,#summary_part{padding:0;}
+}
+
+@media screen and (max-width: 639px){
+	.bmi-calculator{width: 100%;margin:0;background-size: 100% 490px;}
+	.value{margin: 10px 0px;}
+	.weight-slider-wrapper,.height-slider-wrapper{margin-top:25px;}
+	.bmi-images{height: 341px;margin-top: -245px; margin-right: -20px;}
+	.bmi-result {margin-top: 130px;}
+	#result_part,#summary_part{display:block; width:100%;padding:0}
+	#summary_part{margin-top:30px;}
+	table.result{margin:0 20px;}
+	div.height-weight br{display:inline;}
+}

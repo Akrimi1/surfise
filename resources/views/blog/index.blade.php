@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-</div>
 <section class="prof_main client_rev">
             <div class="container">
               <div class="row">
@@ -350,7 +349,137 @@
               </div>
             </div>
           </section>
-        </div>
-      </header>
+          </header>
     </section>
-    @endsection
+
+        <footer>
+      <div class="region region-topfooter">
+        <section class="footer_top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 foot_links">
+                <h3>Surfise</h3>
+                <ul>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >About Surfise</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >Our Services</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >Our Locations</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="{{ url('videogallery') }}"
+                      >Gallery</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('blog') }}"
+                      >Blog</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >How It Works</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >Features</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >Pricing</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >FAQs</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{{ url('node') }}"
+                      >Advertise with us</a
+                    >
+                  </li>
+                </ul>
+                <a
+                  href="./user/reg"
+                  class="button"
+                  >Register Now</a
+                >
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 foot_contact">
+                <h3>Contact Info</h3>
+                <p>
+                  152 Church Ave<br />
+                  Brooklyn, NY 12118
+                </p>
+                <p>
+                  719-459-4899<br />
+                  729-370-0379
+                </p>
+                <p><a href="mailto:info@surfise.com">info@surfise.com</a></p>
+                <a
+                  href="./contactus"
+                  class="button"
+                  >Contact Us</a
+                >
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 foot_dir">
+                <h3>Give Us a VIsit</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod.
+                </p>
+                <img
+                  src="{{ asset('/images/location.png') }}"
+                  alt=""
+                  class="location"
+                />
+                <a
+                  href="./categories#"
+                  class="button"
+                  >Get Direction</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="region region-bottomfooter">
+        <section class="footer_bot">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <p>Copyrights @ 2017, All rights reserved by Surfise.com</p>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                <p>
+                  Website designed and developed by
+                  <a
+                    href="{{ url('categories') }}"
+                    >www.rdinteractive.net</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+  </section>
+  @endsection
+

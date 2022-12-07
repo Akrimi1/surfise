@@ -431,7 +431,7 @@
                             <h5>
                          
                                <a
-                                  href="./categories#"
+                                  href="{{ url('products/product_informations') }}"
                                   >View More</a
                                   >
                             </h5>

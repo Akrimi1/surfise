@@ -40,3 +40,6 @@
    </section>
 </div>
 @endsection
+@section('rmr-script')
+  <script src="{{ asset('/js/global_scripts.js') }}"></script>
+  @endsection

@@ -1,5 +1,8 @@
 @extends('layouts.app')
+@stack('css')
+<link rel="stylesheet" href="{{ asset('/css/thr-calc-custom.css') }}"/>
 @section('content')
+</div>
 <div class="prof_main col-md-12">
       <section class="container  p-3">
          <section data-ng-app="heartRate" data-ng-controller="HeartRateCalcCtrl" class="ng-scope">
@@ -125,4 +128,9 @@
          </section>
       </section>
     </div>
+    @endsection
+    @section('thr-script')
+
+    <script type="text/javascript" src="{{ asset('/js/angular.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/target-heart-rate-calculator-js.js') }}"></script>
     @endsection

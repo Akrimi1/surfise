@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="images/favicon_0.png" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset('/images/favicon_0.png') }}" type="image/png" />
 
     <title>Blog | Surfise</title>
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" type="text/css"  />
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}" />
     <link
@@ -16,7 +17,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
 
-    <link href="{{ asset('/css/style.css') }}" rel="stylesheet" />
+ 
 
     <link rel="stylesheet" href="{{ asset('/css/ajax-progress.module.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/align.module.css') }}" />
@@ -51,6 +52,7 @@
     <link rel="stylesheet" href="{{ asset('/css/toggles.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/toggles-all.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/toggles-modern.css') }}" />
+    @stack('styles')
 
     <!--[if lte IE 8]>
       <script src="/core/assets/vendor/html5shiv/html5shiv.min.js?v=3.7.3') }}"></script>
@@ -67,7 +69,7 @@
           <section class="header_top">
             <div class="header_top_inner clearfix">
               <div class="left_part">
-                <a href="/"><img src="images/logo.png" alt="" /></a>
+                <a href="/"><img src="{{ asset('/images/logo.png')}}" alt="" /></a>
                 <ul>
                   <li><a href="/">H2O</a></li>
                   <li><a href="{{ url('bmi')}}">BMI</a></li>
@@ -112,28 +114,34 @@
                   <li><a href="{{ url('products') }}">Products</a></li>
                   <li><a href="{{ url('restaurats') }}">Restaurants</a></li>
                   <li><a href="{{ url('Services') }}">Services</a></li>
-                  <li><a href="{{ url('node') }}">Other/Info</a></li>
-                  <li><a href="{{ url('/node/25') }}">Sign Up</a></li>
+                  
                 </ul>
               </div>
             </div>
+            
           </section>
+       
           <nav>
             <ul>
               <li><a href="{{ url('blog') }}">Blog</a></li>
               <li><a href="{{ url('clubs') }}">Clubs/Gyms</a></li>
-              <li><a href="{{ url('equipments') }}">Equipment</a></li>
+              <li><a href="{{ url('equipments') }}">Equipments</a></li>
               <li><a href="{{ url('products') }}">Products</a></li>
               <li><a href="{{ url('restaurants') }}">Restaurants</a></li>
               <li><a href="{{ url('services') }}">Services</a></li>
 
-              <li><a href="{{ url('node') }}">Other/Info</a></li>
-              <li><a href="{{ url('/node/25') }}">Sign Up</a></li>
+           
             </ul>
           </nav>
-          <div class="container">
+          </header>
+    
+<div>
+          
             @yield('content')
-        </div>
+</div>
+     
+</section>
+
 
         <footer>
       <div class="region region-topfooter">
@@ -269,25 +277,38 @@
   </div>
 </div>
    <!--End Header & Navbar -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 
 	<script src="{{ asset('/js/jquery.js') }}"></script>
 	<script src="{{ asset('/js/jquery.fancybox.min.js') }}"></script>
 	<link rel="stylesheet" href="{{ asset('/css/jquery.fancybox.min.css') }}" />
 
 	<script src="{{ asset('/js/jquery.uniform.standalone.js') }}"></script>
+  <script src="{{ asset('/js/slick.min.js') }}"></script>
+
 	<script src="{{ asset('/js/jquery.cssslider.js') }}"></script>
+  <script src="{{ asset('/js/responsiveslides.js') }}"></script>
+  <script src="{{ asset('/js/simplegallery.min.js') }}"></script>
+	<script src="{{ asset('/js/jquery.tinyscrollbar.js') }}"></script>
+
+
+  <script src="{{ asset('/js/custom.js') }}"></script>
 	<script src="{{ asset('/js/ready.min.js') }}"></script>
 	<script src="{{ asset('/js/jquery.once.min.js') }}"></script>
-	<script src="{{ asset('/js/slick.min.js') }}"></script>
+
 	<script src="{{ asset('/js/counter.js') }}"></script>
-	<script src="{{ asset('/js/responsiveslides.js') }}"></script>
+
 	<script src="{{ asset('/js/jquery.min.js') }}"></script>
-	<script src="{{ asset('/js/simplegallery.min.js') }}"></script>
+
 	<script src="{{ asset('/js/qty.js') }}"></script>
 	<script src="{{ asset('/js/tabs.js') }}"></script>
 	<script src="{{ asset('/js/toggles.js') }}"></script>
-	<script src="{{ asset('/js/jquery.tinyscrollbar.js') }}"></script>
 	<script src="{{ asset('/js/jquery.cookie.min.js') }}"></script>
 	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+
+	
+  @yield('bmi-scripts')
+  @yield('rmr-script')
+  @yield('thr-script')
    </body>
    </html>

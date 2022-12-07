@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-</div>
+
 <section class="prof_main">
                   <div class="col-md-12">
                      <div class="row">
@@ -23,7 +23,7 @@
                                     <li class="pin">1519 West Foster Chicago, IL 60640</li>
                                     <li class="email">dynamax@dynamax.com</li>
                                     <li class="phone">719-459-4899346</li>
-                                    <li class="time">Hours - 11:00 a.m - 8:00 p.m <a href="{{ url('restaurants/restaurant_details') }}" class="btn btn-profile float-right mr-3">Visit Profile Page</a></li>
+                                    <li class="time">Hours - 11:00 a.m - 8:00 p.m <a href="{{ url('restaurants/restaurant_details') }}" style="background:#ff0022!important; color:white; border-radius: 0; border:#ff0022 1px solid" class="btn btn-profile float-right mr-3">Visit Profile Page</a></li>
                                  </ul>
 								</div>
 								</div>
@@ -49,7 +49,7 @@
                                     <li class="pin">1519 West Foster Chicago, IL 60640</li>
                                     <li class="email">dynamax@dynamax.com</li>
                                     <li class="phone">719-459-4899346</li>
-                                    <li class="time">Hours - 11:00 a.m - 8:00 p.m <a href="{{ url('restaurants/restaurant_details') }}" class="btn btn-profile float-right mr-3">Visit Profile Page</a></li>
+                                    <li class="time">Hours - 11:00 a.m - 8:00 p.m <a href="{{ url('restaurants/restaurant_details') }}" style="background:#ff0022!important; color:white; border-radius: 0; border:#ff0022 1px solid" class="btn btn-profile float-right mr-3">Visit Profile Page</a></li>
                                  </ul>
 								</div>
 								</div>
@@ -75,7 +75,7 @@
                                     <li class="pin">1519 West Foster Chicago, IL 60640</li>
                                     <li class="email">dynamax@dynamax.com</li>
                                     <li class="phone">719-459-4899346</li>
-                                    <li class="time">Hours - 11:00 a.m - 8:00 p.m <a href="{{ url('restaurants/restaurant_details') }}" class="btn btn-profile float-right mr-3">Visit Profile Page</a></li>
+                                    <li class="time">Hours - 11:00 a.m - 8:00 p.m <a href="{{ url('restaurants/restaurant_details') }}" style="background:#ff0022!important; color:white; border-radius: 0; border:#ff0022 1px solid" class="btn btn-profile float-right mr-3">Visit Profile Page</a></li>
                                  </ul>
 								</div>
 								</div>
@@ -83,7 +83,4 @@
                            </div>
                         </div>
                </section>
-            </div>
-         </header>
-      </section>
-      @endsection
+          @endsection
