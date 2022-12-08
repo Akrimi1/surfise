@@ -30,7 +30,7 @@ Route::resource('equipments/admin', EquipmentsController::class)->except('index'
 Route::get('equipments/equipment_informations', function() {
     return view('equipments.equipment_informations');
 });
-//Route::resource('equipments', EquipmentsController::class);
+Route::resource('equipments', EquipmentsController::class);
 Route::resource('vendors/admin', VendorsController::class);
 Route::resource('vendors', VendorsController::class);
 Route::resource('categories', CategoriesController::class);
