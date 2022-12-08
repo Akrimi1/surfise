@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Subcategories;
 
 class SubCategoriesController extends Controller
 {
@@ -23,7 +24,7 @@ class SubCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('subcategories.create');
     }
 
     /**
@@ -34,7 +35,16 @@ class SubCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'subcategory' => 'required'
+        ]);
+
+        $subcat=new Subcategories;
+        $subcat->idCategory = $request->idCategory;
+        $subcat->subcategory = $request->subcategory;
+       
+        $subcat->save();
+         return view('subcategories.create')->with('success','category has been added');
     }
 
     /**
