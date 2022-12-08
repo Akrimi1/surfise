@@ -145,11 +145,24 @@ class EquipmentsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @param  \App\Models\Equipments  $equip
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Equipments $equip)
     {
-        //
+        $request->validate([
+            'idCategory' => 'idCategory',
+            'idVendor' => 'required',
+            'ref' => 'required',
+            'name' => 'required',
+            'type' => 'type',
+            'description' => 'description',
+            'details' => 'details'
+        ]);
+        $equip->update($request->all());
+
+        return redirect()->route('equipments/admin.index')
+            ->with('success', 'euqipments updated successfully');
     }
 
     /**
