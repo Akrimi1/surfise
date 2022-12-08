@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 
-class CategoriesController extends Controller
+class CategoriesController extends Controller  
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -43,6 +43,7 @@ class CategoriesController extends Controller
         $cat->category = $request->category;
        
         $cat->save();
+         return view('categories.create')->with('success','category has been added');
     }
 
     /**

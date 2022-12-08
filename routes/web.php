@@ -6,6 +6,9 @@ use App\Http\Controllers\equipImageController;
 use App\Http\Controllers\equipVideosController;
 use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SubCategoriesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,11 @@ Route::get('equipments/equipment_informations', function() {
 Route::resource('equipments', EquipmentsController::class);
 Route::resource('vendors/admin', VendorsController::class);
 Route::resource('vendors', VendorsController::class);
+Route::resource('categories', CategoriesController::class);
+Route::resource('subcategories', SubCategoriesController::class);
+
+
+
 //Route::resource('vendors/admin', CountryController::class);
 
 //Route::resource('equipments/admin', EquipmentsController::class);
