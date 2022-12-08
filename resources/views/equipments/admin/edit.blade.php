@@ -4,7 +4,9 @@
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
         <!-- BASIC FORM ELELEMNTS -->
-       {!! Form::open(['route'=>'equipments/admin.update', $equip->id , 'files' => true]) !!}
+        <form method="post" action="{{ route('equipments.update', $equip->id) }}">
+        @method('PATCH') 
+            @csrf
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
@@ -196,7 +198,7 @@
       <div>
       <button class="btn btn-primary " type="submit">Update equipments</button>
       </div>           
-{!!Form::close()!!}
+</form>
    </div>
           </div>
           <!-- col-lg-12-->

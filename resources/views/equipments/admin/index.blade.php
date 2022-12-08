@@ -44,7 +44,7 @@
                         <button class="btn btn-success btn-xs">
                           <i class="fa fa-check"></i>
                         </button>
-                        <button class="btn btn-primary btn-xs"  href="{{ route('equipments/admin.edit',$equip->id)}}">
+                        <button class="btn btn-primary btn-xs"  href="{{ route('admin.edit',$equip->id)}}">
                           <i class="fa fa-pencil" ></i>
                         </button>
                         @method('DELETE')

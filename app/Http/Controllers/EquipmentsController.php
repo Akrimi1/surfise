@@ -138,7 +138,10 @@ class EquipmentsController extends Controller
     public function edit($id)
     {
         $equip = Equipments::find($id);
-        return view('equipments/admin.edit', compact('equip'));
+        return view('equipments/admin.edit',[
+            'equip'=>$equip
+            ]
+        );
     }
 
     /**
