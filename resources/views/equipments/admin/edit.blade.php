@@ -4,7 +4,7 @@
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
         <!-- BASIC FORM ELELEMNTS -->
-       {!! Form::open(['route'=>'equipments.store', 'files' => true]) !!}
+       {!! Form::open(['route'=>'equipments/admin.update', $equip->id , 'files' => true]) !!}
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">

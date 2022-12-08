@@ -24,16 +24,13 @@ use App\Http\Controllers\SubCategoriesController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('equipments', function(){
-    return view('equipments.index');
-});
 
 Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
 Route::resource('equipments/admin', EquipmentsController::class)->except('index');
 Route::get('equipments/equipment_informations', function() {
     return view('equipments.equipment_informations');
 });
-Route::resource('equipments', EquipmentsController::class);
+//Route::resource('equipments', EquipmentsController::class);
 Route::resource('vendors/admin', VendorsController::class);
 Route::resource('vendors', VendorsController::class);
 Route::resource('categories', CategoriesController::class);

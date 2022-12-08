@@ -58,7 +58,7 @@
                class="form-control"
                placeholder="Referance"
                name="ref"
-               value="test"
+              
                />
          </div>
       </div>
@@ -70,7 +70,7 @@
                class="form-control"
                placeholder="name"
                name="name"
-               value="test"
+              
                />
          </div>
       </div>
@@ -82,7 +82,7 @@
                class="form-control"
                placeholder="type"
                name="type"
-               value="test"
+              
                />
          </div>
       </div>
@@ -99,7 +99,7 @@
                rows="10"
                name="description"
                
-               > value="test"</textarea>
+               > </textarea>
          </div>
       </div>
       <div class="form-group">
@@ -114,7 +114,7 @@
                cols="30"
                rows="10"
                name="details"
-               > value="test"</textarea>
+               > </textarea>
          </div>
       </div>
        

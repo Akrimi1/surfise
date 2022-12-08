@@ -27,11 +27,10 @@
                   <tbody>
                     <tr>
                         <td  class="text-center">
-                            <img class="img-responsive" src="https://unsplash.it/164/90"/>
+                            <img class="img-responsive" src="{{ asset($equip->equip_image) }}"/>
                         </td>
                       <td>
                       {{$equip->ref}}
-                      Referance
                       </td>
                       <td class="hidden-phone">{{$equip->name}}</td>
                       <td>{{$equip->type}}</td>
@@ -45,9 +44,10 @@
                         <button class="btn btn-success btn-xs">
                           <i class="fa fa-check"></i>
                         </button>
-                        <button class="btn btn-primary btn-xs">
-                          <i class="fa fa-pencil"></i>
+                        <button class="btn btn-primary btn-xs"  href="{{ route('equipments/admin.edit',$equip->id)}}">
+                          <i class="fa fa-pencil" ></i>
                         </button>
+                        @method('DELETE')
                         <button class="btn btn-danger btn-xs">
                           <i class="fa fa-trash-o"></i>
                         </button>

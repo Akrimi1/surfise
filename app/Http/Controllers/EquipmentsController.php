@@ -137,7 +137,8 @@ class EquipmentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $equip = Equipments::find($id);
+        return view('equipments/admin.edit', compact('equip'));
     }
 
     /**
@@ -151,13 +152,13 @@ class EquipmentsController extends Controller
     public function update(Request $request, Equipments $equip)
     {
         $request->validate([
-            'idCategory' => 'idCategory',
+            'idCategory' => 'required',
             'idVendor' => 'required',
             'ref' => 'required',
             'name' => 'required',
-            'type' => 'type',
-            'description' => 'description',
-            'details' => 'details'
+            'type' => 'required',
+            'description' => 'required',
+            'details' => 'required'
         ]);
         $equip->update($request->all());
 
@@ -173,6 +174,9 @@ class EquipmentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $equip->delete();
+
+        return redirect()->route('equipments.index')
+            ->with('success', 'equipments deleted successfully');
     }
 }
