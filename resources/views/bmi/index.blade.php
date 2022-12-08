@@ -12,7 +12,7 @@
             
             <div class="row">
                
-            <div class="col-md-5">
+            <div class="col-md-5 col-sm-10">
                <div class="bmi-options">
                   <div class="col-md-12">
                      <div class="row">
@@ -152,8 +152,8 @@
          </div>
 
 
-            <div class="col-md-6 ml-5">
-            <div class="bmi-result ng-hide" data-ng-show="bmiSubmit">
+            <div class="col-md-6 ml-2 col-sm-12">
+            <div class="bmi-result ng-hide col-sm-12" data-ng-show="bmiSubmit">
                <p id="recalculate_tip">Recalculate by adjusting the sliders</p>
                <div class="table_wrap ">
                   <table>

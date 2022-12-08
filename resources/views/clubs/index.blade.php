@@ -19,35 +19,35 @@
                       <li>
                         <a
                           href="./categories#"
-                          class="active"
+                          class=""
                           >category 1</a
                         >
-                        <ul style="display: block">
+                        <ul style="">
                           <li>
                             <a
                               href="./categories#"
-                              class="active"
+                              class=""
                               >Sub-category 1</a
                             >
                           </li>
                           <li>
                             <a
                               href="./categories#"
-                              class="active"
+                              class=""
                               >Sub-category 2</a
                             >
                           </li>
                           <li>
                             <a
                               href="./categories#"
-                              class="active"
+                              class=""
                               >Sub-category 3</a
                             >
                           </li>
                           <li>
                             <a
                               href="./categories#"
-                              class="active"
+                              class=""
                               >Sub-category 4</a
                             >
                           </li>
@@ -58,7 +58,7 @@
                           href="./categories#"
                           >category 2</a
                         >
-                        <ul>
+                        <ul style>
                           <li>
                             <a
                               href="./categories#"
@@ -90,7 +90,7 @@
                           href="./categories#"
                           >category 3</a
                         >
-                        <ul>
+                        <ul style>
                           <li>
                             <a
                               href="./categories#"
@@ -122,7 +122,7 @@
                           href="./categories#"
                           >category 4</a
                         >
-                        <ul>
+                        <ul style>
                           <li>
                             <a
                               href="./categories#"
@@ -154,7 +154,7 @@
                           href="./categories#"
                           >category 5</a
                         >
-                        <ul>
+                        <ul style>
                           <li>
                             <a
                               href="./categories#"
@@ -186,7 +186,7 @@
                           href="./categories#"
                           >category 6</a
                         >
-                        <ul>
+                        <ul style>
                           <li>
                             <a
                               href="./categories#"
@@ -218,7 +218,7 @@
                           href="./categories#"
                           >category 7</a
                         >
-                        <ul>
+                        <ul style>
                           <li>
                             <a
                               href="./categories#"
@@ -248,21 +248,21 @@
                       <li>
                         <a
                           href="./categories#"
-                          class="active"
+                          class=""
                           >category 8</a
                         >
-                        <ul style="display: block">
+                        <ul style="">
                           <li>
                             <a
                               href="./categories#"
-                              class="active"
+                              class=""
                               >Sub-category 1</a
                             >
                           </li>
                           <li>
                             <a
                               href="./categories#"
-                              class="active"
+                              class=""
                               >Sub-category 2</a
                             >
                           </li>
@@ -285,7 +285,7 @@
                           href="./categories#"
                           >category 9</a
                         >
-                        <ul>
+                        <ul style>
                           <li>
                             <a
                               href="./categories#"
