@@ -9,6 +9,7 @@
                   <h2>EQUIPMENTS</h2>
                 </div>
               </div>
+              <!--category-->
               <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs sidebar">
                   <!-- Changed -->

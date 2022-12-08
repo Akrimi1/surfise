@@ -1,11 +1,21 @@
+@stack('css')
+
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@yaireo/tagify"></script>
+  <script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+
 @extends('layouts.admin')
 @section('content')
+
 <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Form Components</h3>
+        <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
         <!-- BASIC FORM ELELEMNTS -->
+       {!! Form::open(['route'=>'equipments.store', 'files' => true]) !!}
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
+             
               <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
             >Vendor</label
@@ -29,6 +39,16 @@
          </div>
       </div>
       <div class="form-group">
+      <label class="col-sm-2 control-label"
+            >Sub Category</label>
+            <div class="col-sm-10">
+           
+         <input name='tags' value='' class="form-control" autofocus>
+  
+     
+      </div>
+      </div>
+      <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
             >Reference</label
             >
@@ -38,6 +58,7 @@
                class="form-control"
                placeholder="Referance"
                name="ref"
+               value="test"
                />
          </div>
       </div>
@@ -49,6 +70,7 @@
                class="form-control"
                placeholder="name"
                name="name"
+               value="test"
                />
          </div>
       </div>
@@ -60,6 +82,7 @@
                class="form-control"
                placeholder="type"
                name="type"
+               value="test"
                />
          </div>
       </div>
@@ -75,7 +98,8 @@
                cols="30"
                rows="10"
                name="description"
-               ></textarea>
+               
+               > value="test"</textarea>
          </div>
       </div>
       <div class="form-group">
@@ -90,9 +114,10 @@
                cols="30"
                rows="10"
                name="details"
-               ></textarea>
+               > value="test"</textarea>
          </div>
       </div>
+       
       <div class="form-group last">
          <label class="control-label col-md-3">Image Upload</label>
          <div class="col-md-9">
@@ -118,7 +143,7 @@
                   <span class="fileupload-exists"
                      ><i class="fa fa-undo"></i> Change</span
                      >
-                  <input type="file" name="equipImage" class="default" />
+                     <input type="file" name="equip_image[]" class="default" multiple />
                   </span>
                   <a
                      href="advanced_form_components.html#"
@@ -156,7 +181,7 @@
                   <span class="fileupload-exists"
                      ><i class="fa fa-undo"></i> Change</span
                      >
-                  <input type="file" class="default" />
+                  <input type="file" name="equip_video[]" class="default" multiple/>
                   </span>
                   <a
                      href="advanced_form_components.html#"
@@ -168,8 +193,11 @@
             </div>
          </div>
       </div>
-              </form>
-            </div>
+      <div>
+      <button class="btn btn-primary " type="submit">Add equipments</button>
+      </div>           
+{!!Form::close()!!}
+   </div>
           </div>
           <!-- col-lg-12-->
         </div>
@@ -178,5 +206,13 @@
         
             
         <!-- /row -->
+        
       </section>
+      <script>
+    // The DOM element you wish to replace with Tagify
+var input = document.querySelector('input[name=tags]');
+
+// initialize Tagify on the above input node reference
+new Tagify(input)
+  </script>
       @endsection

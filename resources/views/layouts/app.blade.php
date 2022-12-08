@@ -112,7 +112,7 @@
                   <li><a href="{{ url('clubs') }}">Clubs/Gyms</a></li>
                   <li><a href="{{ url('equipments') }}">Equipment</a></li>
                   <li><a href="{{ url('products') }}">Products</a></li>
-                  <li><a href="{{ url('restaurats') }}">Restaurants</a></li>
+                  <li><a href="{{ url('restaurants') }}">Restaurants</a></li>
                   <li><a href="{{ url('Services') }}">Services</a></li>
                   
                 </ul>

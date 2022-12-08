@@ -26,6 +26,7 @@ Route::get('equipments', function(){
 });
 
 Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
+Route::resource('equipments/admin', EquipmentsController::class)->except('index');
 Route::get('equipments/equipment_informations', function() {
     return view('equipments.equipment_informations');
 });
