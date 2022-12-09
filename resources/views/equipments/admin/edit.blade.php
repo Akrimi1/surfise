@@ -97,10 +97,8 @@
                class="box form-control"
                cols="30"
                rows="10"
-               name="description"
-               value="{{ $equip->description }}"
-               
-               ></textarea>
+               name="description"      
+               >{{ $equip->description }}</textarea>
          </div>
       </div>
       <div class="form-group">
@@ -115,8 +113,7 @@
                cols="30"
                rows="10"
                name="details"
-               value="{{ $equip->details }}"
-               > </textarea>
+               >{{ $equip->details }}</textarea>
          </div>
       </div>
        

@@ -152,9 +152,10 @@ class EquipmentsController extends Controller
      * @param  \App\Models\Equipments  $equip
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipments $equip)
+    public function update(Request $request, $id)
     {
-        $request->validate([
+        $equip = Equipments::find($id);
+       $request->validate([
             'idCategory' => 'required',
             'idVendor' => 'required',
             'ref' => 'required',
@@ -165,7 +166,7 @@ class EquipmentsController extends Controller
         ]);
         $equip->update($request->all());
 
-        return redirect()->route('equipments/admin.index')
+        return redirect('equipments/admin')
             ->with('success', 'euqipments updated successfully');
     }
 
@@ -177,9 +178,10 @@ class EquipmentsController extends Controller
      */
     public function destroy($id)
     {
+        $equip=Equipments::find($id);
         $equip->delete();
 
-        return redirect()->route('equipments.index')
+        return redirect('equipments/admin')
             ->with('success', 'equipments deleted successfully');
     }
 }

@@ -17,8 +17,6 @@
                       <th class="hidden-phone">Referance</th>
                       <th>Name</th>
                       <th>Type</th>
-                      <th>Description</th>
-                      <th>Details</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -34,23 +32,25 @@
                       </td>
                       <td class="hidden-phone">{{$equip->name}}</td>
                       <td>{{$equip->type}}</td>
+                      
+                     
                       <td>
-                      {{$equip->description}}
-                      </td>
-                      <td>
-                      {{$equip->details}}
-                      </td>
-                      <td>
-                        <button class="btn btn-success btn-xs">
-                          <i class="fa fa-check"></i>
-                        </button>
-                        <button class="btn btn-primary btn-xs"  href="{{ route('admin.edit', $equip->id)}}">
-                          <i class="fa fa-pencil" ></i>
-                        </button>
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="col">
+                        <a class="btn btn-primary btn-xs" href="{{ route('admin.edit', $equip->id)}}"> <i class="fa fa-pencil"></i> </a>
+                  
+                        <form class="col-md-2" method="post" action="{{ route('equipments.destroy', $equip->id) }}">
+                        @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-xs">
-                          <i class="fa fa-trash-o"></i>
+                                              <i class="fa fa-trash-o"></i>
                         </button>
+                        </form>
+                      </div>
+</div>
+                       
+</div>
                       </td>
                     </tr>
                     
