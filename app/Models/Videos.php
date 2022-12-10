@@ -9,7 +9,7 @@ class Videos extends Model
 {
     use HasFactory;
 
-    protected $fillabel=[
+    public $fillable=[
         'idEquipment',
         'path'
     ];

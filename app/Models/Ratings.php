@@ -9,7 +9,7 @@ class Ratings extends Model
 {
     use HasFactory;
 
-    protected $fillabel=[
+    public $fillable=[
         'idEquipment',
         'rating'
 

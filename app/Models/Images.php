@@ -9,7 +9,7 @@ class Images extends Model
 {
     use HasFactory;
 
-    protected $fillabel = [
+    public $fillable = [
         'idEquipement',
         'path'
     ];
