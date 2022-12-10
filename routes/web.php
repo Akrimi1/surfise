@@ -39,6 +39,10 @@ Route::get('equipments/equipment_informations', function() {
 });
 Route::resource('equipments', EquipmentsController::class);
 
+
+Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
+Route::resource('categories/admin', CategoriesController::class)->except('index');
+Route::get('categories/admin.edit', [CategoriesController::class, 'edit']);
 Route::resource('categories', CategoriesController::class);
 Route::resource('subcategories', SubCategoriesController::class);
 

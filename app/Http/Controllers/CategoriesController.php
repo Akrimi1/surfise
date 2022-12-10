@@ -14,7 +14,21 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+       //
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexadmin()
+    {
+        $cat = Categories::all();
+        return view('categories/admin.index', [
+            'categories'=>$cat
+            
+        ]);
     }
 
     /**
@@ -24,7 +38,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('categories/admin.create');
     }
 
     /**
@@ -43,7 +57,7 @@ class CategoriesController extends Controller
         $cat->category = $request->category;
        
         $cat->save();
-         return view('categories.create')->with('success','category has been added');
+         return view('categories/admin.create')->with('success','category has been added');
     }
 
     /**
@@ -54,7 +68,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
@@ -65,7 +79,11 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = Categories::find($id);
+        return view('categories/admin.edit',[
+            'cat'=>$cat
+            ]
+        );
     }
 
     /**
@@ -73,11 +91,19 @@ class CategoriesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @param  \App\Models\Categories $cat
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $cat = Categories::find($id);
+        $request->validate([
+             'category' => 'required'  
+         ]);
+         $cat->update($request->all());
+ 
+         return redirect('categories/admin')
+             ->with('success', 'categories updated successfully');  
     }
 
     /**
@@ -88,6 +114,11 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat=Categories::find($id);
+        $cat->delete();
+
+        return redirect('categories/admin')
+            ->with('success', 'categories deleted successfully');
+  
     }
 }

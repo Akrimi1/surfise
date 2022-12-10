@@ -11,14 +11,14 @@ class Categories extends Model
 {
     use HasFactory;
 
-    protected $fillabel = [
+    public $fillable = [
         'category'
     ];
 
     public function equipments(){
         return $this->hasMany(Equipments::class, 'idCategory');
     }
-    public function categories(){
+    public function subcategories(){
         return $this->hasMany(Subcategories::class, 'idCategory');
     }
 

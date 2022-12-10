@@ -11,30 +11,20 @@
                <hr />
                <thead>
                   <tr>
-                     <th>Equipment image</th>
-                     <th class="hidden-phone">Referance</th>
                      <th>Name</th>
-                     <th>Type</th>
                      <th></th>
                   </tr>
                </thead>
-               @foreach($equipments as $equip)
+               @foreach($categories as $cat)
                <tbody>
                   <tr>
-                     <td  class="text-center">
-                        <img class="img-responsive" src="{{ asset($equip->equip_image) }}"/>
-                     </td>
-                     <td>
-                        {{$equip->ref}}
-                     </td>
-                     <td class="hidden-phone">{{$equip->name}}</td>
-                     <td>{{$equip->type}}</td>
+                     <td>{{$cat->category}}</td>
                      <td>
                         <div class="col-md-12">
                            <div class="row">
                               <div class="col">
-                                 <a class="btn btn-primary btn-xs" href="{{ route('admin.edit', $equip->id)}}"> <i class="fa fa-pencil"></i> </a>
-                                 <form class="col-md-2" method="post" action="{{ route('equipments.destroy', $equip->id) }}">
+                                 <a class="btn btn-primary btn-xs" href="{{ route('admin.edit', $cat->id)}}"> <i class="fa fa-pencil"></i> </a>
+                                 <form class="col-md-2" method="post" action="{{ route('categories.destroy', $cat->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-xs">
