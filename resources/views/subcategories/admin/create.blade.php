@@ -31,7 +31,7 @@
                   />
             </div>
             <div>
-               <button class="btn btn-primary " type="submit">Add sub categories categories</button>
+               <button class="btn btn-primary " type="submit">Add sub categories</button>
             </div>
             {!!Form::close()!!}
          </div>

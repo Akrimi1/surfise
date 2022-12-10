@@ -17,6 +17,22 @@ class SubCategoriesController extends Controller
         //
     }
 
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexadmin()
+    {
+        $subcat = SubCategories::all();
+        return view('subcategories/admin.index', [
+            'subcategories'=>$subcat
+            
+        ]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +40,7 @@ class SubCategoriesController extends Controller
      */
     public function create()
     {
-        return view('subcategories.create');
+        return view('subcategories/admin.create');
     }
 
     /**
@@ -44,7 +60,7 @@ class SubCategoriesController extends Controller
         $subcat->subcategory = $request->subcategory;
        
         $subcat->save();
-         return view('subcategories.create')->with('success','category has been added');
+         return view('subcategories/admin.create')->with('success','category has been added');
     }
 
     /**
@@ -66,7 +82,11 @@ class SubCategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subcat = SubCategories::find($id);
+        return view('subcategories/admin.edit',[
+            'subcat'=>$subcat
+            ]
+        );
     }
 
     /**
@@ -74,11 +94,19 @@ class SubCategoriesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @param  \App\Models\SubCategories $subcat
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+         $subcat = SubCategories::find($id);
+        $request->validate([
+             'subcategory' => 'required'  
+         ]);
+         $subcat->update($request->all());
+ 
+         return redirect('subcategories/admin')
+             ->with('success', 'subcategories updated successfully');  
     }
 
     /**
@@ -89,6 +117,10 @@ class SubCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subcat=SubCategories::find($id);
+        $subcat->delete();
+
+        return redirect('subcategories/admin')
+            ->with('success', 'subcategories deleted successfully');
     }
 }

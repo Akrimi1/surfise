@@ -10,7 +10,7 @@ class Subcategories extends Model
 {
     use HasFactory;
     
-    protected $fillabel = [
+    protected $fillable = [
         'idCategory',
         'subcategory'
     ];
