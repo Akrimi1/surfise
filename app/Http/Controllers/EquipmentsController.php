@@ -43,7 +43,7 @@ class EquipmentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    { 
         return view('equipments/admin.create');
     }
 

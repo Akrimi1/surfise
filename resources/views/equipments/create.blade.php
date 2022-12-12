@@ -16,7 +16,7 @@
          <div class="col-sm-10">
             <select class="form-control"  
                name="idVendor">
-               <option>1</option>
+               <option></option>
             </select>
          </div>
       </div>

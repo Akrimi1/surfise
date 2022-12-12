@@ -40,15 +40,18 @@ Route::get('equipments/equipment_informations', function() {
 Route::resource('equipments', EquipmentsController::class);
 
 
+Route::get('subcategories/admin', [SubCategoriesController::class, 'indexadmin']);
+Route::resource('subcategories/admin', SubCategoriesController::class)->except('index');
+Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
+Route::resource('subcategories', SubCategoriesController::class);
+
+
 Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
 Route::resource('categories/admin', CategoriesController::class)->except('index');
 Route::get('categories/admin.edit', [CategoriesController::class, 'edit']);
 Route::resource('categories', CategoriesController::class);
 
-Route::get('subcategories/admin', [SubCategoriesController::class, 'indexadmin']);
-Route::resource('subcategories/admin', SubCategoriesController::class)->except('index');
-Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
-Route::resource('subcategories', SubCategoriesController::class);
+
 
 
 

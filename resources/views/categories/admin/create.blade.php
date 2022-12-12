@@ -9,7 +9,7 @@
       <div class="form-panel">
          <div class="form-group">
             <label class="col-sm-2 col-sm-2 control-label"
-               >select subcategories</label>
+               >select type</label>
             <div class="col-sm-10">
                <select  data-role="tagsinput">
                   <option value="equipments">equipments</option>
