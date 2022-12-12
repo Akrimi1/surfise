@@ -6,7 +6,7 @@
    {!! Form::open(['route'=>'subcategories.store', 'files' => true]) !!}
    <div class="row mt">
    <div class="col-lg-12">
-      <div class="form-panel">
+   <div class="form-panel form-horizontal style-form">
       <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
             >category</label

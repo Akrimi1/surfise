@@ -1,8 +1,4 @@
-@stack('css')
-<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/@yaireo/tagify"></script>
-<script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+
 @extends('layouts.admin')
 @section('content')
 <section class="wrapper">
@@ -11,8 +7,8 @@
    
    <div class="row mt">
       <div class="col-lg-12">
-         <div class="form-panel">
-         {!! Form::open(['route'=>'equipments.store', 'files' => true]) !!}
+         <div class="form-panel form-horizontal style-form">
+         {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
                   >Vendor</label
@@ -21,6 +17,21 @@
                   <select class="form-control"  
                      name="idVendor">
                      <option>1</option>
+                  </select>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Rating Stars</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control"  
+                     name="rating">
+                     <option>1</option>
+                     <option>2</option>
+                     <option>3</option>
+                     <option>4</option>
+                     <option>5</option>
                   </select>
                </div>
             </div>
@@ -193,6 +204,8 @@
    <!-- INLINE FORM ELELEMNTS -->
    <!-- /row -->
 </section>
+
+
 <script>
    // The DOM element you wish to replace with Tagify
    var input = document.querySelector('input[name=tags]');

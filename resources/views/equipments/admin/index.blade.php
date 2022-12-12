@@ -7,7 +7,14 @@
       <div class="col-md-12">
          <div class="content-panel">
             <table class="table table-striped table-advance table-hover">
+            <div class="row">
+                  <div class="col-md-6">
                <h4><i class="fa fa-angle-right"></i> Advanced Table</h4>
+               <div class="col-md-6">
+               <a class="btn btn-primary "  href="admin/create" >Add categories</a>  
+                  </div>
+               </div>
+               </div>
                <hr />
                <thead>
                   <tr>
