@@ -125,15 +125,6 @@
                      class="fileupload fileupload-new"
                      data-provides="fileupload"
                      >
-                     <div
-                        class="fileupload-new thumbnail"
-                        style="width: 200px; height: 150px"
-                        >
-                        <img
-                           src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"
-                           alt=""
-                           />
-                     </div>
                      <div>
                         <span class="btn btn-theme02 btn-file">
                         <span class="fileupload-new"
@@ -145,12 +136,7 @@
                            >
                         <input type="file" name="equip_image[]" class="default" multiple />
                         </span>
-                        <a
-                           href="advanced_form_components.html#"
-                           class="btn btn-theme04 fileupload-exists"
-                           data-dismiss="fileupload"
-                           ><i class="fa fa-trash-o"></i> Remove</a
-                           >
+                       
                      </div>
                   </div>
                </div>
@@ -162,15 +148,6 @@
                      class="fileupload fileupload-new"
                      data-provides="fileupload"
                      >
-                     <div
-                        class="fileupload-new thumbnail"
-                        style="width: 200px; height: 150px"
-                        >
-                        <img
-                           src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"
-                           alt=""
-                           />
-                     </div>
                      <div>
                         <span class="btn btn-theme02 btn-file">
                         <span class="fileupload-new"
@@ -182,12 +159,7 @@
                            >
                         <input type="file" name="equip_video[]" class="default" multiple/>
                         </span>
-                        <a
-                           href="advanced_form_components.html#"
-                           class="btn btn-theme04 fileupload-exists"
-                           data-dismiss="fileupload"
-                           ><i class="fa fa-trash-o"></i> Remove</a
-                           >
+                        
                      </div>
                   </div>
                </div>
