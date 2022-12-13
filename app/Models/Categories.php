@@ -16,7 +16,7 @@ class Categories extends Model
     ];
 
     public function equipments(){
-        return $this->hasMany(Equipments::class, 'idCategory');
+        return $this->hasMany(Equipments::class);
     }
     public function subcategories(){
         return $this->hasMany(Subcategories::class, 'idCategory');

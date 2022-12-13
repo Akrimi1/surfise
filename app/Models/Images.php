@@ -15,6 +15,6 @@ class Images extends Model
     ];
 
     public function equipment(){
-        return $this->belongsTo(Equipments::class);
+        return $this->belongsTo(Equipments::class, 'idEquipement');
     }
 }

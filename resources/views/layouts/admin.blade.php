@@ -414,7 +414,7 @@
   <script type="text/javascript" src="{{ asset('/backend/lib/bootstrap-daterangepicker/date.js') }}"></script>
   <script type="text/javascript" src="{{ asset('/backend/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
   <script type="text/javascript" src="{{ asset('/backend/lib/bootstrap-inputmask/bootstrap-inputmask.min.js') }}"></script>
-
+  @stack('subcat-ajax')
 </body>
 
 </html>

@@ -29,7 +29,7 @@ Route::resource('vendors/admin', VendorsController::class);
 Route::resource('vendors', VendorsController::class);
 
 
-Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
+Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin','test']);
 Route::resource('equipments/admin', EquipmentsController::class)->except('index');
 Route::get('equipments/admin.edit', [EquipmentsController::class, 'edit']);
 

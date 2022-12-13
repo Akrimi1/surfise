@@ -16,41 +16,42 @@
                <div class="col-sm-10">
                   <select class="form-control"  
                      name="idVendor">
-                     <option>1</option>
+                     @foreach($vendors as $v)
+                     <option value="{{ $v->id }}">{{ $v->vendor_name }}</option>
+                     @endforeach
                   </select>
                </div>
             </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Rating Stars</label
-                  >
-               <div class="col-sm-10">
-                  <select class="form-control"  
-                     name="rating">
-                     <option>1</option>
-                     <option>2</option>
-                     <option>3</option>
-                     <option>4</option>
-                     <option>5</option>
-                  </select>
-               </div>
-            </div>
+            
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
                   >category</label
                   >
                <div class="col-sm-10">
                   <select class="form-control"  
-                     name="idCategory">
-                     <option>1</option>
+                     name="idCategory"
+                     id="category">
+                     @foreach($categories as $c)
+                     <option id="" value="{{ $c->id }}">{{ $c->category }}</option>
+                     <option id="idCategory" style="display:none">{{ $c->id }}</option>
+                     @endforeach
                   </select>
                </div>
             </div>
             <div class="form-group">
-               <label class="col-sm-2 control-label"
-                  >Sub Category</label>
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >SubCategory</label
+                  >
                <div class="col-sm-10">
-                  <input name='tags' value='' class="form-control" autofocus>
+                  <select class="form-control"  
+                     name=""
+                     id="">
+                     @if($subCat!=null)
+                        @foreach($subCat as $c)
+                        <option value="">{{ $c->subcategory }}</option>
+                        @endforeach
+                     @endif
+                  </select>
                </div>
             </div>
             <div class="form-group">
@@ -164,6 +165,21 @@
                   </div>
                </div>
             </div>
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Rating Stars</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control"  
+                     name="rating">
+                     <option>1</option>
+                     <option>2</option>
+                     <option>3</option>
+                     <option>4</option>
+                     <option>5</option>
+                  </select>
+               </div>
+            </div>
             <div>
                <button class="btn btn-primary " type="submit">Add equipments</button>
             </div>
@@ -185,4 +201,24 @@
    // initialize Tagify on the above input node reference
    new Tagify(input)
 </script>
+@push('subcat-ajax')
+<script>
+         $(document).ready(function(){
+            $('#category').change(function(e){
+               e.preventDefault();
+               
+               $.ajax({
+                  url: "{{ url('/equipments/admin/test') }}",
+                  method: 'get',
+                  data: {
+                     name: $('#idCategory').val(),
+                  },
+                  success: function(result){
+                     $('.alert').show();
+                     $('.alert').html(result.success);
+                  }});
+               });
+            });
+      </script>
+      @endpush
 @endsection

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Equipments;
 
 class Vendors extends Model
 {
@@ -21,6 +22,6 @@ class Vendors extends Model
     ];
 
     public function equipments(){
-        return $this->hasMany(Equipments::class, 'idVendors');
+        return $this->hasMany(Equipments::class);
     }
 }

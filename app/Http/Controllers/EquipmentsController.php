@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipments;
+use App\Models\Vendors;
 use App\Models\Categories;
 use App\Models\Images;
 use App\Models\Videos;
@@ -44,7 +45,17 @@ class EquipmentsController extends Controller
      */
     public function create()
     { 
-        return view('equipments/admin.create');
+        $vendors = Vendors::all();
+        $categories = Categories::all();//change where type = equipments
+        $subCat = null;
+        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories)->with('subCat',$subCat);
+    }
+    public function test($id)
+    { 
+        $categories = Categories::find($id);//change where type = equipments
+        $subCat = $categories->subcategories;
+        //return $subCat;
+        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories);
     }
 
     /**
@@ -126,7 +137,12 @@ class EquipmentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $vendors = Vendors::all();
+        $categories = Categories::find(1);//change where type = equipments
+        $subCat = $categories->subcategories;
+        //return $subCat;
+        //dd($id);
+        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories)->with('subCat', $subCat);
     }
 
     /**

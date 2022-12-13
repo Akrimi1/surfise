@@ -18,9 +18,7 @@ class CreateVendorsTable extends Migration
             $table->string('vendor_name');
             $table->text('description');
             $table->string('country');
-            $table->string('state');
-           // $table->float('longitude');
-           // $table->float('latitude');
+            $table->string('state');          
             $table->decimal('longitude', 10, 7);
             $table->decimal('latitude', 10, 7);
             $table->timestamps();
