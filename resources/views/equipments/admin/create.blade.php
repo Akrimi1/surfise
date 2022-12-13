@@ -1,6 +1,17 @@
 
 @extends('layouts.admin')
 @section('content')
+@push('subcat-ajax')
+<script>
+         $(document).ready(function(){
+            $('#category').change(function(e){
+               {{ $idcat = 2 }}
+               e.preventDefault();
+               var id = $('#category').find(":selected").val();
+            });
+         });
+      </script>
+      @endpush
 <section class="wrapper">
    <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
    <!-- BASIC FORM ELELEMNTS -->
@@ -32,8 +43,8 @@
                      name="idCategory"
                      id="category">
                      @foreach($categories as $c)
-                     <option id="" value="{{ $c->id }}">{{ $c->category }}</option>
-                     <option id="idCategory" style="display:none">{{ $c->id }}</option>
+                     <option value="{{ $c->id }}">{{ $c->category }}</option>
+                     <option style="display:none">{{ $c->id }}</option>
                      @endforeach
                   </select>
                </div>
@@ -45,13 +56,16 @@
                <div class="col-sm-10">
                   <select class="form-control"  
                      name=""
-                     id="">
-                     @if($subCat!=null)
+                     id="subcategory">
+                     
+                     {{ $sub = App\Models\Categories::find($idcat)}}
+                       {{ $subCat = $sub->subcategories }}
                         @foreach($subCat as $c)
                         <option value="">{{ $c->subcategory }}</option>
                         @endforeach
-                     @endif
+                    
                   </select>
+                  <div class="alert"></div>
                </div>
             </div>
             <div class="form-group">
@@ -201,24 +215,5 @@
    // initialize Tagify on the above input node reference
    new Tagify(input)
 </script>
-@push('subcat-ajax')
-<script>
-         $(document).ready(function(){
-            $('#category').change(function(e){
-               e.preventDefault();
-               
-               $.ajax({
-                  url: "{{ url('/equipments/admin/test') }}",
-                  method: 'get',
-                  data: {
-                     name: $('#idCategory').val(),
-                  },
-                  success: function(result){
-                     $('.alert').show();
-                     $('.alert').html(result.success);
-                  }});
-               });
-            });
-      </script>
-      @endpush
+
 @endsection

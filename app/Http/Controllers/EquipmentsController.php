@@ -43,20 +43,26 @@ class EquipmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     { 
         $vendors = Vendors::all();
         $categories = Categories::all();//change where type = equipments
-        $subCat = null;
-        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories)->with('subCat',$subCat);
+        $scat = null;
+        $subCat = "";
+       
+        if ($request->get("scat") != null){
+            dd("test");
+            $categorie = Categories::find(intval($request->get("id")));//change where type = equipments
+            $subCat = $categorie->subcategories;
+            $subList = [];
+            foreach($subCat as $s)
+                $subList[] = $s;
+
+            //dd($subList);
+        }
+        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories)->with('subCat',$subCat)->with('scat', $scat);
     }
-    public function test($id)
-    { 
-        $categories = Categories::find($id);//change where type = equipments
-        $subCat = $categories->subcategories;
-        //return $subCat;
-        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories);
-    }
+
 
     /**
      * Store a newly created resource in storage.
