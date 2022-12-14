@@ -89,8 +89,8 @@
                />
          </div>
       </div>
-     <!-- <div class="form-group last">
-               <label class="control-label col-md-3">Image Upload</label>
+      <div class="form-group last">
+               <label class="control-label col-md-3">Image Vendor Upload</label>
                <div class="col-md-9">
                   <div
                      class="fileupload fileupload-new"
@@ -100,18 +100,18 @@
                         <span class="btn btn-theme02 btn-file">
                         <span class="fileupload-new"
                            ><i class="fa fa-paperclip"></i> Select
-                        Image</span
+                        image vendor</span
                            >
                         <span class="fileupload-exists"
                            ><i class="fa fa-undo"></i> Change</span
                            >
-                        <input type="file" name="equip_image[]" class="default" multiple />
+                        <input type="file" name="vendor_image[]" class="default" multiple />
                         </span>
                        
                      </div>
                   </div>
                </div>
-            </div>
+            </div> 
             <div class="form-group last">
                <label class="control-label col-md-3">Logo Upload</label>
                <div class="col-md-9">
@@ -128,13 +128,13 @@
                         <span class="fileupload-exists"
                            ><i class="fa fa-undo"></i> Change</span
                            >
-                        <input type="file" name="equip_image[]" class="default" multiple />
+                        <input type="file" name="vendor_logo[]" class="default" multiple/>
                         </span>
-                       
+                        
                      </div>
                   </div>
                </div>
-            </div>-->
+            </div>
          <div>
       <button class="btn btn-primary " type="submit">Add vendors</button>
       </div>

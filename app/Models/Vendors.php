@@ -24,4 +24,13 @@ class Vendors extends Model
     public function equipments(){
         return $this->hasMany(Equipments::class);
     }
+    public function imagevendor()
+    {
+        return $this->hasMany(Imagevendor::class);
+    }
+
+    public function logovendor()
+    {
+        return $this->hasMany(Logovendor::class);
+    }
 }

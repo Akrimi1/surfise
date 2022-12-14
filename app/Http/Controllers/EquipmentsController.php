@@ -133,6 +133,7 @@ class EquipmentsController extends Controller
         
 
         //return view();//redirect('admin/post/create')->with('success','Data has been added');
+        return redirect('equipments/admin/create')->with('success','equipments has been added');
     }
 
     /**

@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Images extends Model
+class Imagevendor extends Model
 {
     use HasFactory;
-
     public $fillable = [
-        'idEquipement',
+        'idVendor',
         'path'
     ];
 
-    public function equipment(){
-        return $this->belongsTo(Equipments::class, 'idEquipement');
+    public function vendor(){
+        return $this->belongsTo(Vendors::class, 'idVendor');
     }
    
 }

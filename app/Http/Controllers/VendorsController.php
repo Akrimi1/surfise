@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vendors;
 use App\Models\Country;
+use App\Models\Imagevendor;
+use App\Models\Logovendor;
 
 class VendorsController extends Controller
 {
@@ -76,8 +78,39 @@ class VendorsController extends Controller
         $vendor->longitude = $request->longitude;
         $vendor->latitude = $request->latitude;
         $vendor->save();
-        
-        return view();
+        if($request->hasfile('vendor_image')){
+            $files= $request->file('vendor_image');
+            //dd($files);
+            foreach($files as $file){
+                $img= new Imagevendor;
+                $filename = date('YmdHi').$file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $file-> move(public_path('images/vendors'), $filename);
+                //$check=in_array($extension,$allowedfileExtension);
+                //$filename= date('YmdHi').$file->getClientOriginalName();
+                $img->path= $filename;
+
+                $vendor->imagevendor()->save($img);  
+               
+            }
+        }
+        if($request->hasfile('vendor_logo')){
+            $files = $request->file('vendor_logo');
+            //dd($file);
+            foreach($files as $file){
+                $vid= new Logovendor;
+                $filename = date('YmdHi').$file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $file-> move(public_path('images/Logovendors'), $filename);
+                //$check=in_array($extension,$allowedfileExtension);
+                //$filename= date('YmdHi').$file->getClientOriginalName();
+                $vid->path= $filename;
+
+                $vendor->logovendor()->save($vid);  
+               
+            }
+        }
+        return redirect('vendors/admin/create')->with('success','vendors has been added');
     }
 
     /**
