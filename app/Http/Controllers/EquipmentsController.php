@@ -51,7 +51,7 @@ class EquipmentsController extends Controller
         $subCat = "";
        
         if ($request->get("scat") != null){
-            dd("test");
+           // dd("test");
             $categorie = Categories::find(intval($request->get("id")));//change where type = equipments
             $subCat = $categorie->subcategories;
             $subList = [];

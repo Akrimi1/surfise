@@ -2,49 +2,52 @@
 @section('content')
 
 <section class="wrapper">
-          <h3><i class="fa fa-angle-right"></i> Basic Table Examples</h3>
+          <h3><i class="fa fa-angle-right"></i> Vendors management</h3>
 
           <!-- row -->
           <div class="row mt">
             <div class="col-md-12">
               <div class="content-panel">
                 <table class="table table-striped table-advance table-hover">
-                  <h4><i class="fa fa-angle-right"></i> Advanced Table</h4>
+                <div class="row">
+                  <div class="col-md-6">
+               <div class="col-md-6">
+               <a class="btn btn-primary "  href="/vendors/admin/create" >Add Vendors</a>  
+                  </div>
+               </div>
+               </div>
                   <hr />
                   <thead>
                     <tr>
-                      <th>Equipment image</th>
-                      <th class="hidden-phone">Referance</th>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Description</th>
-                      <th>Details</th>
+                      <th>vendor name</th>
+                      <th class="hidden-phone">Description</th>
+                      <th>Country</th>
+                      <th>State</th>
+                      <th>Longitude</th>
+                      <th>Latitude</th>
                       <th></th>
                     </tr>
                   </thead>
-                  @foreach($equipments as $equip)
+                  @foreach($vendors as $vendor)
                   
                   <tbody>
                     <tr>
-                        <td  class="text-center">
-                            <img class="img-responsive" src="https://unsplash.it/164/90"/>
-                        </td>
                       <td>
-                      {{$equip->ref}}
-                      Referance
+                      {{$vendor->vendor_name}}
+                    
                       </td>
-                      <td class="hidden-phone">{{$equip->name}}</td>
-                      <td>{{$equip->type}}</td>
+                      <td class="hidden-phone">{{$vendor->description}}</td>
+                      <td>{{$vendor->country}}</td>
                       <td>
-                      {{$equip->description}}
+                      {{$vendor->state}}
                       </td>
                       <td>
-                      {{$equip->details}}
+                      {{$vendor->longitude}}
                       </td>
                       <td>
-                        <button class="btn btn-success btn-xs">
-                          <i class="fa fa-check"></i>
-                        </button>
+                      {{$vendor->latitude}}
+                      </td>
+                      <td>
                         <button class="btn btn-primary btn-xs">
                           <i class="fa fa-pencil"></i>
                         </button>

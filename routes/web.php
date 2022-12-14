@@ -25,8 +25,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('vendors/admin', VendorsController::class);
+
+Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
+Route::resource('vendors/admin', VendorsController::class)->except('index');
+Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
 Route::resource('vendors', VendorsController::class);
+
 
 
 Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin','test']);

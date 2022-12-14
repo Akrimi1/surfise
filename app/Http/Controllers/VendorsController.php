@@ -15,7 +15,25 @@ class VendorsController extends Controller
      */
     public function index()
     {
-        //
+        $vendor = Vendors::all();
+        
+        return view('vendors.index', [
+            'vendors'=>$vendor
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexadmin()
+    { 
+        $vendor = Vendors::all();
+        return view('vendors/admin.index', [
+            'vendors'=>$vendor
+            
+        ]);
     }
 
     /**
@@ -58,6 +76,7 @@ class VendorsController extends Controller
         $vendor->longitude = $request->longitude;
         $vendor->latitude = $request->latitude;
         $vendor->save();
+        
         return view();
     }
 

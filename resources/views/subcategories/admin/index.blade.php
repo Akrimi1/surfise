@@ -1,14 +1,20 @@
 @extends('layouts.admin')
 @section('content')
 <section class="wrapper">
-   <h3><i class="fa fa-angle-right"></i> Basic Table Examples</h3>
+   <h3><i class="fa fa-angle-right"></i> Subcategories management</h3>
    <!-- row -->
    <div class="row mt">
       <div class="col-md-12">
          <div class="content-panel">
             <table class="table table-striped table-advance table-hover">
-               <h4><i class="fa fa-angle-right"></i> Advanced Table</h4>
-               <hr />
+             <div class="row">
+                  <div class="col-md-6">
+               <div class="col-md-6">
+               <a class="btn btn-primary "  href="/subcategories/admin/create" >Add Subcategories</a>  
+                  </div>
+               </div>
+               </div>
+            <hr />
                <thead>
                   <tr>
                      <th>Name of subcategories</th>

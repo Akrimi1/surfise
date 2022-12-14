@@ -248,12 +248,30 @@
           <p class="centered"><a href="profile.html"><img src="{{ asset('/backend/img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a href="index.html">
-              <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+            <a href="/equipments/admin">
+              <i class="fa fa-tasks"></i>
+              <span>Equipments</span>
               </a>
           </li>
-          <li class="sub-menu">
+          <li class="mt">
+            <a href="/categories/admin">
+              <i class="fa fa-tasks"></i>
+              <span>Categories</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="/vendors/admin">
+              <i class="fa fa-tasks"></i>
+              <span>Vendors</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="/subcategories/admin">
+              <i class="fa fa-tasks"></i>
+              <span>Subcategories</span>
+              </a>
+          </li>
+         <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
               <span>UI Elements</span>
@@ -356,7 +374,7 @@
               <span>Google Maps </span>
               </a>
           </li>
-        </ul>
+        </ul>-->
         <!-- sidebar menu end-->
       </div>
     </aside>

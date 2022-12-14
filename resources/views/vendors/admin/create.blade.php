@@ -8,6 +8,14 @@
           <div class="col-lg-12">
           <div class="form-panel form-horizontal style-form">
           {!! Form::open(['route'=>'vendors.store', 'files' => true]) !!}
+          <div class="row">
+                  <div class="col-md-6">
+               <div class="col-md-6">
+               <a class="btn btn-primary "  href="/vendors/admin" >Back to list</a>  
+                  </div>
+               </div>
+               </div>
+               <hr />
               <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
                   >Vendor name</label

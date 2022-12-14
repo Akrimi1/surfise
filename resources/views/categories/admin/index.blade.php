@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <section class="wrapper">
-   <h3><i class="fa fa-angle-right"></i> Basic Table Examples</h3>
+   <h3><i class="fa fa-angle-right"></i> Categories management</h3>
    <!-- row -->
    <div class="row mt">
       <div class="col-md-12">
@@ -9,9 +9,9 @@
             <table class="table table-striped table-advance table-hover">
                <div class="row">
                   <div class="col-md-6">
-               <h4><i class="fa fa-angle-right"></i> Advanced Table</h4>
+           
                <div class="col-md-6">
-               <a class="btn btn-primary "  href="admin/create" >Add categories</a>  
+               <a class="btn btn-primary "  href="/categories/admin/create" >Add categories</a>  
                   </div>
                </div>
                </div>
