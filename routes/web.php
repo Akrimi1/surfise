@@ -26,10 +26,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
-Route::resource('vendors/admin', VendorsController::class)->except('index');
-Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
-Route::resource('vendors', VendorsController::class);
+
 
 
 
@@ -49,11 +46,19 @@ Route::resource('subcategories/admin', SubCategoriesController::class)->except('
 Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
 Route::resource('subcategories', SubCategoriesController::class);
 
+Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
+Route::resource('vendors/admin', VendorsController::class)->except('index');
+Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
+Route::resource('vendors', VendorsController::class);
 
+
+/*
 Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
 Route::resource('categories/admin', CategoriesController::class)->except('index');
 Route::get('categories/admin.edit', [CategoriesController::class, 'edit']);
 Route::resource('categories', CategoriesController::class);
+
+*/
 
 
 

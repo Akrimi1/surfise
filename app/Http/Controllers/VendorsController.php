@@ -132,7 +132,11 @@ class VendorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vendor = Vendors::find($id);
+        return view('vendors/admin.edit',[
+            'vendor'=>$vendor
+            ]
+        );
     }
 
     /**
@@ -140,11 +144,24 @@ class VendorsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @param  \App\Models\Vendors  $vendor
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $vendor = Vendors::find($id);
+        $request->validate([
+            'vendor_name' => 'required',
+            'description' => 'required',
+            'country' => 'required',
+            'state' => 'required',
+            'longitude' => 'required',
+            'latitude' => 'required'
+        ]);
+         $vendor->update($request->all());
+ 
+         return redirect('vendors/admin')
+             ->with('success', 'vendors updated successfully');
     }
 
     /**
@@ -155,6 +172,10 @@ class VendorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vendor=Vendors::find($id);
+        $vendor->delete();
+
+        return redirect('vendors/admin')
+            ->with('success', 'vendors deleted successfully');
     }
 }

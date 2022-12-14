@@ -48,12 +48,20 @@
                       {{$vendor->latitude}}
                       </td>
                       <td>
-                        <button class="btn btn-primary btn-xs">
-                          <i class="fa fa-pencil"></i>
-                        </button>
-                        <button class="btn btn-danger btn-xs">
-                          <i class="fa fa-trash-o"></i>
-                        </button>
+                      <div class="col-md-12">
+                           <div class="row">
+                              <div class="col">
+                                 <a class="btn btn-primary btn-xs" href="{{ route('admin.edit', $vendor->id)}}"> <i class="fa fa-pencil"></i> </a>
+                                 <form class="col-md-2" method="post" action="{{ route('vendors.destroy', $vendor->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o"></i>
+                                    </button>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
                       </td>
                     </tr>
                     
