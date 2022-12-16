@@ -77,39 +77,28 @@ class VendorsController extends Controller
         $vendor->state = $request->state;
         $vendor->longitude = $request->longitude;
         $vendor->latitude = $request->latitude;
-        $vendor->save();
+        
         if($request->hasfile('vendor_image')){
-            $files= $request->file('vendor_image');
-            //dd($files);
-            foreach($files as $file){
-                $img= new Imagevendor;
-                $filename = date('YmdHi').$file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/vendors'), $filename);
-                //$check=in_array($extension,$allowedfileExtension);
-                //$filename= date('YmdHi').$file->getClientOriginalName();
-                $img->path= $filename;
-
-                $vendor->imagevendor()->save($img);  
-               
-            }
+            $file= $request->file('vendor_image');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $file-> move(public_path('images/vendors'), $filename);
+            
+            $vendor->photo = $filename;
+             
         }
+        
         if($request->hasfile('vendor_logo')){
-            $files = $request->file('vendor_logo');
-            //dd($file);
-            foreach($files as $file){
-                $vid= new Logovendor;
-                $filename = date('YmdHi').$file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/Logovendors'), $filename);
-                //$check=in_array($extension,$allowedfileExtension);
-                //$filename= date('YmdHi').$file->getClientOriginalName();
-                $vid->path= $filename;
-
-                $vendor->logovendor()->save($vid);  
-               
-            }
+            $file = $request->file('vendor_logo');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $file-> move(public_path('images/Logovendors'), $filename);
+            $vendor->logo = $filename;
         }
+
+        $vendor->save();
+
+        
         return redirect('vendors/admin/create')->with('success','vendors has been added');
     }
 

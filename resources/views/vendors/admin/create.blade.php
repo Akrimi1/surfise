@@ -105,7 +105,7 @@
                         <span class="fileupload-exists"
                            ><i class="fa fa-undo"></i> Change</span
                            >
-                        <input type="file" name="vendor_image[]" class="default" multiple />
+                        <input type="file" name="vendor_image" class="default" />
                         </span>
                        
                      </div>
@@ -128,7 +128,7 @@
                         <span class="fileupload-exists"
                            ><i class="fa fa-undo"></i> Change</span
                            >
-                        <input type="file" name="vendor_logo[]" class="default" multiple/>
+                        <input type="file" name="vendor_logo" class="default"/>
                         </span>
                         
                      </div>

@@ -102,9 +102,7 @@ class EquipmentsController extends Controller
                 $img= new Images;
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/equipments'), $filename);
-                //$check=in_array($extension,$allowedfileExtension);
-                //$filename= date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('images/equipments'), $filename);            
                 $img->path= $filename;
 
                 $equip->images()->save($img);  
@@ -118,21 +116,13 @@ class EquipmentsController extends Controller
                 $vid= new Videos;
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
-                $file-> move(public_path('videos/equipments'), $filename);
-                //$check=in_array($extension,$allowedfileExtension);
-                //$filename= date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('videos/equipments'), $filename);               
                 $vid->path= $filename;
 
                 $equip->videos()->save($vid);  
                
             }
-        }
-        //dd( $request  );
-        
-        //$equip->images = $request->equipImage;
-        
-
-        //return view();//redirect('admin/post/create')->with('success','Data has been added');
+        }       
         return redirect('equipments/admin/create')->with('success','equipments has been added');
     }
 
