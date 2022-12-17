@@ -51,7 +51,7 @@
                <div class="col-sm-10">
                <select class="form-control" name="country">
                @foreach ($countries as $country)
-                 <option value="{{$country->id}}" >{{$country->name}} - {{$country->code}}</option>
+                 <option value="{{$country->name}}" >{{$country->name}} - {{$country->code}}</option>
                   @endforeach
                   </select>
                </div>

@@ -2,34 +2,52 @@
 @section('content')
 @push('subcat-ajax')
 <script>
-         $(document).ready(function(){
-            $('#category').change(function(e){
-               {{ $idcat = 2 }}
-               e.preventDefault();
-               var id = $('#category').find(":selected").val();
-            });
-         });
-      </script>
-      @endpush
+   $(document).ready(function(){
+      $('#category').change(function(e){
+        
+         e.preventDefault();
+         $('#subcategory').empty();
+         var idcat = $('#category').find(":selected").val();
+
+        
+         $.ajax(
+         {
+            url: "/ajaxTest",
+            type: "GET",
+         
+            data: { id: idcat},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("subcategory");
+                  var option = document.createElement("option");
+                  option.text = result[i].subcategory;
+                  option.value = result[i].id;
+                  select.add(option);
+               }
+            
+            }
+         });     
+      });
+   });
+        
+</script>
+@endpush
 <section class="wrapper">
    <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
    <!-- BASIC FORM ELELEMNTS -->
-   
    <div class="row mt">
       <div class="col-lg-12">
-         
          <div class="form-panel form-horizontal style-form">
-         {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
-         <div class="row">
-                  <div class="col-md-6">
+            {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
+            <div class="row">
                <div class="col-md-6">
-               <a class="btn btn-primary "  href="/equipments/admin" >Back to list</a>  
+                  <div class="col-md-6">
+                     <a class="btn btn-primary "  href="/equipments/admin" >Back to list</a>  
                   </div>
                </div>
-               </div>
-               <hr />
+            </div>
+            <hr />
             <div class="form-group">
-               
                <label class="col-sm-2 col-sm-2 control-label"
                   >Vendor</label
                   >
@@ -42,7 +60,6 @@
                   </select>
                </div>
             </div>
-            
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
                   >category</label
@@ -64,15 +81,9 @@
                   >
                <div class="col-sm-10">
                   <select class="form-control"  
-                     name=""
+                     name="subcategory"
                      id="subcategory">
-                     
-                     {{ $sub = App\Models\Categories::find(6)}}
-                       {{ $subCat = $sub->subcategories }}
-                        @foreach($subCat as $c)
-                        <option value="">{{ $c->subcategory }}</option>
-                        @endforeach
-                    
+                                    
                   </select>
                   <div class="alert"></div>
                </div>
@@ -160,7 +171,6 @@
                            >
                         <input type="file" name="equip_image[]" class="default" multiple />
                         </span>
-                       
                      </div>
                   </div>
                </div>
@@ -183,7 +193,6 @@
                            >
                         <input type="file" name="equip_video[]" class="default" multiple/>
                         </span>
-                        
                      </div>
                   </div>
                </div>
@@ -215,8 +224,6 @@
    <!-- INLINE FORM ELELEMNTS -->
    <!-- /row -->
 </section>
-
-
 <script>
    // The DOM element you wish to replace with Tagify
    var input = document.querySelector('input[name=tags]');
@@ -224,5 +231,4 @@
    // initialize Tagify on the above input node reference
    new Tagify(input)
 </script>
-
 @endsection

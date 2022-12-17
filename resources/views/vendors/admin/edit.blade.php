@@ -49,28 +49,29 @@
       </div>
 
 
-<!--
+
       <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
-                  >Select Country:</label
+                  >Change Country:</label
                   >
                <div class="col-sm-10">
                <select class="form-control" name="country">
                @foreach ($countries as $country)
-                 <option value="{{$country->id}}" >{{$country->name}} - {{$country->code}}</option>
+                 <option value="{{$country->name}}" >{{$country->name}} - {{$country->code}}</option>
                   @endforeach
                   </select>
                </div>
-            </div> -->
+            </div> 
 
 <div class="form-group">
-         <label class="col-sm-2 col-sm-2 control-label">country</label>
+         <label class="col-sm-2 col-sm-2 control-label">Country</label>
          <div class="col-sm-10">
             <input
                type="text"
                class="form-control"
                placeholder="country"
-               name="country"
+               name="oldcountry"
+               readonly
                value="{{ $vendor->country }}"
                />
          </div>

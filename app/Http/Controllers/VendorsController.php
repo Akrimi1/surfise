@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vendors;
 use App\Models\Country;
-use App\Models\Imagevendor;
-use App\Models\Logovendor;
+
 
 class VendorsController extends Controller
 {
@@ -121,9 +120,11 @@ class VendorsController extends Controller
      */
     public function edit($id)
     {
+        $countries = Country::all();
         $vendor = Vendors::find($id);
         return view('vendors/admin.edit',[
-            'vendor'=>$vendor
+            'vendor'=>$vendor,
+            'countries' =>$countries
             ]
         );
     }

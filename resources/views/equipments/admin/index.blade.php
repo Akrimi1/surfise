@@ -39,7 +39,7 @@
                         <div class="col-md-12">
                            <div class="row">
                               <div class="col">
-                                 <a class="btn btn-primary btn-xs" href="{{ route('admin.edit', $equip->id)}}"> <i class="fa fa-pencil"></i> </a>
+                                 <a class="btn btn-primary btn-xs" href="{{ route('equipments.edit', $equip->id)}}"> <i class="fa fa-pencil"></i> </a>
                                  <form class="col-md-2" method="post" action="{{ route('equipments.destroy', $equip->id) }}">
                                     @csrf
                                     @method('DELETE')

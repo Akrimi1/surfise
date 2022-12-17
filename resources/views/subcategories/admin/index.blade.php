@@ -29,7 +29,7 @@
                         <div class="col-md-12">
                            <div class="row">
                               <div class="col">
-                                 <a class="btn btn-primary btn-xs" href="{{ route('admin.edit', $subcat->id)}}"> <i class="fa fa-pencil"></i> </a>
+                                 <a class="btn btn-primary btn-xs" href="{{ route('subcategories.edit', $subcat->id)}}"> <i class="fa fa-pencil"></i> </a>
                                  <form class="col-md-2" method="post" action="{{ route('subcategories.destroy', $subcat->id) }}">
                                     @csrf
                                     @method('DELETE')

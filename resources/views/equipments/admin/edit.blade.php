@@ -4,7 +4,7 @@
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
         <!-- BASIC FORM ELELEMNTS -->
-        <form method="post" action="{{ route('equipments.update', $equip->id) }}">
+        <form method="post" class="form-panel form-horizontal style-form"  action="{{ route('equipments.update', $equip->id) }}">
         @method('PATCH') 
             @csrf
         <div class="row mt">

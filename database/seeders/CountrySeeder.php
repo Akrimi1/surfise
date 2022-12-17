@@ -1,10 +1,10 @@
 <?php
-  
+
 namespace Database\Seeders;
-  
+
 use Illuminate\Database\Seeder;
-use App\Models\Country;
-  
+use DB;
+
 class CountrySeeder extends Seeder
 {
     /**
@@ -14,8 +14,8 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        Country::truncate();
-  
+        DB::table('countries')->truncate();
+ 
         $countries = [
             ['name' => 'Afghanistan', 'code' => 'AF'],
             ['name' => 'Åland Islands', 'code' => 'AX'],
@@ -267,9 +267,7 @@ class CountrySeeder extends Seeder
             ['name' => 'Zambia', 'code' => 'ZM'],
             ['name' => 'Zimbabwe', 'code' => 'ZW'],
         ];
-          
-        foreach ($countries as $key => $value) {
-            Country::create($value);
-        }
+ 
+        DB::table('countries')->insert($countries);
     }
 }

@@ -132,10 +132,10 @@ class EquipmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         $vendors = Vendors::all();
-        $categories = Categories::find(1);//change where type = equipments
+        $categories = Categories::find($request->$id);//change where type = equipments
         $subCat = $categories->subcategories;
         //return $subCat;
         //dd($id);
@@ -196,5 +196,13 @@ class EquipmentsController extends Controller
 
         return redirect('equipments/admin')
             ->with('success', 'equipments deleted successfully');
+    }
+    public function ajaxTest(Request $request)
+    {
+        $vendors = Vendors::all();
+        $id = intval($request->id);
+        $categories = Categories::findOrFail($id);//change where type = equipments
+        $subCat = $categories->subcategories;
+        return $subCat;
     }
 }
