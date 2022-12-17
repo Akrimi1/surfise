@@ -1,54 +1,117 @@
 @extends('layouts.admin')
 @section('content')
+@push('subcat-ajax')
+<script>
+   $(document).ready(function(){
+      $('#category').change(function(e){
+        
+         e.preventDefault();
+         $('#subcategory').empty();
+         var idcat = $('#category').find(":selected").val();
 
+        
+         $.ajax(
+         {
+            url: "/ajaxTest",
+            type: "GET",
+         
+            data: { id: idcat},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("subcategory");
+                  var option = document.createElement("option");
+                  option.text = result[i].subcategory;
+                  option.value = result[i].id;
+                  select.add(option);
+               }
+            
+            }
+         });     
+      });
+   });
+        
+</script>
+@endpush
 <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
         <!-- BASIC FORM ELELEMNTS -->
-        <div class="form-panel form-horizontal style-form">
-        <form method="post"  action="{{ route('equipments.update', $equip->id) }}">
+       
+        <form method="post" class="form-horizontal style-form" action="{{ route('equipments.update', $equip->id) }}">
         @method('PATCH') 
             @csrf
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-             
-              <div class="form-group">
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Vendor</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control"  
+                     name="idVendor">
+                     @foreach($vendors as $v)
+                     <option value="{{ $v->id }}">{{ $v->vendor_name }}</option>
+                     @endforeach
+                  </select>
+               </div>
+            </div>
+            <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
-            >Vendor</label
+            >old Vendor</label
             >
          <div class="col-sm-10">
-            <select class="form-control"  
-               name="idVendor"
-               value="{{ $equip->idVendor }}">
-               <option>1</option>
-            </select>
+            <input
+               type="text"
+               class="form-control"
+               placeholder="idVendor"
+               readonly
+               value="{{ $v->vendor_name }}"
+               />
          </div>
       </div>
-      <div class="form-group">
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >category</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control"  
+                     id="category"
+                     name="idCategory">
+                     @foreach($categories as $c)
+                     <option value="{{ $c->id }}">{{ $c->category }}</option>
+                     <option style="display:none">{{ $c->id }}</option>
+                     @endforeach
+                  </select>
+               </div>
+            </div>
+            <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
-            >category</label
+            >old category</label
             >
          <div class="col-sm-10">
-            <select class="form-control"  
-               name="idCategory"
-               value="{{ $equip->idCategory }}">
-               <option>1</option>
-            </select>
+            <input
+               type="text"
+               class="form-control"
+               placeholder="Referance"
+               readonly
+               value="{{ $c->category }}"
+               />
          </div>
       </div>
-      <div class="form-group">
-      <label class="col-sm-2 col-sm-2 control-label"
-            >Sub Category</label>
-            <div class="col-sm-10">
-      <select multiple data-role="tagsinput">
-         <option value="Amsterdam">Amsterdam</option>
-         <option value="Washington">Washington</option>
-         <option value="Sydney">Sydney</option>
-         <option value="Beijing">Beijing</option>
-         <option value="Cairo">Cairo</option>
-      </select>
-      </div>
-      </div>
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >SubCategory</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control"  
+                     name="subcategory"
+                     id="subcategory">             
+                  </select>
+                  <div class="alert"></div>
+               </div>
+            </div>
+            
+            
       <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label"
             >Reference</label

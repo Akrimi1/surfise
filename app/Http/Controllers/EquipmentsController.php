@@ -148,13 +148,30 @@ class EquipmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id , Request $request)
     {
         $equip = Equipments::find($id);
-        return view('equipments/admin.edit',[
-            'equip'=>$equip
-            ]
-        );
+        $vendors = Vendors::all();
+        $categories = Categories::all();//change where type = equipments
+        $scat = null;
+        $subCat = "";
+       
+        if ($request->get("scat") != null){
+           // dd("test");
+            $categorie = Categories::find(intval($request->get("id")));//change where type = equipments
+            $subCat = $categorie->subcategories;
+            $subList = [];
+            foreach($subCat as $s)
+                $subList[] = $s;
+
+            //dd($subList);
+        }
+        return view('equipments/admin.edit')->with('vendors', $vendors)
+        ->with('categories', $categories)
+        ->with('subCat',$subCat)
+        ->with('equip',$equip)
+        ->with('scat', $scat);
+       
     }
 
     /**
