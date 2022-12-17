@@ -23,12 +23,12 @@ class Equipments extends Model
 
     public function images()
     {
-        return $this->hasMany(Images::class);
+        return $this->hasMany(Images::class, 'idEquipment');
     }
 
     public function videos()
     {
-        return $this->hasMany(Videos::class);
+        return $this->hasMany(Videos::class, 'idEquipment');
     }
 
     public function ratings(){

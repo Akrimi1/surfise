@@ -10,7 +10,7 @@
              <div class="row">
                   <div class="col-md-6">
                <div class="col-md-6">
-               <a class="btn btn-primary "  href="/subcategories/admin/create" >Add Subcategories</a>  
+               <a class="btn btn-primary "  href="{{ url('/subcategories/admin/create') }}" >Add Subcategories</a>  
                   </div>
                </div>
                </div>

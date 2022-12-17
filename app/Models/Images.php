@@ -10,12 +10,12 @@ class Images extends Model
     use HasFactory;
 
     public $fillable = [
-        'idEquipement',
+        'idEquipment',
         'path'
     ];
 
     public function equipment(){
-        return $this->belongsTo(Equipments::class, 'idEquipement');
+        return $this->belongsTo(Equipments::class, 'idEquipment');
     }
    
 }
