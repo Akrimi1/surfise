@@ -31,10 +31,11 @@ class EquipmentsController extends Controller
      */
     public function indexadmin()
     { 
+       
         $equip = Equipments::all();
         return view('equipments/admin.index', [
             'equipments'=>$equip
-            
+          
         ]);
     }
 
@@ -152,6 +153,7 @@ class EquipmentsController extends Controller
     {
         $equip = Equipments::find($id);
         $vendors = Vendors::all();
+        $image = Images::find($id);
         $categories = Categories::all();//change where type = equipments
         $scat = null;
         $subCat = "";

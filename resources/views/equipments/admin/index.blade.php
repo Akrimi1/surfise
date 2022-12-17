@@ -28,8 +28,11 @@
                <tbody>
                   <tr>
                      <td  class="text-center">
-                        <img class="img-responsive" src="{{ asset($equip->equip_image) }}"/>
+                      
+                        <img src="{{ URL::asset('images/equipments/equip_image') }}" />
                      </td>
+                   
+                    
                      <td>
                         {{$equip->ref}}
                      </td>
@@ -54,6 +57,7 @@
                   </tr>
                </tbody>
                @endforeach
+               
             </table>
          </div>
          <!-- /content-panel -->

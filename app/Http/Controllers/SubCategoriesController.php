@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
+use App\Models\Categories;
 
 class SubCategoriesController extends Controller
 {
@@ -40,7 +41,11 @@ class SubCategoriesController extends Controller
      */
     public function create()
     {
-        return view('subcategories/admin.create');
+        $cat = Categories::all();
+        
+        return view('subcategories/admin.create',[
+            'categeries'=> $cat
+        ]);
     }
 
     /**

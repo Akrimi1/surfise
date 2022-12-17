@@ -188,15 +188,6 @@
                class="fileupload fileupload-new"
                data-provides="fileupload"
                >
-               <div
-                  class="fileupload-new thumbnail"
-                  style="width: 200px; height: 150px"
-                  >
-                  <img
-                     src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"
-                     alt=""
-                     />
-               </div>
                <div>
                   <span class="btn btn-theme02 btn-file">
                   <span class="fileupload-new"
@@ -225,16 +216,6 @@
                class="fileupload fileupload-new"
                data-provides="fileupload"
                >
-               <div
-                  class="fileupload-new thumbnail"
-                  style="width: 200px; height: 150px"
-                  >
-                  <img
-                     src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"
-                     alt=""
-                     />
-               </div>
-               
                <div>
                   <span class="btn btn-theme02 btn-file">
                   <span class="fileupload-new"
