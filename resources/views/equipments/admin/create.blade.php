@@ -42,7 +42,7 @@
             <div class="row">
                <div class="col-md-6">
                   <div class="col-md-6">
-                     <a class="btn btn-primary "  href="/equipments/admin" >Back to list</a>  
+                     <a class="btn btn-primary "  href="{{url('/equipments/admin') }}" >Back to list</a>  
                   </div>
                </div>
             </div>

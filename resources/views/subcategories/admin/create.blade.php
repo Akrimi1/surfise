@@ -10,7 +10,7 @@
             <div class="row">
                <div class="col-md-6">
                   <div class="col-md-6">
-                     <a class="btn btn-primary "  href="/subcategories/admin" >Back to list</a>  
+                     <a class="btn btn-primary "  href="{{ url('/subcategories/admin') }}" >Back to list</a>  
                   </div>
                </div>
             </div>
@@ -20,10 +20,18 @@
                   >category</label
                   >
                <div class="col-sm-10">
+<<<<<<< HEAD
                <select class="form-control" name="idCategory">
                @foreach ($categeries as $cat)
                  <option value="{{$cat->id}}" >{{$cat->category}}</option>
                   @endforeach
+=======
+                  <select class="form-control"  
+                     name="idCategory">
+                     @foreach($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+                    @endforeach
+>>>>>>> 586aa7aad3bfa007cb22bdeed744aaf1e1c90b32
                   </select>
                </div>
             </div>

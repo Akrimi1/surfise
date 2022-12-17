@@ -11,7 +11,7 @@
                   <div class="col-md-6">
            
                <div class="col-md-6">
-               <a class="btn btn-primary "  href="/categories/admin/create" >Add categories</a>  
+               <a class="btn btn-primary "  href="{{ url('/categories/admin/create') }}" >Add categories</a>  
                   </div>
                </div>
                </div>

@@ -12,7 +12,7 @@
                 <div class="row">
                   <div class="col-md-6">
                <div class="col-md-6">
-               <a class="btn btn-primary "  href="/vendors/admin/create" >Add Vendors</a>  
+               <a class="btn btn-primary "  href="{{ url('/vendors/admin/create') }}" >Add Vendors</a>  
                   </div>
                </div>
                </div>

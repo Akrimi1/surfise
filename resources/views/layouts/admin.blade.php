@@ -248,25 +248,26 @@
           <p class="centered"><a href="profile.html"><img src="{{ asset('/backend/img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a href="/equipments/admin">
+            <a href="{{ url('/equipments/admin') }}">
               <i class="fa fa-tasks"></i>
               <span>Equipments</span>
               </a>
           </li>
+         
           <li class="mt">
-            <a href="/categories/admin">
-              <i class="fa fa-tasks"></i>
-              <span>Categories</span>
-              </a>
-          </li>
-          <li class="mt">
-            <a href="/vendors/admin">
+            <a href="{{ url('vendors/admin') }}">
               <i class="fa fa-tasks"></i>
               <span>Vendors</span>
               </a>
           </li>
           <li class="mt">
-            <a href="/subcategories/admin">
+            <a href="{{ url('/categories/admin') }}">
+              <i class="fa fa-tasks"></i>
+              <span>Categories</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{{ url('/subcategories/admin') }}">
               <i class="fa fa-tasks"></i>
               <span>Subcategories</span>
               </a>

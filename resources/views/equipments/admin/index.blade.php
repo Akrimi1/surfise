@@ -10,7 +10,7 @@
             <div class="row">
                   <div class="col-md-6">
                <div class="col-md-6">
-               <a class="btn btn-primary "  href="/equipments/admin/create" >Add Equipments</a>  
+               <a class="btn btn-primary "  href="{{ url('/equipments/admin/create') }}" >Add Equipments</a>  
                   </div>
                </div>
                </div>

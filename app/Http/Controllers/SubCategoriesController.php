@@ -41,11 +41,16 @@ class SubCategoriesController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $cat = Categories::all();
         
         return view('subcategories/admin.create',[
             'categeries'=> $cat
         ]);
+=======
+        $categories = Categories::all();
+        return view('subcategories/admin.create')->with('categories', $categories);
+>>>>>>> 586aa7aad3bfa007cb22bdeed744aaf1e1c90b32
     }
 
     /**
