@@ -6,7 +6,7 @@
    <div class="row mt">
       <div class="col-md-12">
          <div class="content-panel">
-            <table class="table table-striped table-advance table-hover">
+            <table class="table table-advance table-hover">
             <div class="row">
                   <div class="col-md-6">
                <div class="col-md-6">
@@ -18,18 +18,19 @@
                <thead>
                   <tr>
                      <th>Equipment image</th>
-                     <th class="hidden-phone">Referance</th>
+                     <th>Reference</th>
                      <th>Name</th>
                      <th>Type</th>
+                     <th>Category</th>
                      <th></th>
                   </tr>
                </thead>
                @foreach($equipments as $equip)
                <tbody>
                   <tr>
-                     <td  class="text-center">
+                     <td>
                       
-                        <img src="{{ URL::asset('images/equipments/equip_image') }}" />
+                        <img src="{{ asset('images/equipments/' . $equip->images[0]->path)}}" class="thumbnail col-xs-1" />
                      </td>
                    
                     
@@ -38,6 +39,7 @@
                      </td>
                      <td class="hidden-phone">{{$equip->name}}</td>
                      <td>{{$equip->type}}</td>
+                     <td>{{$equip->category->category}}</td>
                      <td>
                         <div class="col-md-12">
                            <div class="row">

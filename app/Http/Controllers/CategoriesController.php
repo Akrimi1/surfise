@@ -24,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function indexadmin()
     {
-        $cat = Categories::all();
+        $cat = Categories::orderBy('category')->get();
         return view('categories/admin.index', [
             'categories'=>$cat
             
@@ -54,6 +54,7 @@ class CategoriesController extends Controller
         ]);
 
         $cat=new Categories;
+        $cat->type = $request->type;
         $cat->category = $request->category;
        
         $cat->save();

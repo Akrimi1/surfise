@@ -16,7 +16,7 @@ class VendorsController extends Controller
      */
     public function index()
     {
-        $vendor = Vendors::all();
+        $vendor = Vendors::orderBy('vendor_name')->get();
         
         return view('vendors.index', [
             'vendors'=>$vendor
@@ -30,7 +30,7 @@ class VendorsController extends Controller
      */
     public function indexadmin()
     { 
-        $vendor = Vendors::all();
+        $vendor = Vendors::orderBy('vendor_name')->get();
         return view('vendors/admin.index', [
             'vendors'=>$vendor
             
@@ -44,7 +44,7 @@ class VendorsController extends Controller
      */
     public function create()
     {
-        $c = Country::all();
+        $c = Country::orderBy('name')->get();
         
         return view('vendors/admin.create',[
             'countries'=> $c
@@ -65,17 +65,22 @@ class VendorsController extends Controller
             'description' => 'required',
             'country' => 'required',
             'state' => 'required',
-            'longitude' => 'required',
-            'latitude' => 'required'
+            'streetAddress' => 'required',
         ]);
+        $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;;
+        
+        
 
         $vendor=new Vendors;
         $vendor->vendor_name = $request->vendor_name;
         $vendor->description = $request->description;
         $vendor->country = $request->country;
         $vendor->state = $request->state;
-        $vendor->longitude = $request->longitude;
-        $vendor->latitude = $request->latitude;
+        $vendor->streetAddress = $request->streetAddress;
+        $vendor->email =  $request->email;
+        $vendor->phone =  $request->phone;
+        $vendor->website =  $request->website;
+        $vendor->workingHours =  $workingHours;
         
         if($request->hasfile('vendor_image')){
             $file= $request->file('vendor_image');
@@ -87,13 +92,13 @@ class VendorsController extends Controller
              
         }
         
-        if($request->hasfile('vendor_logo')){
+        /*if($request->hasfile('vendor_logo')){
             $file = $request->file('vendor_logo');
             $filename = date('YmdHi').$file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
             $file-> move(public_path('images/Logovendors'), $filename);
             $vendor->logo = $filename;
-        }
+        }*/
 
         $vendor->save();
 
@@ -120,11 +125,12 @@ class VendorsController extends Controller
      */
     public function edit($id)
     {
-        $countries = Country::all();
+        $countries = Country::orderBy('name')->get();
         $vendor = Vendors::find($id);
+        
         return view('vendors/admin.edit',[
             'vendor'=>$vendor,
-            'countries' =>$countries
+            'countries' =>$countries,
             ]
         );
     }
@@ -145,10 +151,21 @@ class VendorsController extends Controller
             'description' => 'required',
             'country' => 'required',
             'state' => 'required',
-            'longitude' => 'required',
-            'latitude' => 'required'
+            'streetAddress' => 'required',
+            
         ]);
-         $vendor->update($request->all());
+        $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;;
+        
+        $vendor->vendor_name = $request->vendor_name;
+        $vendor->description = $request->description;
+        $vendor->country = $request->country;
+        $vendor->state = $request->state;
+        $vendor->streetAddress = $request->streetAddress;
+        $vendor->email =  $request->email;
+        $vendor->phone =  $request->phone;
+        $vendor->website =  $request->website;
+        $vendor->workingHours =  $workingHours;
+        $vendor->update();
  
          return redirect('vendors/admin')
              ->with('success', 'vendors updated successfully');

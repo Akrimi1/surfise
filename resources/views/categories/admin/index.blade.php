@@ -19,12 +19,14 @@
                <thead>
                   <tr>
                      <th>Name</th>
+                     <th>Type</th>
                      <th></th>
                   </tr>
                </thead>
                @foreach($categories as $cat)
                <tbody>
                   <tr>
+                     <td>{{$cat->type}}</td>
                      <td>{{$cat->category}}</td>
                      <td>
                         <div class="col-md-12">

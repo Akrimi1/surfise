@@ -68,6 +68,7 @@
                   <select class="form-control"  
                      name="idCategory"
                      id="category">
+                     <option selected></option>
                      @foreach($categories as $c)
                      <option value="{{ $c->id }}">{{ $c->category }}</option>
                      <option style="display:none">{{ $c->id }}</option>
@@ -81,7 +82,7 @@
                   >
                <div class="col-sm-10">
                   <select class="form-control"  
-                     name="subcategory"
+                     name="idSubCategory"
                      id="subcategory">
                                     
                   </select>

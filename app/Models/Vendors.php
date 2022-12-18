@@ -17,8 +17,13 @@ class Vendors extends Model
         'description',
         'country',
         'state',
-        'longitude',
-        'latitude'       
+        'streetAddress',
+        'email',
+        'phone',
+        'website',
+        'workingHours'
+        
+
     ];
 
     public function equipments(){

@@ -17,17 +17,17 @@
             <hr />
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
-                  >select type</label>
+                  >Select type</label>
                <div class="col-sm-10">
-                  <select  data-role="tagsinput">
-                     <option value="equipments">equipments</option>
-                     <option value="produits">produits</option>
+                  <select class="form-control" name="type" data-role="tagsinput">
+                     <option value="Equipments">Equipments</option>
+                     <option value="Products">Products</option>
                   </select>
                </div>
             </div>
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
-                  >category</label
+                  >Category</label
                   >
                <div class="col-sm-10">
                   <input

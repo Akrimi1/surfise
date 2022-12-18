@@ -15,8 +15,10 @@ class CreateEquipmentsTable extends Migration
     {
         Schema::create('equipments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("idCategory")->unsigned();
+            
             $table->integer("idVendor")->unsigned();
+            $table->integer("idCategory")->unsigned();
+            $table->integer("idSubCategory")->unsigned()->nullable();
             $table->string("ref");
             $table->string("name");
             $table->string("type");
@@ -26,6 +28,7 @@ class CreateEquipmentsTable extends Migration
 
             $table->foreign('idVendor')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('idCategory')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('idSubCategory')->references('id')->on('subcategories')->onDelete('cascade')->onUpdate('cascade');
 
         });
     }

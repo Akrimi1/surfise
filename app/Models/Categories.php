@@ -12,6 +12,7 @@ class Categories extends Model
     use HasFactory;
 
     public $fillable = [
+        'type',
         'category'
     ];
 
