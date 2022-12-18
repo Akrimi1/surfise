@@ -24,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function indexadmin()
     {
-        $cat = Categories::all();
+        $cat = Categories::orderBy('category')->get();
         return view('categories/admin.index', [
             'categories'=>$cat
             

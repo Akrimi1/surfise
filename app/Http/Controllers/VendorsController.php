@@ -16,7 +16,7 @@ class VendorsController extends Controller
      */
     public function index()
     {
-        $vendor = Vendors::all();
+        $vendor = Vendors::orderBy('vendor_name')->get();
         
         return view('vendors.index', [
             'vendors'=>$vendor
@@ -30,7 +30,7 @@ class VendorsController extends Controller
      */
     public function indexadmin()
     { 
-        $vendor = Vendors::all();
+        $vendor = Vendors::orderBy('vendor_name')->get();
         return view('vendors/admin.index', [
             'vendors'=>$vendor
             
@@ -44,7 +44,7 @@ class VendorsController extends Controller
      */
     public function create()
     {
-        $c = Country::all();
+        $c = Country::orderBy('name')->get();
         
         return view('vendors/admin.create',[
             'countries'=> $c
@@ -125,7 +125,7 @@ class VendorsController extends Controller
      */
     public function edit($id)
     {
-        $countries = Country::all();
+        $countries = Country::orderBy('name')->get();
         $vendor = Vendors::find($id);
         
         return view('vendors/admin.edit',[

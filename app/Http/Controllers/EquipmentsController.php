@@ -18,7 +18,7 @@ class EquipmentsController extends Controller
      */
     public function index()
     { 
-        $equip = Equipments::all();
+        $equip = Equipments::orderBy('name')->get();
         
         return view('equipments.index', [
             'equipments'=>$equip
@@ -32,7 +32,7 @@ class EquipmentsController extends Controller
     public function indexadmin()
     { 
        
-        $equip = Equipments::all();
+        $equip = Equipments::orderBy('name')->get();
         return view('equipments/admin.index', [
             'equipments'=>$equip
           
@@ -46,7 +46,7 @@ class EquipmentsController extends Controller
      */
     public function create(Request $request)
     { 
-        $vendors = Vendors::all();
+        $vendors = Vendors::orderBy('vendor_name')->get();
         $categories = Categories::all();//change where type = equipments
         $scat = null;
         $subCat = "";
@@ -135,7 +135,7 @@ class EquipmentsController extends Controller
      */
     public function show(Request $request)
     {
-        $vendors = Vendors::all();
+        $vendors = Vendors::orderBy('vendor_name')->get();
         $categories = Categories::find($request->$id);//change where type = equipments
         $subCat = $categories->subcategories;
         //return $subCat;
@@ -152,9 +152,9 @@ class EquipmentsController extends Controller
     public function edit($id , Request $request)
     {
         $equip = Equipments::find($id);
-        $vendors = Vendors::all();
+        $vendors = Vendors::orderBy('vendor_name')->get();
         $image = Images::find($id);
-        $categories = Categories::all();//change where type = equipments
+        $categories = Categories::orderBy('category')->get();//change where type = equipments
         $scat = null;
         $subCat = "";
        

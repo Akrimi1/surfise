@@ -26,7 +26,7 @@ class SubCategoriesController extends Controller
      */
     public function indexadmin()
     {
-        $subcat = SubCategories::all();
+        $subcat = SubCategories::orderBy('subcategory')->get();
         return view('subcategories/admin.index', [
             'subcategories'=>$subcat
             
@@ -41,7 +41,7 @@ class SubCategoriesController extends Controller
      */
     public function create()
     {
-        $cat = Categories::all();
+        $cat = Categories::orderBy('category')->get;
         
         return view('subcategories/admin.create',[
             'categeries'=> $cat
