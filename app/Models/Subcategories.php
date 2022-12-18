@@ -18,4 +18,7 @@ class Subcategories extends Model
     public function category(){
         return $this->belongsTo(Categories::class, 'idCategory');
     }
+    public function equipment(){
+        return $this->hasOne(Equipments::class);
+    }
 }

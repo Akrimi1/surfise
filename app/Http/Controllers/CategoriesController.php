@@ -54,6 +54,7 @@ class CategoriesController extends Controller
         ]);
 
         $cat=new Categories;
+        $cat->type = $request->type;
         $cat->category = $request->category;
        
         $cat->save();

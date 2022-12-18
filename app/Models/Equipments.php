@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Vendors;
+
 
 
 class Equipments extends Model
@@ -13,6 +13,7 @@ class Equipments extends Model
 
     public $fillable = [
         'idCategory',
+        'idSubCategory',
         'idVendor',
         'ref',
         'name',
@@ -37,6 +38,9 @@ class Equipments extends Model
 
     public function category(){
         return $this->belongsTo(Categories::class, 'idCategory');
+    }
+    public function subcategory(){
+        return $this->belongsTo(Subcategories::class, 'idSubCategory');
     }
 
     public function vendor(){

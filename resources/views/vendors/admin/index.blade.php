@@ -20,11 +20,13 @@
                   <thead>
                     <tr>
                       <th>vendor name</th>
-                      <th class="hidden-phone">Description</th>
-                      <th>Country</th>
-                      <th>State</th>
-                      <th>Longitude</th>
-                      <th>Latitude</th>
+                      <th>Email</th>
+                      <th>Phone number</th>
+                      <th>Website</th>
+                      <th>Country</th>                     
+                      <th>Working hours</th>                     
+                      <th>Street Address</th>
+                      
                       <th></th>
                     </tr>
                   </thead>
@@ -36,17 +38,17 @@
                       {{$vendor->vendor_name}}
                     
                       </td>
-                      <td class="hidden-phone">{{$vendor->description}}</td>
+                      <td>{{$vendor->email}}</td>
+                      <td>{{$vendor->phone}}</td>
+                      <td>{{$vendor->website}}</td>
                       <td>{{$vendor->country}}</td>
                       <td>
-                      {{$vendor->state}}
+                      {{$vendor->workingHours}}
                       </td>
                       <td>
-                      {{$vendor->longitude}}
+                      {{$vendor->streetAddress}}
                       </td>
-                      <td>
-                      {{$vendor->latitude}}
-                      </td>
+                      
                       <td>
                       <div class="col-md-12">
                            <div class="row">
