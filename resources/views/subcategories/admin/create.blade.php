@@ -20,18 +20,10 @@
                   >category</label
                   >
                <div class="col-sm-10">
-<<<<<<< HEAD
                <select class="form-control" name="idCategory">
                @foreach ($categeries as $cat)
                  <option value="{{$cat->id}}" >{{$cat->category}}</option>
                   @endforeach
-=======
-                  <select class="form-control"  
-                     name="idCategory">
-                     @foreach($categories as $cat)
-                        <option value="{{ $cat->id }}">{{ $cat->category }}</option>
-                    @endforeach
->>>>>>> 586aa7aad3bfa007cb22bdeed744aaf1e1c90b32
                   </select>
                </div>
             </div>
