@@ -60,13 +60,13 @@ class VendorsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'vendor_name' => 'required',
             'description' => 'required',
             'country' => 'required',
             'state' => 'required',
             'streetAddress' => 'required',
-        ]);
+        ]);*/
         $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;;
         
         
@@ -146,14 +146,14 @@ class VendorsController extends Controller
     public function update(Request $request, $id)
     {
         $vendor = Vendors::find($id);
-        $request->validate([
+        /*$request->validate([
             'vendor_name' => 'required',
             'description' => 'required',
             'country' => 'required',
             'state' => 'required',
             'streetAddress' => 'required',
             
-        ]);
+        ]);*/
         $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;;
         
         $vendor->vendor_name = $request->vendor_name;

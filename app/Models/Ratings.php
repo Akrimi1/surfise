@@ -10,12 +10,8 @@ class Ratings extends Model
     use HasFactory;
 
     public $fillable=[
-        'idEquipment',
-        'rating'
-
+       
     ];
 
-    public function equipment(){
-        return $this->belongsTo(Equipments::class, 'idEquipment');
-    }
+   
 }
