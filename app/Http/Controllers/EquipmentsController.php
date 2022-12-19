@@ -47,7 +47,7 @@ class EquipmentsController extends Controller
     public function create(Request $request)
     { 
         $vendors = Vendors::orderBy('vendor_name')->get();
-        $categories = Categories::all();//change where type = equipments
+        $categories = Categories::orderBy('category')->get();//change where type = equipments
         $scat = null;
         $subCat = "";
        
@@ -93,6 +93,7 @@ class EquipmentsController extends Controller
         $equip->ref = $request->ref;
         $equip->name = $request->name;
         $equip->type = $request->type;
+        $equip->rating = $request->rating;
         $equip->description = $request->description;
         $equip->details = $request->details;
         $equip->save();
@@ -187,7 +188,7 @@ class EquipmentsController extends Controller
     public function update(Request $request, $id)
     {
         $equip = Equipments::find($id);
-       $request->validate([
+       /*$request->validate([
             'idCategory' => 'required',
             'idVendor' => 'required',
             'ref' => 'required',
@@ -195,7 +196,7 @@ class EquipmentsController extends Controller
             'type' => 'required',
             'description' => 'required',
             'details' => 'required'
-        ]);
+        ]);*/
         $equip->update($request->all());
 
         return redirect('equipments/admin')

@@ -18,6 +18,7 @@ class Equipments extends Model
         'ref',
         'name',
         'type',
+        'rating',
         'description',
         'details'
     ];
@@ -32,9 +33,7 @@ class Equipments extends Model
         return $this->hasMany(Videos::class, 'idEquipment');
     }
 
-    public function ratings(){
-        return $this->hasMany(Ratings::class);
-    }
+    
 
     public function category(){
         return $this->belongsTo(Categories::class, 'idCategory');

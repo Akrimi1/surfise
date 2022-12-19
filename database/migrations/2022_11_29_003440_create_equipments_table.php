@@ -16,14 +16,15 @@ class CreateEquipmentsTable extends Migration
         Schema::create('equipments', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->integer("idVendor")->unsigned();
-            $table->integer("idCategory")->unsigned();
+            $table->integer("idVendor")->unsigned()->nullable();
+            $table->integer("idCategory")->unsigned()->nullable();
             $table->integer("idSubCategory")->unsigned()->nullable();
-            $table->string("ref");
-            $table->string("name");
-            $table->string("type");
-            $table->text("description");
-            $table->text("details");
+            $table->string("ref")->nullable();
+            $table->string("name")->nullable();
+            $table->string("type")->nullable();
+            $table->string("rating")->nullable();
+            $table->text("description")->nullable();
+            $table->text("details")->nullable();
             $table->timestamps();
 
             $table->foreign('idVendor')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');

@@ -180,6 +180,22 @@
                >{{ $equip->details }}</textarea>
          </div>
       </div>
+      <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Rating Stars</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control"  
+                     name="rating">
+                     <option value="{{ $equip->rating }}" selected>{{ $equip->rating }}</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                  </select>
+               </div>
+            </div>
        
       <div class="form-group last">
          <label class="control-label col-md-3">Image Upload</label>
