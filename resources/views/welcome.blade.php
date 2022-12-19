@@ -66,7 +66,7 @@
                            <li><a href="{{ url('bmi') }}">BMI</a></li>
                            <li><a href="{{ url('rmr') }}">RMR</a></li>
                            <li><a href="{{ url('thr') }}">THR</a></li>
-                           <li><a href="{{ url('/') }}">Register</a></li>
+                          
                         </ul>
                      </div>
                      <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pull-right log_links">
@@ -375,7 +375,7 @@
                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 foot_links">
                         <h3>Surfise</h3>
                         <ul>
-                           <li><a href="/">Home</a></li>
+                           <li><a href="/">Dashboard</a></li>
                            <li><a href="/node">About Surfise</a></li>
                            <li><a href="/node">Our Services</a></li>
                            <li><a href="/node">Our Locations</a></li>

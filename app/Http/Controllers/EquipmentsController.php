@@ -18,6 +18,7 @@ class EquipmentsController extends Controller
      */
     public function index()
     { 
+      
         $equip = Equipments::orderBy('name')->get();
         
         return view('equipments.index', [

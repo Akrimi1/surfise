@@ -119,3 +119,13 @@ Route::get('medias', function() {
 Route::get('blog/post', function(){
     return view('blog/post');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
