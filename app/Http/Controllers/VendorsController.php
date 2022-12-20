@@ -100,6 +100,7 @@ class VendorsController extends Controller
             $file-> move(public_path('images/vendors'), $filename);
             
             $vendor->photo = $filename;
+            
              
         }
         
@@ -110,6 +111,7 @@ class VendorsController extends Controller
             $file-> move(public_path('images/Logovendors'), $filename);
             $vendor->logo = $filename;
         }*/
+        
 
         $vendor->save();
 
