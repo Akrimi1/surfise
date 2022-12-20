@@ -84,7 +84,7 @@
                   <select class="form-control"  
                      name="idSubCategory"
                      id="subcategory">
-                                    
+                            <option selected></option>        
                   </select>
                   <div class="alert"></div>
                </div>

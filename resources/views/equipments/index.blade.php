@@ -18,20 +18,25 @@
                     <ul>
                       @foreach($categories as $c)
                       <li>
+                        <!-- Add filter with ajax call to a controller method-->
                         <a
                           href="./categories#"
                           class=""
                           >{{ $c->category }}</a
                         >
+                        @if(count($c->subcategories) !=0)
                         <ul style>
+                          @foreach($c->subcategories as $sub)                          
                           <li>
                             <a
                               href="./categories#"
                               class=""
-                              >Sub-category 1</a
+                              >{{ $sub->subcategory }}</a
                             >
-                          </li>                          
+                          </li> 
+                          @endforeach                         
                         </ul>
+                        @endif
                       </li>      
                       @endforeach                
                         </ul>
@@ -128,7 +133,7 @@
                   @foreach($equipments as $equip)
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog_block">
                       <div class="product_block">
-                         <img src="{{ asset('/images/alter.jpg') }}"  alt=""  class="img-responsive col"/>
+                         <img src="{{ asset('/images/equipments/'.$equip->images[0]->path) }}"  alt=""  class="img-responsive col"/>
                          <div class="prod_info">
                             <h4>
                                <a
@@ -136,16 +141,24 @@
                                   >{{$equip->name}}</a>
                             </h4>
                             <p>
-                              {{$equip->details}}
+                              {{ Illuminate\Support\Str::limit($equip->details, 100)}}
                             </p>
+                            <!--Rating--> 
                             <div class="row">
                             <div class="col-md-12 d-flex p-2"> 
                               <p class="rating">
-                                <a href="" class="active">1</a>
-                                <a href="" class="active">2</a>
-                                <a href="" class="active">3</a>
-                                <a href="" class="">4</a>
-                                <a href="">5</a>
+                               @php
+                                $j = $equip->rating;
+                                @endphp
+                                
+                                @for($i = 0; $i < $equip->rating; $i++)
+                                  <a href="" class="active"></a>                                
+                                @endfor
+
+                                @while($j < 5)
+                                  <a href="" class=""></a>
+                                  @php $j++ @endphp
+                                @endwhile
                               </p>
                             </div>
                           <div class="col">
