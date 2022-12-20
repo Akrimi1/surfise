@@ -25,30 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin','test']);
-Route::resource('equipments/admin', EquipmentsController::class)->except('index');
-Route::get('equipments/admin.edit', [EquipmentsController::class, 'edit']);
 
-Route::get('equipments/equipment_informations', function() {
-    return view('equipments.equipment_informations');
-});
-
-Route::resource('equipments', EquipmentsController::class);
-
-Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
-Route::resource('categories/admin', CategoriesController::class)->except('index');
-Route::get('categories/admin/{id}', [CategoriesController::class, 'edit']);
-Route::resource('categories', CategoriesController::class);
-
-Route::get('subcategories/admin', [SubCategoriesController::class, 'indexadmin']);
-Route::resource('subcategories/admin', SubCategoriesController::class)->except('index');
-Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
-Route::resource('subcategories', SubCategoriesController::class);
-
-Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
-Route::resource('vendors/admin', VendorsController::class)->except('index');
-Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
-Route::resource('vendors', VendorsController::class);
 
 Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
 
@@ -109,6 +86,9 @@ Route::get('blog/post', function(){
     return view('blog/post');
 });
 
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -116,5 +96,30 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
+
     })->name('dashboard');
+    Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin','test']);
+Route::resource('equipments/admin', EquipmentsController::class)->except('index');
+Route::get('equipments/admin.edit', [EquipmentsController::class, 'edit']);
+
+Route::get('equipments/equipment_informations', function() {
+    return view('equipments.equipment_informations');
+});
+
+Route::resource('equipments', EquipmentsController::class);
+
+Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
+Route::resource('categories/admin', CategoriesController::class)->except('index');
+Route::get('categories/admin/{id}', [CategoriesController::class, 'edit']);
+Route::resource('categories', CategoriesController::class);
+
+Route::get('subcategories/admin', [SubCategoriesController::class, 'indexadmin']);
+Route::resource('subcategories/admin', SubCategoriesController::class)->except('index');
+Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
+Route::resource('subcategories', SubCategoriesController::class);
+
+Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
+Route::resource('vendors/admin', VendorsController::class)->except('index');
+Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
+Route::resource('vendors', VendorsController::class);
 });

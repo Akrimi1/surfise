@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
 use App\Models\Categories;
+use Auth;
 
 class SubCategoriesController extends Controller
 {
@@ -26,6 +27,8 @@ class SubCategoriesController extends Controller
      */
     public function indexadmin()
     {
+        $user_id = Auth::user()->id;
+
         $subcat = SubCategories::orderBy('subcategory')->get();
         
         return view('subcategories/admin.index', [
@@ -42,6 +45,8 @@ class SubCategoriesController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::user()->id;
+
         $cat = Categories::orderBy('category')->get();
         
         return view('subcategories/admin.create',[
@@ -57,6 +62,8 @@ class SubCategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = Auth::user()->id;
+
         $request->validate([
             'subcategory' => 'required'
         ]);
@@ -89,6 +96,8 @@ class SubCategoriesController extends Controller
      */
     public function edit($id)
     {
+        $user_id = Auth::user()->id;
+
         $subcat = SubCategories::find($id);
         return view('subcategories/admin.edit',[
             'subcat'=>$subcat
@@ -106,6 +115,8 @@ class SubCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user_id = Auth::user()->id;
+
          $subcat = SubCategories::find($id);
         $request->validate([
              'subcategory' => 'required'  
@@ -124,6 +135,8 @@ class SubCategoriesController extends Controller
      */
     public function destroy($id)
     {
+        $user_id = Auth::user()->id;
+
         $subcat=SubCategories::find($id);
         $subcat->delete();
 

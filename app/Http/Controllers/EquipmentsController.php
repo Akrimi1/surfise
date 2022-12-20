@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\SubCategories;
 use App\Models\Images;
 use App\Models\Videos;
+use Auth;
 
 class EquipmentsController extends Controller
 {
@@ -18,7 +19,9 @@ class EquipmentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
+    {
+        $user_id = Auth::user()->id;
+
       
         $equip = Equipments::orderBy('name')->get();
         $cats = Categories::where('type', 'Equipments')->orderBy('category')->get();
@@ -34,6 +37,7 @@ class EquipmentsController extends Controller
      */
     public function indexadmin()
     { 
+        $user_id = Auth::user()->id;
        
         $equip = Equipments::orderBy('name')->get();
         return view('equipments/admin.index', [
@@ -49,6 +53,8 @@ class EquipmentsController extends Controller
      */
     public function create(Request $request)
     { 
+        $user_id = Auth::user()->id;
+
         $vendors = Vendors::orderBy('vendor_name')->get();
         $categories = Categories::orderBy('category')->get();//change where type = equipments
         $scat = null;
@@ -76,6 +82,7 @@ class EquipmentsController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = Auth::user()->id;
        
         /*$request->validate([
             'idCategory' => 'required',
@@ -139,6 +146,8 @@ class EquipmentsController extends Controller
      */
     public function show(Request $request)
     {
+        $user_id = Auth::user()->id;
+
         return view('equipments.show');
     }
 
@@ -150,6 +159,9 @@ class EquipmentsController extends Controller
      */
     public function edit($id , Request $request)
     {
+        $user_id = Auth::user()->id;
+
+
         $equip = Equipments::find($id);
         $vendors = Vendors::orderBy('vendor_name')->get();
         $image = Images::find($id);
@@ -188,6 +200,8 @@ class EquipmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user_id = Auth::user()->id;
+
         $equip = Equipments::find($id);
        /*$request->validate([
             'idCategory' => 'required',
@@ -212,6 +226,9 @@ class EquipmentsController extends Controller
      */
     public function destroy($id)
     {
+        $user_id = Auth::user()->id;
+
+
         $equip=Equipments::find($id);
         $equip->delete();
 

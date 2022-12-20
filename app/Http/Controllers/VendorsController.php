@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vendors;
 use App\Models\Country;
+use Auth;
 
 
 class VendorsController extends Controller
@@ -16,6 +17,8 @@ class VendorsController extends Controller
      */
     public function index()
     {
+        $user_id = Auth::user()->id;
+
         $vendor = Vendors::orderBy('vendor_name')->get();
         
         return view('vendors.index', [
@@ -30,6 +33,8 @@ class VendorsController extends Controller
      */
     public function indexadmin()
     { 
+        $user_id = Auth::user()->id;
+
         $vendor = Vendors::orderBy('vendor_name')->get();
         return view('vendors/admin.index', [
             'vendors'=>$vendor
@@ -44,6 +49,8 @@ class VendorsController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::user()->id;
+
         $c = Country::orderBy('name')->get();
         
         return view('vendors/admin.create',[
@@ -60,6 +67,8 @@ class VendorsController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = Auth::user()->id;
+
         /*$request->validate([
             'vendor_name' => 'required',
             'description' => 'required',
@@ -91,6 +100,7 @@ class VendorsController extends Controller
             $file-> move(public_path('images/vendors'), $filename);
             
             $vendor->photo = $filename;
+            
              
         }
         
@@ -101,6 +111,7 @@ class VendorsController extends Controller
             $file-> move(public_path('images/Logovendors'), $filename);
             $vendor->logo = $filename;
         }*/
+        
 
         $vendor->save();
 
@@ -127,6 +138,8 @@ class VendorsController extends Controller
      */
     public function edit($id)
     {
+        $user_id = Auth::user()->id;
+
         $countries = Country::orderBy('name')->get();
         $vendor = Vendors::find($id);
         
@@ -147,6 +160,8 @@ class VendorsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user_id = Auth::user()->id;
+
         $vendor = Vendors::find($id);
         /*$request->validate([
             'vendor_name' => 'required',
@@ -183,6 +198,8 @@ class VendorsController extends Controller
      */
     public function destroy($id)
     {
+        $user_id = Auth::user()->id;
+
         $vendor=Vendors::find($id);
         $vendor->delete();
 

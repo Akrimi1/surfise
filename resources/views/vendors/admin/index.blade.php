@@ -19,6 +19,7 @@
                   <hr />
                   <thead>
                     <tr>
+                    <th>vendor image</th>
                       <th>vendor name</th>
                       <th>Email</th>
                       <th>Phone number</th>
@@ -34,6 +35,9 @@
                   
                   <tbody>
                     <tr>
+                    <td class="col-md-1">
+                        <img src="{{ asset('images/vendors/' . $vendor->photo)}}" class="thumbnail" width="100%" />
+                     </td>
                       <td>
                       {{$vendor->vendor_name}}
                     

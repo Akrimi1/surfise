@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use Auth;
 
 class CategoriesController extends Controller  
 {
@@ -24,10 +25,12 @@ class CategoriesController extends Controller
      */
     public function indexadmin()
     {
+        $user_id = Auth::user()->id;
+        
         $cat = Categories::orderBy('category')->get();
         return view('categories/admin.index', [
-            'categories'=>$cat
-            
+            'categories'=>$cat 
+             
         ]);
     }
 
@@ -38,6 +41,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::user()->id;
+
         return view('categories/admin.create');
     }
 
@@ -49,6 +54,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = Auth::user()->id;
+
         $request->validate([
             'category' => 'required'
         ]);
@@ -80,6 +87,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
+        $user_id = Auth::user()->id;
+
         $cat = Categories::find($id);
         return view('categories/admin.edit',[
             'cat'=>$cat
@@ -97,6 +106,8 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user_id = Auth::user()->id;
+
         $cat = Categories::find($id);
         $request->validate([
              'category' => 'required'  
@@ -115,6 +126,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
+        $user_id = Auth::user()->id;
+
         $cat=Categories::find($id);
         $cat->delete();
 
