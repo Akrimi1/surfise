@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appFront')
 @section('content')
 
 <section class="prof_main">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appFront')
 @stack('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/ng-slider.min.css')}}">	
 	

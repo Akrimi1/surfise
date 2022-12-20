@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appFront')
 @section('content')
 </div>
 <section class="media_main">

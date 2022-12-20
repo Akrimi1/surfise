@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appFront')
 @section('content')
 <div class="col-md-12">
    <section class="container-fluid border border-white p-4">

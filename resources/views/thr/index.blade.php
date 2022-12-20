@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appFront')
 @stack('css')
 <link rel="stylesheet" href="{{ asset('/css/thr-calc-custom.css') }}"/>
 @section('content')

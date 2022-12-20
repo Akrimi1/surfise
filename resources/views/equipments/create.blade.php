@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.appFront')
 @section('content')
 
 <section class="wrapper">

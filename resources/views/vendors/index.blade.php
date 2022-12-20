@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appFront')
 @push('styles')
 <link rel="stylesheet" href="./css/vanilla-calendar.css"/>
 @endpush
