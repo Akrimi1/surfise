@@ -92,7 +92,6 @@
             <input
                type="text"
                class="form-control"
-               placeholder="Referance"
                readonly
                value="{{ $c->category }}"
                />
@@ -105,7 +104,13 @@
                <div class="col-sm-10">
                   <select class="form-control"  
                      name="subcategory"
-                     id="subcategory">             
+                     id="subcategory">
+                     <option value="{{ $subSelected }}" selected>{{ $subSelected->subcategory }}</option> 
+                     @foreach($subCat as $s)
+                        @while($s->subcategory != $subSelected->subcategory)
+                        <option value="{{ $s->subcategory }}">{{  $s->subcategory }}</option> 
+                        @endwhile
+                     @endforeach            
                   </select>
                   <div class="alert"></div>
                </div>

@@ -16,11 +16,12 @@
                   <div class="inner">
                     <h3>Catergories</h3>
                     <ul>
+                      @foreach($categories as $c)
                       <li>
                         <a
                           href="./categories#"
                           class=""
-                          >category 1</a
+                          >{{ $c->category }}</a
                         >
                         <ul style>
                           <li>
@@ -29,288 +30,10 @@
                               class=""
                               >Sub-category 1</a
                             >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              class=""
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              class=""
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              class=""
-                              >Sub-category 4</a
-                            >
-                          </li>
+                          </li>                          
                         </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          >category 2</a
-                        >
-                        <ul>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          >category 3</a
-                        >
-                        <ul>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          >category 4</a
-                        >
-                        <ul>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          >category 5</a
-                        >
-                        <ul>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          >category 6</a
-                        >
-                        <ul style>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          >category 7</a
-                        >
-                        <ul style>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          class=""
-                          >category 8</a
-                        >
-                        <ul style>
-                          <li>
-                            <a
-                              href="./categories#"
-                              class="
-                              "
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              class=""
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a
-                          href="./categories#"
-                          >category 9</a
-                        >
-                        <ul style>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 1</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 2</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 3</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="./categories#"
-                              >Sub-category 4</a
-                            >
-                          </li>
+                      </li>      
+                      @endforeach                
                         </ul>
                       </li>
                     </ul>
@@ -409,7 +132,7 @@
                          <div class="prod_info">
                             <h4>
                                <a
-                                  href="./productdetail"
+                                  href="{{ route('equipments.show', $equip->id) }}"
                                   >{{$equip->name}}</a>
                             </h4>
                             <p>
@@ -429,7 +152,7 @@
                             <h5>
                          
                                <a
-                                  href="./categories#"
+                                  href="{{ route('equipments.show', $equip->id) }}"
                                   >View More</a
                                   >
                             </h5>

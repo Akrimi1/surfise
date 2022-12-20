@@ -97,7 +97,7 @@
                   <input
                      type="text"
                      class="form-control"
-                     placeholder="Referance"
+                     placeholder="Reference"
                      name="ref"
                      />
                </div>

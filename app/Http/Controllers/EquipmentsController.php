@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Equipments;
 use App\Models\Vendors;
 use App\Models\Categories;
+use App\Models\SubCategories;
 use App\Models\Images;
 use App\Models\Videos;
 
@@ -20,9 +21,10 @@ class EquipmentsController extends Controller
     { 
       
         $equip = Equipments::orderBy('name')->get();
-        
+        $cats = Categories::where('type', 'Equipments')->orderBy('category')->get();
         return view('equipments.index', [
-            'equipments'=>$equip
+            'equipments' => $equip,
+            'categories' => $cats
         ]);
     }
     /**
@@ -137,12 +139,7 @@ class EquipmentsController extends Controller
      */
     public function show(Request $request)
     {
-        $vendors = Vendors::orderBy('vendor_name')->get();
-        $categories = Categories::find($request->$id);//change where type = equipments
-        $subCat = $categories->subcategories;
-        //return $subCat;
-        //dd($id);
-        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories)->with('subCat', $subCat);
+        return view('equipments.show');
     }
 
     /**
@@ -157,22 +154,25 @@ class EquipmentsController extends Controller
         $vendors = Vendors::orderBy('vendor_name')->get();
         $image = Images::find($id);
         $categories = Categories::orderBy('category')->get();//change where type = equipments
+        $subSelected = SubCategories::find($equip->idSubCategory);
+
         $scat = null;
         $subCat = "";
-       
-        if ($request->get("scat") != null){
+        
+        //if ($request->get("scat") != null){
            // dd("test");
-            $categorie = Categories::find(intval($request->get("id")));//change where type = equipments
+            $categorie = Categories::find($id);//change where type = equipments
             $subCat = $categorie->subcategories;
             $subList = [];
             foreach($subCat as $s)
                 $subList[] = $s;
 
             //dd($subList);
-        }
+        //}
         return view('equipments/admin.edit')->with('vendors', $vendors)
         ->with('categories', $categories)
         ->with('subCat',$subCat)
+        ->with('subSelected',$subSelected)
         ->with('equip',$equip)
         ->with('scat', $scat);
        

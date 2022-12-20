@@ -67,7 +67,9 @@ class VendorsController extends Controller
             'state' => 'required',
             'streetAddress' => 'required',
         ]);*/
-        $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;;
+        $workingHours ="";
+        if ($request->fromHour && $request->toHour)
+            $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;
         
         
 
@@ -154,7 +156,9 @@ class VendorsController extends Controller
             'streetAddress' => 'required',
             
         ]);*/
-        $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;;
+        $workingHours ="";
+        if ($request->fromHour && $request->toHour)
+            $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;
         
         $vendor->vendor_name = $request->vendor_name;
         $vendor->description = $request->description;

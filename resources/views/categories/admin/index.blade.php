@@ -26,8 +26,8 @@
                @foreach($categories as $cat)
                <tbody>
                   <tr>
-                     <td>{{$cat->type}}</td>
-                     <td>{{$cat->category}}</td>
+                  <td>{{$cat->category}}</td>
+                     <td>{{$cat->type}}</td>                     
                      <td>
                         <div class="col-md-12">
                            <div class="row">

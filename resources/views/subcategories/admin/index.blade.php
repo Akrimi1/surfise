@@ -18,6 +18,7 @@
                <thead>
                   <tr>
                      <th>Name of subcategories</th>
+                     <th>Category</th>
                      <th></th>
                   </tr>
                </thead>
@@ -25,6 +26,7 @@
                <tbody>
                   <tr>
                      <td>{{$subcat->subcategory}}</td>
+                     <td>{{$subcat->category->category}}</td>
                      <td>
                         <div class="col-md-12">
                            <div class="row">
