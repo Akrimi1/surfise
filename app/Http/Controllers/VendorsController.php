@@ -17,7 +17,7 @@ class VendorsController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
+       // $user_id = Auth::user()->id;
 
         $vendor = Vendors::orderBy('vendor_name')->get();
         

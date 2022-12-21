@@ -27,12 +27,8 @@ Route::get('/', function () {
 
 
 
-Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
-
-/*
 
 
-*/
 
 //Route::resource('vendors/admin', CountryController::class);
 
@@ -106,20 +102,27 @@ Route::get('equipments/equipment_informations', function() {
     return view('equipments.equipment_informations');
 });
 
-Route::resource('equipments', EquipmentsController::class);
+
 
 Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
 Route::resource('categories/admin', CategoriesController::class)->except('index');
 Route::get('categories/admin/{id}', [CategoriesController::class, 'edit']);
-Route::resource('categories', CategoriesController::class);
+
 
 Route::get('subcategories/admin', [SubCategoriesController::class, 'indexadmin']);
 Route::resource('subcategories/admin', SubCategoriesController::class)->except('index');
 Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
-Route::resource('subcategories', SubCategoriesController::class);
+
 
 Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
 Route::resource('vendors/admin', VendorsController::class)->except('index');
 Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
-Route::resource('vendors', VendorsController::class);
+
 });
+
+Route::resource('equipments', EquipmentsController::class);
+Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
+
+Route::resource('vendors', VendorsController::class);
+Route::resource('subcategories', SubCategoriesController::class);
+Route::resource('categories', CategoriesController::class);

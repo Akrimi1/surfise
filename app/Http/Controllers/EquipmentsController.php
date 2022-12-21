@@ -20,7 +20,7 @@ class EquipmentsController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
+        //$user_id = Auth::user()->id;
 
       
         $equip = Equipments::orderBy('name')->get();
@@ -146,7 +146,7 @@ class EquipmentsController extends Controller
      */
     public function show(Request $request)
     {
-        $user_id = Auth::user()->id;
+       // $user_id = Auth::user()->id;
 
         return view('equipments.show');
     }
