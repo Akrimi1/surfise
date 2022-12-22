@@ -23,6 +23,10 @@ class CreateEquipmentsTable extends Migration
             $table->string("name")->nullable();
             $table->string("type")->nullable();
             $table->string("rating")->nullable();
+
+            $table->string("like")->nullable();
+            $table->string("dislike")->nullable();
+
             $table->text("description")->nullable();
             $table->text("details")->nullable();
             $table->timestamps();

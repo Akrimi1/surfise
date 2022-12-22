@@ -20,6 +20,8 @@ class CreateVendorsTable extends Migration
             $table->integer('rating')->nullable();
             $table->string('photo')->nullable();
             $table->text('description')->nullable();
+            $table->string("like")->nullable();
+            $table->string("dislike")->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();          
             $table->string('streetAddress')->nullable();

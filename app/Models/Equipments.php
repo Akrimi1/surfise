@@ -17,6 +17,8 @@ class Equipments extends Model
         'idVendor',
         'ref',
         'name',
+        'like',
+        'dislike',
         'type',
         'rating',
         'description',
