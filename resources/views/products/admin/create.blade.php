@@ -103,28 +103,6 @@
                </div>
             </div>
             <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">like</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="like"
-                     name="like"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">dislike</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="dislike"
-                     name="dislike"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label">Name</label>
                <div class="col-sm-10">
                   <input

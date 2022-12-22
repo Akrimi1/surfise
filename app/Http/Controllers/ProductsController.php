@@ -88,8 +88,6 @@ class ProductsController extends Controller
             'idCategory' => 'required',
             'idVendor' => 'required',
             'reference' => 'required',
-            'like'=> 'required',
-            'dislike' => 'required',
             'name' => 'required',
             'rating' => 'required',
             'description' => 'required',
@@ -101,8 +99,6 @@ class ProductsController extends Controller
         $product->idSubCategory = $request->idSubCategory;
         $product->idVendor = $request->idVendor;
         $product->reference = $request->reference;
-        $product->like = $request->like;
-        $product->dislike = $request->dislike;
         $product->name = $request->name;
         $product->rating = $request->rating;
         $product->description = $request->description;
@@ -205,8 +201,6 @@ class ProductsController extends Controller
             'idCategory' => 'required',
             'idVendor' => 'required',
             'reference' => 'required',
-            'like'=> 'required',
-            'dislike' => 'required',
             'name' => 'required',
             'rating' => 'required',
             'description' => 'required',
