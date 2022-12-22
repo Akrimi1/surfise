@@ -281,6 +281,12 @@
               <span>Subcategories</span>
               </a>
           </li>
+          <li class="mt">
+            <a href="{{ url('/products/admin') }}">
+              <i class="fa fa-tasks"></i>
+              <span>Products</span>
+              </a>
+          </li>
          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>

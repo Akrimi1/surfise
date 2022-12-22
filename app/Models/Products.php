@@ -5,32 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-
-class Equipments extends Model
+class Products extends Model
 {
     use HasFactory;
+
 
     public $fillable = [
         'idCategory',
         'idSubCategory',
         'idVendor',
-        'ref',
+        'reference',
+        'like',
+        'dislike',
         'name',
-        'type',
         'rating',
-        'description',
-        'details'
+        'description'
     ];
 
-    public function images()
+
+    public function imagespord()
     {
-        return $this->hasMany(Images::class, 'idEquipment');
+        return $this->hasMany(ImagesProd::class, 'idProduct');
     }
 
-    public function videos()
+    public function videospord()
     {
-        return $this->hasMany(Videos::class, 'idEquipment');
+        return $this->hasMany(VideosProd::class, 'idProduct');
     }
     
     public function category(){

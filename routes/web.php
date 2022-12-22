@@ -8,6 +8,7 @@ use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SubCategoriesController;
+use App\Http\Controllers\ProductsController;
 
 
 /*
@@ -25,8 +26,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('products/admin', [ProductsController::class, 'indexadmin','test']);
+Route::resource('products', ProductsController::class);
 
-
+Route::resource('products/admin', ProductsController::class)->except('index');
+Route::get('products/admin.edit', [ProductsController::class, 'edit']);
+Route::resource('products', ProductsController::class);
+Route::get('/ajaxTest', [ProductsController::class, 'ajaxTest'])->name('ajaxTest');
 
 
 
@@ -120,8 +126,10 @@ Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
 
 });
 
-Route::resource('equipments', EquipmentsController::class);
+
+
 Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
+
 
 Route::resource('vendors', VendorsController::class);
 Route::resource('subcategories', SubCategoriesController::class);
