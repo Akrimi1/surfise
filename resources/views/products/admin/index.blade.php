@@ -30,7 +30,7 @@
                <tbody>
                   <tr>
                      <td class="col-md-1">
-                     
+                      
                      </td>
                      <td>
                         {{$product->reference}}

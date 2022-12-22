@@ -37,7 +37,7 @@ class ProductsController extends Controller
      */
     public function indexadmin()
     { 
-        //$user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
        
         $product = Products::orderBy('name')->get();
         return view('products/admin.index', [
@@ -82,7 +82,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-       // $user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
        
         /*$request->validate([
             'idCategory' => 'required',
@@ -157,7 +157,7 @@ class ProductsController extends Controller
      */
     public function edit($id , Request $request)
     {
-       // $user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
 
 
         $product = Products::find($id);
@@ -198,7 +198,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //$user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
 
         $product = Products::find($id);
         /*$request->validate([
@@ -226,7 +226,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-       // $user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
 
 
         $product=Products::find($id);

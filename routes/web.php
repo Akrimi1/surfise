@@ -27,8 +27,6 @@ Route::get('/', function () {
 });
 
 Route::get('products/admin', [ProductsController::class, 'indexadmin','test']);
-Route::resource('products', ProductsController::class);
-
 Route::resource('products/admin', ProductsController::class)->except('index');
 Route::get('products/admin.edit', [ProductsController::class, 'edit']);
 Route::resource('products', ProductsController::class);
