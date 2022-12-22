@@ -20,8 +20,6 @@
                      <th>Products image</th>
                      <th>Reference</th>
                      <th>Name</th>
-                     <th>Like</th>
-                     <th>disLike</th>
                      <th>Category</th>
                      <th></th>
                   </tr>
@@ -36,8 +34,7 @@
                         {{$product->reference}}
                      </td>
                      <td class="hidden-phone">{{$product->name}}</td>
-                     <td>{{$product->like}}</td>
-                     <td>{{$product->dislike}}</td>
+                    
                      <td>{{$product->category->category}}</td>
                      <td class="col-md-1">
                         <div class="col-md-12">

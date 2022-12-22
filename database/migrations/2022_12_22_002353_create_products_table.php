@@ -20,8 +20,6 @@ class CreateProductsTable extends Migration
             $table->integer("idCategory")->unsigned()->nullable();
             $table->integer("idSubCategory")->unsigned()->nullable();
             $table->string("reference")->nullable();
-            $table->integer("like")->nullable();
-            $table->integer("dislike")->nullable();
             $table->string("name")->nullable();
             $table->string("rating")->nullable();
             $table->text("description")->nullable();
