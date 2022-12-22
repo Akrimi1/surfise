@@ -145,7 +145,7 @@
                             </p>
                             <!--Rating--> 
                             <div class="row">
-                            <div class="col-md-12 d-flex p-2"> 
+                             <div class="col-md-12 d-flex p-2"> 
                               <p class="rating">
                                @php
                                 $j = $equip->rating;
@@ -175,7 +175,7 @@
                             <div class="row">
                               <div class="col-md-3">
                                 <img
-                                  src="{{ asset('/images/sportshop.png') }}"
+                                  src="{{ asset('/images/vendors/'.$equip->vendor->photo) }}"
                                   alt="Avatar"
                                   style="
                                     position: relative;
@@ -186,7 +186,7 @@
                                   "
                                 />
                               </div>
-                              <div class="col-md-9">SPORT SHOP</div>
+                              <div class="col-md-9"><a href="{{ route('vendors.show', $equip->vendor->id) }}">{{ $equip->vendor->vendor_name }}</a></div>
                             </div>
                               <!-- <div class="row">
                                   <div class="col">

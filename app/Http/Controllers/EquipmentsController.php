@@ -25,6 +25,8 @@ class EquipmentsController extends Controller
       
         $equip = Equipments::orderBy('name')->get();
         $cats = Categories::where('type', 'Equipments')->orderBy('category')->get();
+       
+
         return view('equipments.index', [
             'equipments' => $equip,
             'categories' => $cats
@@ -56,7 +58,7 @@ class EquipmentsController extends Controller
         $user_id = Auth::user()->id;
 
         $vendors = Vendors::orderBy('vendor_name')->get();
-        $categories = Categories::orderBy('category')->get();//change where type = equipments
+        $categories = Categories::where('type', 'Equipments')->orderBy('category')->get();//change where type = equipments
         $scat = null;
         $subCat = "";
        

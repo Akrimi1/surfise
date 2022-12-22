@@ -30,7 +30,20 @@
             </div>
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
-                  >Body Composition Expert</label
+                  >Vendor profession</label
+                  >
+               <div class="col-sm-10">
+                  <input
+                     type="text"
+                     class="form-control"
+                     placeholder="Body Composition Expert"
+                     name="profession"
+                     />
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Description</label
                   >
                <div class="col-sm-10">
                   <textarea
@@ -110,6 +123,21 @@
                      placeholder="Website"
                      name="website"
                      />
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Rating Stars</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control"  
+                     name="rating">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                  </select>
                </div>
             </div>
             <div class="form-group">

@@ -84,6 +84,7 @@ class VendorsController extends Controller
 
         $vendor=new Vendors;
         $vendor->vendor_name = $request->vendor_name;
+        $vendor->profession = $request->profession;
         $vendor->description = $request->description;
         $vendor->country = $request->country;
         $vendor->state = $request->state;
@@ -91,6 +92,7 @@ class VendorsController extends Controller
         $vendor->email =  $request->email;
         $vendor->phone =  $request->phone;
         $vendor->website =  $request->website;
+        $vendor->rating =  $request->rating;
         $vendor->workingHours =  $workingHours;
         
         if($request->hasfile('vendor_image')){
@@ -102,7 +104,9 @@ class VendorsController extends Controller
             $vendor->photo = $filename;
             
              
-        }
+        }else
+        //add default avatar
+        $vendor->photo = "avatar.png";
         
         /*if($request->hasfile('vendor_logo')){
             $file = $request->file('vendor_logo');
@@ -127,7 +131,9 @@ class VendorsController extends Controller
      */
     public function show($id)
     {
-        //
+         // $user_id = Auth::user()->id;
+        $vendor = Vendors::find($id); 
+         return view('vendors.show')->with('vendor', $vendor);
     }
 
     /**

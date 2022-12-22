@@ -12,8 +12,9 @@ class Vendors extends Model
 
     protected $fillable=[
         'vendor_name',
-        'logo',
+        'profession',
         'photo',
+        'rating',
         'description',
         'country',
         'state',
@@ -21,12 +22,13 @@ class Vendors extends Model
         'email',
         'phone',
         'website',
-        'workingHours'
+        'workingHours',
+        
         
 
     ];
 
     public function equipments(){
-        return $this->hasMany(Equipments::class);
+        return $this->hasMany(Equipments::class, 'idVendor');
     }    
 }
