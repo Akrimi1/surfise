@@ -30,7 +30,7 @@
                <tbody>
                   <tr>
                      <td class="col-md-1">
-                      
+                     <img src="{{ asset('images/products/' . $product->imagespord[0]->path)}}" class="thumbnail" width="100%" />
                      </td>
                      <td>
                         {{$product->reference}}
