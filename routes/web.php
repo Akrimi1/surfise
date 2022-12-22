@@ -26,19 +26,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('products/admin', [ProductsController::class, 'indexadmin','test']);
-Route::resource('products/admin', ProductsController::class)->except('index');
-Route::get('products/admin.edit', [ProductsController::class, 'edit']);
-Route::resource('products', ProductsController::class);
-Route::get('/ajaxTest', [ProductsController::class, 'ajaxTest'])->name('ajaxTest');
+
+
+
+
+//Route::resource('equipments', EquipmentsController::class);
+
+
 
 
 
 //Route::resource('vendors/admin', CountryController::class);
 
-//Route::resource('equipments/admin', EquipmentsController::class);
 
-Route::get('products', function() {
+
+/*Route::get('products', function() {
     return view('products.index');
 });
 Route::get('products/product_details', function() {
@@ -85,7 +87,7 @@ Route::get('medias', function() {
 Route::get('blog/post', function(){
     return view('blog/post');
 });
-
+*/
 
 
 
@@ -98,14 +100,16 @@ Route::middleware([
         return view('dashboard');
 
     })->name('dashboard');
-    Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin','test']);
-Route::resource('equipments/admin', EquipmentsController::class)->except('index');
-Route::get('equipments/admin.edit', [EquipmentsController::class, 'edit']);
-
-Route::get('equipments/equipment_informations', function() {
-    return view('equipments.equipment_informations');
-});
-
+    Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
+Route::resource('equipments/admin', EquipmentsController::class, )->except('index');
+    Route::get('products/admin', [ProductsController::class, 'indexadmin','test']);
+    Route::resource('products/admin', ProductsController::class)->except('index');
+    Route::get('products/admin.edit', [ProductsController::class, 'edit']);
+    Route::resource('products', ProductsController::class);
+    Route::get('/ajaxTest', [ProductsController::class, 'ajaxTest'])->name('ajaxTest');
+  
+    
+//Route::get('equipments/admin.edit', [EquipmentsController::class, 'edit']);
 
 
 Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
@@ -132,3 +136,4 @@ Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTe
 Route::resource('vendors', VendorsController::class);
 Route::resource('subcategories', SubCategoriesController::class);
 Route::resource('categories', CategoriesController::class);
+Route::resource('equipments', EquipmentsController::class);

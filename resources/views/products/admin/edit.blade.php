@@ -33,10 +33,10 @@
 </script>
 @endpush
 <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
+        <h3><i class="fa fa-angle-right"></i> Products management</h3>
         <!-- BASIC FORM ELELEMNTS -->
        
-        <form method="post" class="form-horizontal style-form" action="{{ route('equipments.update', $equip->id) }}">
+        <form method="post" class="form-horizontal style-form" action="{{ route('products.update', $product->id) }}">
         @method('PATCH') 
             @csrf
         <div class="row mt">

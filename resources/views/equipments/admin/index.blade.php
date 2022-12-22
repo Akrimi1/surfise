@@ -37,11 +37,14 @@
                      <td class="hidden-phone">{{$equip->name}}</td>
                      <td>{{$equip->type}}</td>
                      <td>{{$equip->category->category}}</td>
-                     <td>
+                     <td class="col-md-1">
                         <div class="col-md-12">
                            <div class="row">
-                              <div class="col">
+                              <div class="col-md-1">
+                                 
                                  <a class="btn btn-primary btn-xs" href="{{ route('equipments.edit', $equip->id)}}"> <i class="fa fa-pencil"></i> </a>
+</div>
+<div class="col-md-1">
                                  <form class="col-md-2" method="post" action="{{ route('equipments.destroy', $equip->id) }}">
                                     @csrf
                                     @method('DELETE')

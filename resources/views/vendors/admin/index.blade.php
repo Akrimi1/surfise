@@ -53,11 +53,14 @@
                       {{$vendor->streetAddress}}
                       </td>
                       
-                      <td>
+                      <td class="col-md-1">
                       <div class="col-md-12">
                            <div class="row">
-                              <div class="col">
+                              <div class="col-md-1">
                                  <a class="btn btn-primary btn-xs" href="{{ route('admin.edit', $vendor->id)}}"> <i class="fa fa-pencil"></i> </a>
+</div>
+<div class="col-md-1">
+
                                  <form class="col-md-2" method="post" action="{{ route('vendors.destroy', $vendor->id) }}">
                                     @csrf
                                     @method('DELETE')

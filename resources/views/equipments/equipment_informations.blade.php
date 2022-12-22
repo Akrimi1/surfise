@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-12">
+			 		<div class="col-lg-12">
 						<div class="published_by">
 							<p><strong>Published By:</strong>
 							Dynamax Medicine Ball   <a href="#">www.medicineballs.com</a></p>
