@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/fitmediachicago/public_html/dev
+    - /bin/cp * $DEPLOYPATH
+    
