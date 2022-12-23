@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRestaurantsTable extends Migration
+class CreateVideosrestoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateRestaurantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurants', function (Blueprint $table) {
+        Schema::create('videosresto', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("name")->nullable();
-            $table->string('logo')->nullable();
-            $table->string("website")->nullable();
-            $table->string("workingHours")->nullable();
+            $table->integer('idRestaurant')->unsigned()->nullable();
+            $table->string('path')->nullable();
             $table->timestamps();
+
+            $table->foreign('idRestaurant')->references('id')->on('restaurants')->onDelete('cascade')->onUpdate('cascade');
+           
         });
     }
 
@@ -30,6 +31,6 @@ class CreateRestaurantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('videosresto');
     }
 }
