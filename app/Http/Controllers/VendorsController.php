@@ -85,6 +85,7 @@ class VendorsController extends Controller
         $vendor->vendor_name = $request->vendor_name;
         $vendor->business_type = $request->btype;
         $vendor->profession = $request->profession;
+        $vendor->zipcode = $request->zipcode;
         $vendor->certification = $request->certification;
         $vendor->description = $request->description;
         $vendor->country = $request->country;
