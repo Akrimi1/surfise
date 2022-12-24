@@ -22,6 +22,9 @@
                   <select class="form-control" name="type" data-role="tagsinput">
                      <option value="Equipments">Equipments</option>
                      <option value="Products">Products</option>
+                     <option value="Restaurants">Restaurants</option>
+                     <option value="Services">Services</option>
+                     <option value="Clubs/Gyms">Clubs/Gyms</option>
                   </select>
                </div>
             </div>

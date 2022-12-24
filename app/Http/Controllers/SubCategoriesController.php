@@ -46,11 +46,12 @@ class SubCategoriesController extends Controller
     public function create()
     {
         $user_id = Auth::user()->id;
+        $categories = Categories::where('type',"Equipments")->orderby('category')->get();//change where type = equipments
 
-        $cat = Categories::orderBy('category')->get();
+        //$cat = Categories::orderBy('category')->get();
         
         return view('subcategories/admin.create',[
-            'categeries'=> $cat
+            'categeries'=> $categories
         ]);
     }
 
@@ -142,5 +143,13 @@ class SubCategoriesController extends Controller
 
         return redirect('subcategories/admin')
             ->with('success', 'subcategories deleted successfully');
+    }
+    public function categorySelect(Request $request)
+    {
+        
+        $type = $request->type;
+        $categories = Categories::where('type',$type)->orderby('category')->get();//change where type = equipments
+        //$subCat = $categories->subcategories;
+        return $categories;
     }
 }

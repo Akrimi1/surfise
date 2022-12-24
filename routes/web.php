@@ -142,6 +142,7 @@ Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
 
 
 Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
+Route::get('/categorySelect', [SubCategoriesController::class, 'categorySelect'])->name('categorySelect');
 
 
 Route::resource('vendors', VendorsController::class);

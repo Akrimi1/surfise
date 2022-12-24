@@ -17,6 +17,7 @@ class CreateVendorsTable extends Migration
             $table->increments('id');
             $table->string('vendor_name')->nullable();
             $table->string('profession')->nullable();
+            $table->string('certification')->nullable();
             $table->integer('rating')->nullable();
             $table->string('photo')->nullable();
             $table->text('description')->nullable();

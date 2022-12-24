@@ -239,7 +239,7 @@ class EquipmentsController extends Controller
     }
     public function ajaxTest(Request $request)
     {
-        $vendors = Vendors::all();
+
         $id = intval($request->id);
         $categories = Categories::findOrFail($id);//change where type = equipments
         $subCat = $categories->subcategories;

@@ -43,6 +43,19 @@
             </div>
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
+                  >Certification</label
+                  >
+               <div class="col-sm-10">
+                  <input
+                     type="text"
+                     class="form-control"
+                     placeholder=""
+                     name="certification"
+                     />
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
                   >Description</label
                   >
                <div class="col-sm-10">
