@@ -14,6 +14,7 @@ class CreateImagesprodTable extends Migration
     public function up()
     {
         Schema::create('imagesprod', function (Blueprint $table) {
+            
             $table->increments('id');
             $table->integer('idProduct')->unsigned()->nullable();
             $table->string('path')->nullable();
