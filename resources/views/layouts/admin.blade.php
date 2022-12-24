@@ -287,6 +287,12 @@
               <span>Products</span>
               </a>
           </li>
+          <li class="mt">
+            <a href="{{ url('/restaurants/admin') }}">
+              <i class="fa fa-tasks"></i>
+              <span>Restaurants</span>
+              </a>
+          </li>
          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>

@@ -16,7 +16,7 @@ class Vendors extends Model
         'vendor_name',
         'profession',
         'certification',
-        'photo',
+        'logo',
         'like',
         'dislike',
         'rating',

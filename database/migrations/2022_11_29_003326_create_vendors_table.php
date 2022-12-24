@@ -20,7 +20,7 @@ class CreateVendorsTable extends Migration
             $table->string('profession')->nullable();
             $table->string('certification')->nullable();
             $table->integer('rating')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('logo')->nullable();
             $table->text('description')->nullable();
             $table->string("like")->default(0);
             $table->string("dislike")->default(0);
@@ -31,8 +31,8 @@ class CreateVendorsTable extends Migration
             $table->bigInteger('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('website')->nullable();
-            $table->string('workingDays')->nullable();
-            $table->string('workingHours')->nullable();
+            $table->text('workingDays')->nullable();
+            $table->text('workingHours')->nullable();
             $table->timestamps();
         });
     }

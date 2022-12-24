@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vendors;
 use App\Models\Country;
+use App\Models\Images;
 use Auth;
 
 
@@ -77,50 +78,55 @@ class VendorsController extends Controller
             'streetAddress' => 'required',
         ]);*/
         $workingHours ="";
-        if ($request->fromHour && $request->toHour)
-            $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;
-        
-        
+        if ($request->workingFrom && $request->workingTo)
+            $workingHours = $request->workingFrom.$request->workingTo;                
 
         $vendor=new Vendors;
         $vendor->vendor_name = $request->vendor_name;
+        $vendor->business_type = $request->btype;
         $vendor->profession = $request->profession;
         $vendor->certification = $request->certification;
         $vendor->description = $request->description;
         $vendor->country = $request->country;
         $vendor->state = $request->state;
         $vendor->streetAddress = $request->streetAddress;
-        $vendor->email =  $request->email;
-        $vendor->phone =  $request->phone;
-        $vendor->website =  $request->website;
-        $vendor->rating =  $request->rating;
-        $vendor->workingHours =  $workingHours;
+        $vendor->email = $request->email;
+        $vendor->phone = $request->phone;
+        $vendor->website = $request->website;
+        $vendor->rating = $request->rating;
+        $vendor->workingDays = $request->workingDays;
+        $vendor->workingHours = $workingHours;
         
-        if($request->hasfile('vendor_image')){
-            $file= $request->file('vendor_image');
+        if($request->hasfile('vendor_logo')){
+            $file= $request->file('vendor_logo');
             $filename = date('YmdHi').$file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
             $file-> move(public_path('images/vendors'), $filename);
             
-            $vendor->photo = $filename;
+            $vendor->logo = $filename;
             
              
         }else
         //add default avatar
-        $vendor->photo = "avatar.png";
-        
-        /*if($request->hasfile('vendor_logo')){
-            $file = $request->file('vendor_logo');
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
-            $file-> move(public_path('images/Logovendors'), $filename);
-            $vendor->logo = $filename;
-        }*/
-        
+        $vendor->logo = "avatar.png";
 
         $vendor->save();
-
         
+       //other image upload
+        if($request->hasfile('vendor_images')){
+            $files= $request->file('vendor_images');
+            foreach($files as $file){
+                $img= new Images;
+                $filename = date('YmdHi').$file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $file-> move(public_path('images/vendors'), $filename);            
+                $img->path= $filename;
+
+                $vendor->images()->save($img);  
+               
+            }
+        }
+      
         return redirect('vendors/admin/create')->with('success','vendors has been added');
     }
 

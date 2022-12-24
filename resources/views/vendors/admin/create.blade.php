@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', 'Create Vendor')
+
 @section('content')
 <section class="wrapper">
    <h3><i class="fa fa-angle-right"></i> Create Vendor</h3>
@@ -124,7 +125,7 @@
                   <input
                      type="text"
                      class="form-control"
-                     placeholder="Street Address"
+                     placeholder="ZipCode"
                      name="zipcode"
                      />
                </div>
@@ -187,6 +188,10 @@
  Add working days and hours
 </button>
                   
+<input type="hidden" id="workingDays" name="workingDays"/>
+<input type="hidden" id="workingFrom" name="workingFrom"/>
+<input type="hidden" id="workingTo" name="workingTo"/>
+
                </div>
               
               
@@ -253,7 +258,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h1 class="modal-title" id="exampleModalLabel">
+        Work Hours
+        </h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -263,13 +270,47 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="save" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
 
-
+<script type="text/javascript">
+   jQuery(document).ready(function(){
+      $('#save').click(function(e){
+        
+         e.preventDefault();
+         var workingDay=[];
+         var workingFrom = [];
+         var workingTo = [];
+         var i=0;
+         //$('#subcategory').empty();
+         var days = $('select[name^="input_4"]').find(":selected").val();
+         jQuery(".gf-day-dropdown select[name^='input_4']").each(function() {
+            workingDay[i] = this.value
+            i++
+           
+         });
+         i = 0
+         jQuery(".gf-start-time-dropdown select[name^='input_4']").each(function() {
+            workingFrom[i] = this.value
+            i++
+         });
+         i = 0
+         jQuery(".gf-end-time-dropdown select[name^='input_4']").each(function() {
+            workingTo[i] = this.value
+            i++
+         });
+        var wd = document.getElementById("workingDays").value = workingDay
+        var wf = document.getElementById("workingFrom").value = workingFrom+","
+        var wt = document.getElementById("workingTo").value = workingTo
+        $('#exampleModal').modal('toggle');
+        
+        
+      });
+   }); 
+</script>
 
    {!!Form::close()!!}
    <!-- /row -->

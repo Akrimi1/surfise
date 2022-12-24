@@ -9,7 +9,7 @@
 <script src="{{ asset('/js/modal/jquery.min.js') }}" id="jquery-core-js"></script>
 
 <script id="gform_gravityforms-js-before"></script>
-<script defer="defer" src="{{ asset('/css/modal/gravityforms.min.js') }}" id="gform_gravityforms-js"></script>
+<script defer="defer" src="{{ asset('/js/modal/gravityforms.min.js') }}" id="gform_gravityforms-js"></script>
 <script src="{{ asset('/js/modal/gf_work_hours.js') }}" id="gf_work_hours_js-js"></script>
 
                 <div class="entry-content">
@@ -19,7 +19,7 @@
                         <div class="gform_body gform-body">
                            <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below">
                               <li id="field_1_4" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible" data-js-reload="field_1_4">
-                                 <label class="gfield_label" for="input_1_4">Work Hours<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label>
+                                 
                                  <div class="ginput_container ginput_container_advanced">
                                     <div class="gf-container-work-hours medium" data-input-name-template="input_4." data-form-id="1" data-field-id="4">
                                        <div class="gf-group-work-hours">
