@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @section('title', 'Create Vendor')
 @section('content')
 <section class="wrapper">
@@ -16,6 +17,18 @@
                </div>
             </div>
             <hr />
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Add Business Type</label
+                  >
+               <div class="col-sm-10">
+                  <select class="form-control" name="btype">
+                     <option>Equipments</option>
+                     <option>Product</option>
+                     <option>Service</option>                    
+                  </select>
+               </div>
+            </div>
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
                   >Vendor name</label
@@ -105,6 +118,17 @@
                      />
                </div>
             </div>
+            <div class="form-group">
+               <label class="col-sm-2 col-sm-2 control-label">Zip Code</label>
+               <div class="col-sm-10">
+                  <input
+                     type="text"
+                     class="form-control"
+                     placeholder="Street Address"
+                     name="zipcode"
+                     />
+               </div>
+            </div>
             <!---Info-->
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label">Email</label>
@@ -159,29 +183,19 @@
                <div class="col-sm-10">
                   <div class="row">
                      <div class="col-sm-3">
-                  <input type="text" class="form-control" placeholder="From 11:30" name="fromHour" />
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+ Add working days and hours
+</button>
                   
                </div>
-               <div class="col-sm-2">
-               <select class="form-control" name="fromAP">
-                     <option value="AM" selected>AM</option>
-                     <option value="PM">PM<option>
-                  </select>
-                  </div>
-               <div class="col-sm-3">
-                  <input type="text" class="form-control" placeholder="To 11:30" name="toHour" />
-               </div>
-               <div class="col-sm-2">
-               <select class="form-control" name="toAP">
-                     <option value="AM">AM</option>
-                     <option value="PM" selected>PM<option>
-                  </select>
-                  </div>
+              
+              
+               
                </div>
                </div>
             </div>
             <div class="form-group last">
-               <label class="control-label col-md-3">Vendor Image Upload</label>
+               <label class="control-label col-md-3">Vendor Logo</label>
                <div class="col-md-9">
                   <div
                      class="fileupload fileupload-new"
@@ -196,7 +210,29 @@
                         <span class="fileupload-exists"
                            ><i class="fa fa-undo"></i> Change</span
                            >
-                        <input type="file" name="vendor_image" class="default" />
+                        <input type="file" name="vendor_logo" class="default" />
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="form-group last">
+               <label class="control-label col-md-3">Other Image Upload</label>
+               <div class="col-md-9">
+                  <div
+                     class="fileupload fileupload-new"
+                     data-provides="fileupload"
+                     >
+                     <div>
+                        <span class="btn btn-theme02 btn-file">
+                        <span class="fileupload-new"
+                           ><i class="fa fa-paperclip"></i> Select
+                        images</span
+                           >
+                        <span class="fileupload-exists"
+                           ><i class="fa fa-undo"></i> Change</span
+                           >
+                        <input type="file" name="vendor_images[]" class="default" multiple />
                         </span>
                      </div>
                   </div>
@@ -212,6 +248,29 @@
    </div>
    <!-- /row -->
    <!-- INLINE FORM ELELEMNTS -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      @include('vendors/admin.workingHour_modal')
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
    {!!Form::close()!!}
    <!-- /row -->
 </section>

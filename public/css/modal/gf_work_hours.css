@@ -1,0 +1,111 @@
+.gf-add-work-hours-row {
+    cursor: pointer;
+    display: block; 
+    padding: 5px 10px;
+    max-width: 160px;
+    text-align: center; 
+    transition: all ease .5s;
+    font-size: 15px;
+    line-height: 25px; 
+} 
+.gf-group-work-hours {
+    margin: 0 0 8px;
+    vertical-align: middle;	
+}
+.gf-group-work-hours .gf-to-span { 
+    text-align: center; 
+    margin: 0 !important;
+    display: inline-block !important;
+    line-height: 1;
+    padding: 0 15px;
+}
+.gf-group-work-hours:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.gf-group-work-hours > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.gf-group-work-hours .gf-day-dropdown,
+.gf-group-work-hours .gf-end-time-dropdown {
+    margin-right: 12px;
+}
+.gf-group-work-hours .remove {
+    cursor: pointer;
+    position: relative; 
+    width: 24px; 
+    height: 24px;
+}
+.gf-group-work-hours .remove:before, 
+.gf-group-work-hours .remove:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #c00;
+}
+.gf-group-work-hours .remove:before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.gf-group-work-hours .remove:after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.gform_wrapper ul.gform_fields li.gfield .gf-group-work-hours select,
+.gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield .gf-group-work-hours select {
+    margin-left: 0;
+    padding: 5px 6px 5px 6px;    
+}
+
+@media(max-width: 466px) {
+    .gform_wrapper ul.gform_fields li.gfield .gf-group-work-hours select, 
+    .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield .gf-group-work-hours select {
+        padding-left: 4px;
+        padding-right: 4px;
+        font-size: 14px;
+    }
+    .gf-group-work-hours .gf-to-span {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    .gf-group-work-hours .gf-day-dropdown, 
+    .gf-group-work-hours .gf-end-time-dropdown {
+        margin-right: 8px;
+    }
+    .gf-group-work-hours .remove {
+        width: 18px;
+        height: 18px;        
+    }
+}
+@media(max-width: 374px) {
+    .gform_wrapper ul.gform_fields li.gfield .gf-group-work-hours select, 
+    .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield .gf-group-work-hours select {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 12px;
+    }
+    .gf-group-work-hours .gf-to-span {
+        font-size: 12px;
+        padding: 0 6px;
+    }
+    .gf-group-work-hours .gf-day-dropdown, 
+    .gf-group-work-hours .gf-end-time-dropdown {
+        margin-right: 5px;
+    }
+    .gf-group-work-hours .remove {
+        width: 16px;
+        height: 16px;        
+    }
+}

@@ -17,10 +17,12 @@ class CreateImagesTable extends Migration
             
             $table->increments('id');
             $table->integer('idEquipment')->unsigned()->nullable();
+            $table->integer('idVendor')->unsigned()->nullable();
             $table->string('path')->nullable();
             $table->timestamps();
 
             $table->foreign('idEquipment')->references('id')->on('equipments')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('idVendor')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

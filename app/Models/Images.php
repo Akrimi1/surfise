@@ -11,11 +11,16 @@ class Images extends Model
 
     public $fillable = [
         'idEquipment',
+        'idVendor',
         'path'
     ];
 
     public function equipment(){
         return $this->belongsTo(Equipments::class, 'idEquipment');
+    }
+    
+    public function vendor(){
+        return $this->belongsTo(Vendors::class, 'idVendor');
     }
    
 }
