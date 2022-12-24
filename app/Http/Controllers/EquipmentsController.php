@@ -146,11 +146,12 @@ class EquipmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id, Request $request)
     {
        // $user_id = Auth::user()->id;
 
-        return view('equipments.show');
+        $equipment = Equipments::findorfail($id);
+        return view('equipments.show')->with('equip', $equipment);
     }
 
     /**

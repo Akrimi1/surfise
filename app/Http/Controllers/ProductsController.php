@@ -56,7 +56,7 @@ class ProductsController extends Controller
        // $user_id = Auth::user()->id;
 
         $vendors = Vendors::orderBy('vendor_name')->get();
-        $categories = Categories::orderBy('category')->get();//change where type = products
+        $categories = Categories::orderBy('category')->where('type', 'Products')->get();//change where type = products
         $scat = null;
         $subCat = "";
        

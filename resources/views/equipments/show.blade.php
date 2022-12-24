@@ -24,7 +24,7 @@
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 prof_desc prod">
-							<h3>Exercise equipment - Medicine balls</h3>
+							<h3>Exercise equipment - {{ $equip->type }}</h3>
 							<p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod  tempor incididunt ut labore. sed do  tempor incididunt ut labore.</p>
 							<ul>
 								<li><a href="#">Meet the Team</a></li>
