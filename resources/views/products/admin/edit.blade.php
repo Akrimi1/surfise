@@ -1,4 +1,6 @@
 @extends('layouts.admin')
+@section('title', 'Edit Product')
+
 @section('content')
 @push('subcat-ajax')
 <script>

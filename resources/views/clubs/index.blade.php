@@ -1,4 +1,5 @@
 @extends('layouts.appFront')
+@section('title', 'Clubs/Gyms Title')
 @section('content')
 </div>
 <section class="prof_main client_rev">

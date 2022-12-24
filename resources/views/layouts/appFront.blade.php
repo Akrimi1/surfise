@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{ asset('/images/favicon_0.png') }}" type="image/png" />
 
-    <title>Blog | Surfise</title>
+    <title>{{ config('app.name', 'SUPERFISE') }} - @yield('title')</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" type="text/css"  />
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}" />
@@ -88,8 +88,8 @@
               </div>
               <div class="last_part">
                 <ul>
-                  <li><a href="/user/reg">Signup it’s free!</a></li>
-                  <li><a href="/user/login">Login</a></li>
+                  <li><a href="{{ url('register_welcome') }}">Signup it’s free!</a></li>
+                  <li><a href="{{ url('user_login') }}">Login</a></li>
                 </ul>
               </div>
               <a href="#" class="mobile_hamburger">Menu</a

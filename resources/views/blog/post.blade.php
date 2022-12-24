@@ -1,4 +1,5 @@
 @extends('layouts.appFront')
+@section('title', 'Blog Post')
 @section('content')
 <section class="prof_main img_main">
             <div class="container ">

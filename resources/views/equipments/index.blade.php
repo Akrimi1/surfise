@@ -1,7 +1,6 @@
 @extends('layouts.appFront')
-
+@section('title', 'Equipments')
 @section('content')
-
 <section class="prof_main client_rev">
             <div class="container">
               <div class="row">

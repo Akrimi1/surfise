@@ -21,7 +21,6 @@ class EquipmentsController extends Controller
     public function index()
     {
         //$user_id = Auth::user()->id;
-
       
         $equip = Equipments::orderBy('name')->get();
         $cats = Categories::where('type', 'Equipments')->orderBy('category')->get();
@@ -149,9 +148,10 @@ class EquipmentsController extends Controller
     public function show($id, Request $request)
     {
        // $user_id = Auth::user()->id;
-
+        $categories = Categories::where('type', 'Equipments')->orderby('category')->get();
         $equipment = Equipments::findorfail($id);
-        return view('equipments.show')->with('equip', $equipment);
+        return view('equipments.show')->with('equip', $equipment)
+        ->with('categories', $categories);
     }
 
     /**

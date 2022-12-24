@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Equipments')
 @section('content')
 <section class="wrapper">
    <h3><i class="fa fa-angle-right"></i> Equipment management</h3>

@@ -71,8 +71,8 @@
                      </div>
                      <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pull-right log_links">
                         <ul>
-                           <li><a href="./user/reg">Signup it’s free!</a></li>
-                           <li><a href="./user">Login</a></li>
+                        <li><a href="{{ url('register_welcome') }}">Signup it’s free!</a></li>
+                        <li><a href="{{ url('user_login')}}">Login</a></li>
                         </ul>
                      </div>
                   </div>

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Create SubcategorY')
 @push('subcat-ajax')
 <script>
    $(document).ready(function(){

@@ -1,4 +1,5 @@
 @extends('layouts.appFront')
+@section('title', 'Vendor')
 @push('styles')
 <link rel="stylesheet" href="{{ asset('/css/vanilla-calendar.css') }}"/>
 @endpush
@@ -48,7 +49,7 @@
                     <h3>purchase membership</h3>
                   </div>
                   <h3 class="pt-4">{{ $vendor->profession }}</h3>
-                  <p>
+                  <p class="text-justify">
                     {{ $vendor->description }}
                   </p>
 

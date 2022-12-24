@@ -1,4 +1,5 @@
 @extends('layouts.appFront')
+@section('title', 'Gellery')
 @section('content')
 </div>
 <section class="media_main">

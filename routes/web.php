@@ -62,7 +62,7 @@ Route::get('restaurants/restaurant_details', function() {
     return view('restaurants.restaurant_details');
 });
 
-
+*/
 Route::get('rmr', function() {
     return view('rmr.index');
 });
@@ -91,7 +91,16 @@ Route::get('medias', function() {
 Route::get('blog/post', function(){
     return view('blog/post');
 });
-*/
+Route::get('user_login', function(){
+    return view('login/login');
+});
+Route::get('register_welcome', function(){
+    return view('login/register_welcome');
+});
+Route::get('user_register', function(){
+    return view('login/register');
+});
+
 
 
 
@@ -101,7 +110,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('welcome');
 
     })->name('dashboard');
     Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);

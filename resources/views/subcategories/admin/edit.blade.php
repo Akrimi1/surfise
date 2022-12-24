@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Edit SubcategorY')
 @section('content')
 <section class="wrapper">
    <h3><i class="fa fa-angle-right"></i> subcategories management</h3>

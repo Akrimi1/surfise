@@ -1,4 +1,5 @@
 @extends('layouts.appFront')
+@section('title', 'Restaurants')
 @section('content')
 
 <section class="prof_main">

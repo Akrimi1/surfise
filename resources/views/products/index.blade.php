@@ -1,4 +1,6 @@
 @extends('layouts.appFront')
+@section('title', 'Products')
+
 @section('content')
 </div>
 <section class="prof_main client_rev">

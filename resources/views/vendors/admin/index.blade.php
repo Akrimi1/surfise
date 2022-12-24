@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Vendors Management')
 @section('content')
 
 <section class="wrapper">

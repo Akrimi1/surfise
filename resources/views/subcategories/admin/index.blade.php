@@ -1,7 +1,8 @@
 @extends('layouts.admin')
+@section('title', 'Subcategories Management')
 @section('content')
 <section class="wrapper">
-   <h3><i class="fa fa-angle-right"></i> Subcategories management</h3>
+   <h3><i class="fa fa-angle-right"></i> Subcategories Management</h3>
    <!-- row -->
    <div class="row mt">
       <div class="col-md-12">

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Edit Admin Categories')
 @section('content')
 <section class="wrapper">
    <h3><i class="fa fa-angle-right"></i> categories management</h3>

@@ -1,4 +1,5 @@
 @extends('layouts.appFront')
+@section('title', 'BMI')
 @stack('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/ng-slider.min.css')}}">	
 	

@@ -1,31 +1,39 @@
 @extends('layouts.appFront')
+@section('title', 'Equipment')
 @section('content')
 <section class="prof_main">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 prof_info">
 							<div class="prof_pic">
-								<img src="{{ asset('/images/dynamax_logo.jpg') }}" alt="">
+								<img src="{{ asset('/images/equipments/'.$equip->images[0]->path) }}" alt="">
 								<ul>
-									<li class="like"><a href="#">107</a></li>
-									<li class="dislike"><a href="#">13</a></li>
+									<li class="like"><a href="#">{{ $equip->like}}</a></li>
+									<li class="dislike"><a href="#">{{ $equip->dislike }}</a></li>
 								</ul>
 							</div>
 							<div class="rating">
-								<h4>Rating</h4>
+								<h4>Rating</h4>								                           
 								<ul>
-									<li><a href="#" class="active">1</a></li>
-									<li><a href="#" class="active">2</a></li>
-									<li><a href="#" class="active">3</a></li>
-									<li><a href="#" class="active">4</a></li>
-									<li><a href="#">5</a></li>
+									@php
+									$j = $equip->rating;
+									@endphp
+									
+									@for($i = 0; $i < $equip->rating; $i++)
+									<li><a href="#" class="active"></a></li>                           
+									@endfor
+
+									@while($j < 5)
+									<li><a href="#" class=""></a></li>    
+									@php $j++ @endphp
+									@endwhile																		
 								</ul>
-								<p>4/5</p>
+								<p>{{ $equip->rating}}/5</p>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 prof_desc prod">
 							<h3>Exercise equipment - {{ $equip->type }}</h3>
-							<p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod  tempor incididunt ut labore. sed do  tempor incididunt ut labore.</p>
+							<p class="text-justify">{{ $equip->details }}</p>
 							<ul>
 								<li><a href="#">Meet the Team</a></li>
 							</ul>
@@ -36,9 +44,9 @@
 								<a href="#">Hours</a>
 							</form>
 							<ul class="bot_info">
-								<li class="web"><a href="#">www.medicineballs.com</a></li>
-								<li class="email"><a href="#">dynamax@dynamax.com</a></li>
-								<li class="phone"><a href="#">719-459-4899346</a></li>
+								<li class="web"><a href="#">{{ $equip->vendor->website }}</a></li>
+								<li class="email"><a href="#">{{ $equip->vendor->email }}</a></li>
+								<li class="phone"><a href="#">{{ $equip->vendor->phone }}</a></li>
 							</ul>
 							<form name="form2" method="post" action="" class="location clearfix">
 								<select>
@@ -46,13 +54,13 @@
 								</select>
 							</form>
 							<ul class="bot_info last">
-								<li class="pin">1519 West Foster Chicago, IL 60640</li>
+								<li class="pin">{{ $equip->vendor->streetAddress }}</li>
 								<li class="msg"><a href="#">Messages</a></li>
 								<li class="live"><a href="#">Live stream</a></li>
 							</ul>
 						</div>
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 booking">
-							<h3>Featured products</h3>
+							<h3>Featured equipments</h3>
 							<div class="featured_prod">
 								<ul class="rslides" id="fitprodSlide">
 									<li><img src="{{ asset('/images/featured_product.jpg') }}" alt=""></li>
@@ -119,7 +127,7 @@
 				<a href="javascript:void(0);" class="shop_link">Shop</a>
 				<ul class="cat_list">
 					<li>
-						<a href="javascript:void(0);">Category 1</a>
+						<a href="javascript:void(0);">{{ $equip->category->category }}</a>
 						<div class="prod_list">
 							<h3>Category 1</h3>
 							<ul class="clearfix">
@@ -141,6 +149,7 @@
 							</ul>
 						</div>
 					</li>
+					
 					<li>
 						<a href="javascript:void(0);">Category 2</a>
 						<div class="prod_list">
