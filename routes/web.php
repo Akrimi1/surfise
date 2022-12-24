@@ -9,6 +9,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SubCategoriesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\RestaurantsController;
 
 
 /*
@@ -25,6 +26,9 @@ use App\Http\Controllers\ProductsController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
 
 
 
@@ -116,6 +120,10 @@ Route::get('categories/admin', [CategoriesController::class, 'indexadmin']);
 Route::resource('categories/admin', CategoriesController::class)->except('index');
 Route::get('categories/admin/{id}', [CategoriesController::class, 'edit']);
 
+Route::get('restaurants/admin', [RestaurantsController::class, 'indexadmin']);
+Route::resource('restaurants/admin', RestaurantsController::class)->except('index');
+Route::get('restaurants/admin/{id}', [RestaurantsController::class, 'edit']);
+
 
 Route::get('subcategories/admin', [SubCategoriesController::class, 'indexadmin']);
 Route::resource('subcategories/admin', SubCategoriesController::class)->except('index');
@@ -125,6 +133,9 @@ Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit'])
 Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
 Route::resource('vendors/admin', VendorsController::class)->except('index');
 Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
+
+
+
 
 });
 

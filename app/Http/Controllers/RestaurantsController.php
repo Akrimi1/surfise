@@ -82,8 +82,8 @@ class RestaurantsController extends Controller
         $restaurant->website =  $request->website;
         $restaurant->workingHours =  $workingHours;
         
-        if($request->hasfile('restaurant_logo')){
-            $file= $request->file('restaurant_logo');
+        if($request->hasfile('restaurant_image')){
+            $file= $request->file('restaurant_image');
             $filename = date('YmdHi').$file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
             $file-> move(public_path('images/restaurants'), $filename);
