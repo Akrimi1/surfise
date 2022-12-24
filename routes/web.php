@@ -148,3 +148,4 @@ Route::resource('vendors', VendorsController::class);
 Route::resource('subcategories', SubCategoriesController::class);
 Route::resource('categories', CategoriesController::class);
 Route::resource('equipments', EquipmentsController::class);
+Route::resource('restaurants', RestaurantsController::class);
