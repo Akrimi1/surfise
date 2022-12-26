@@ -1,282 +1,239 @@
 @extends('layouts.admin')
-@section('title', 'Create Vendor')
+@section('title', 'Create Equipment')
 @section('content')
-<section class="wrapper">
-   <h3><i class="fa fa-angle-right"></i> Create Vendor</h3>
-   <!-- BASIC FORM ELELEMNTS -->
-   <div class="row mt">
-      <div class="col-lg-12">
-         <div class="form-panel form-horizontal style-form">
-            {!! Form::open(['route'=>'vendors.store', 'files' => true]) !!}
+@push('subcat-ajax')
+<script>
+   $(document).ready(function(){
+      $('#category').change(function(e){
+        
+         e.preventDefault();
+         $('#subcategory').empty();
+         var idcat = $('#category').find(":selected").val();
+   
+        
+         $.ajax(
+         {
+            url: "/ajaxTest",
+            type: "GET",
+         
+            data: { id: idcat},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("subcategory");
+                  var option = document.createElement("option");
+                  option.text = result[i].subcategory;
+                  option.value = result[i].id;
+                  select.add(option);
+               }
+            
+            }
+         });     
+      });
+   });
+        
+</script>
+@endpush
+<section class="content-header">
+   <div class="container-fluid">
+      <div class="row mb-2">
+         <div class="col-sm-6">
+            <h1>Create Profile Page</h1>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="content">
+   <div class="container-fluid">
+      <div class="card card-default">
+         <div class="card-header">
+            <h3 class="card-title"> Profile page</h3>
+         </div>
+         <div class="card-body">
             <div class="row">
                <div class="col-md-6">
-                  <div class="col-md-6">
-                     <a class="btn btn-primary "  href="{{ url('/vendors/admin') }}" >Back to list</a>  
+                  <div class="form-group">
+                     <label>Add Business type</label>
+                     <select name="vendor_type" class="form-control select2" style="width: 100%;">
+                        <option>Accessory</option>
+                        <option>Equipment</option>
+                        <option>Product</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Select Category</label>
+                     <select name="category" class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Alabama</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
+                     <label>Select Subcategory</label>
+                     <select name="subcategory" class="form-control select2" style="width: 100%;">
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                     </select>
                   </div>
                </div>
             </div>
-            <hr />
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Add Business Type</label
-                  >
-               <div class="col-sm-10">
-                  <select class="form-control" name="btype">
-                     <option>Equipments</option>
-                     <option>Product</option>
-                     <option>Service</option>
-                  </select>
+            <hr/>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Business name</label>
+                     <input name="product_name" Placeholder="Enter Product Name" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                     <label>Address</label>
+                     <input name="address" Placeholder="Enter Address" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                     <label>Country</label>
+                     <select name="country" class="form-control select2" style="width: 100%;">
+                        <option>Alaska</option>
+                        <option>California</option>
+                     </select>
+                  </div>
                </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Business name</label
-                  >
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Business name"
-                     name="vendor_name"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Website</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Website"
-                     name="website"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Address</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Address"
-                     name="Address"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Zip Code</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Zip Code"
-                     name="zipcode"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">State</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="State"
-                     name="state"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Select Country:</label
-                  >
-               <div class="col-sm-10">
-                  <select class="form-control" name="country">
-                     <option value="United States - US" selected>United States - US</option>
-                     @foreach ($countries as $country)
-                     <option value="{{$country->name}} - {{ $country->code }}" >{{$country->name}} - {{$country->code}}</option>
-                     @endforeach
-                  </select>
-               </div>
-            </div>
-            <!---Info-->
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Email</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Email"
-                     name="email"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Phone Number</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Phone Number"
-                     name="phone"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Description</label
-                  >
-               <div class="col-sm-10">
-                  <textarea
-                     id="description"
-                     placeholder="your Description"
-                     class="box form-control"
-                     cols="30"
-                     rows="10"
-                     name="description"
-                     ></textarea>
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Rating Stars</label
-                  >
-               <div class="col-sm-10">
-                  <select class="form-control"  
-                     name="rating">
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                     <option value="5">5</option>
-                  </select>
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Working Hours</label>
-               <div class="col-sm-10">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Website</label>
+                     <input class="form-control" type="text" name="website" Placeholder="Website">
+                  </div>
                   <div class="row">
-                     <div class="col-sm-3">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Add working days and hours
-                        </button>
-                        <input type="hidden" id="workingDays" name="workingDays"/>
-                        <input type="hidden" id="workingFrom" name="workingFrom"/>
-                        <input type="hidden" id="workingTo" name="workingTo"/>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>Zip Code</label>
+                           <input class="form-control" type="text" name="zipconde" Placeholder="Zip code">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>State</label>
+                           <input class="form-control" type="text" name="state" Placeholder="State">
+                        </div>
                      </div>
                   </div>
-               </div>
-            </div>
-            <div class="form-group last">
-               <label class="control-label col-md-3">Upload Logo</label>
-               <div class="col-md-9">
-                  <div
-                     class="fileupload fileupload-new"
-                     data-provides="fileupload"
-                     >
-                     <div>
-                        <span class="btn btn-theme02 btn-file">
-                        <span class="fileupload-new"
-                           ><i class="fa fa-paperclip"></i> 
-                        Upload Logo </span
-                           >
-                        <span class="fileupload-exists"
-                           ><i class="fa fa-undo"></i> Change</span
-                           >
-                        <input type="file" name="vendor_logo" class="default" />
-                        </span>
-                     </div>
+                  <div class="form-group">
+                     <label>Phone</label>
+                     <input class="form-control" type="text" name="phone" Placeholder="Phone">
                   </div>
                </div>
-            </div>
-            <div class="form-group last">
-               <label class="control-label col-md-3">Upload Other Images</label>
-               <div class="col-md-9">
-                  <div
-                     class="fileupload fileupload-new"
-                     data-provides="fileupload"
-                     >
-                     <div>
-                        <span class="btn btn-theme02 btn-file">
-                        <span class="fileupload-new"
-                           ><i class="fa fa-paperclip"></i> Upload Other Images
-                        </span
-                           >
-                        <span class="fileupload-exists"
-                           ><i class="fa fa-undo"></i> Change</span
-                           >
-                        <input type="file" name="vendor_images[]" class="default" multiple />
-                        </span>
-                     </div>
+               <div class="col-md-12">
+                  <div class="form-group">
+                     <label>Description</label>
+                     <textarea class="form-control"></textarea>
                   </div>
                </div>
+               
+               <div class="card-body">
+<div id="actions" class="row">
+<div class="col-lg-6">
+<div class="btn-group w-100">
+<span class="btn btn-success col fileinput-button dz-clickable">
+<i class="fas fa-plus"></i>
+<span>Add files</span>
+</span>
+<button type="submit" class="btn btn-primary col start">
+ <i class="fas fa-upload"></i>
+<span>Start upload</span>
+</button>
+<button type="reset" class="btn btn-warning col cancel">
+<i class="fas fa-times-circle"></i>
+<span>Cancel upload</span>
+</button>
+</div>
+</div>
+<div class="col-lg-6 d-flex align-items-center">
+<div class="fileupload-process w-100">
+<div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+<div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress=""></div>
+</div>
+</div>
+</div>
+</div>
+<div class="table table-striped files" id="previews">
+
+</div>
+</div>
+
+
+
             </div>
-            <div>
-               <button class="btn btn-primary " type="submit">Add vendors</button>
+            <hr/>
+            <div class="from-group float-right" >
+               <button class="btn btn-success">Add +</button>
             </div>
          </div>
       </div>
    </div>
-   <!-- col-lg-12-->
-   </div>
-   <!-- /row -->
-   <!-- INLINE FORM ELELEMNTS -->
-   <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h1 class="modal-title" id="exampleModalLabel">
-                  Work Hours
-               </h1>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-               @include('vendors/admin.workingHour_modal')
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button type="button" id="save" class="btn btn-primary">Save changes</button>
-            </div>
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h1 class="modal-title" id="exampleModalLabel">
+               Work Hours
+            </h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            @include('vendors/admin.workingHour_modal')
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="save" class="btn btn-primary">Save changes</button>
          </div>
       </div>
    </div>
-   <script type="text/javascript">
-      jQuery(document).ready(function(){
-         $('#save').click(function(e){
-           
-            e.preventDefault();
-            var workingDay=[];
-            var workingFrom = [];
-            var workingTo = [];
-            var i=0;
-            //$('#subcategory').empty();
-            var days = $('select[name^="input_4"]').find(":selected").val();
-            jQuery(".gf-day-dropdown select[name^='input_4']").each(function() {
-               workingDay[i] = this.value
-               i++
-              
-            });
-            i = 0
-            jQuery(".gf-start-time-dropdown select[name^='input_4']").each(function() {
-               workingFrom[i] = this.value
-               i++
-            });
-            i = 0
-            jQuery(".gf-end-time-dropdown select[name^='input_4']").each(function() {
-               workingTo[i] = this.value
-               i++
-            });
-           var wd = document.getElementById("workingDays").value = workingDay
-           var wf = document.getElementById("workingFrom").value = workingFrom+","
-           var wt = document.getElementById("workingTo").value = workingTo
-           $('#exampleModal').modal('toggle');           
+</div>
+<script type="text/javascript">
+   jQuery(document).ready(function(){
+      $('#save').click(function(e){
+        
+         e.preventDefault();
+         var workingDay=[];
+         var workingFrom = [];
+         var workingTo = [];
+         var i=0;
+         //$('#subcategory').empty();
+         var days = $('select[name^="input_4"]').find(":selected").val();
+         jQuery(".gf-day-dropdown select[name^='input_4']").each(function() {
+            workingDay[i] = this.value
+            i++
            
          });
-      }); 
-   </script>
-   {!!Form::close()!!}
-   <!-- /row -->
+         i = 0
+         jQuery(".gf-start-time-dropdown select[name^='input_4']").each(function() {
+            workingFrom[i] = this.value
+            i++
+         });
+         i = 0
+         jQuery(".gf-end-time-dropdown select[name^='input_4']").each(function() {
+            workingTo[i] = this.value
+            i++
+         });
+        var wd = document.getElementById("workingDays").value = workingDay
+        var wf = document.getElementById("workingFrom").value = workingFrom+","
+        var wt = document.getElementById("workingTo").value = workingTo
+        $('#exampleModal').modal('toggle');           
+        
+      });
+   }); 
+</script>
+{!!Form::close()!!}
+<!-- /row -->
 </section>
 @endsection

@@ -38,7 +38,7 @@
       <div class="row mb-2">
          <div class="col-sm-6">
             <h1>Create Product Page</h1>
-         </div>         
+         </div>
       </div>
    </div>
 </section>
@@ -47,29 +47,23 @@
       <div class="card card-default">
          <div class="card-header">
             <h3 class="card-title"> Quick Add Product</h3>
-            
          </div>
          <div class="card-body">
             <div class="row">
                <div class="col-md-6">
-            
                   <div class="form-group">
-           
-                    
-                     <label>Add To category</label>
+                     <label>Product type</label>
                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                        <option>Accessory</option>
+                        <option>Equipment</option>
+                        <option>Product</option>
                      </select>
                   </div>
+               </div>
+               <div class="col-md-6">
                   <div class="form-group">
-                     <label>Subcategory</label>
-                     <select class="form-control select2" style="width: 100%;">
+                     <label>Add to category</label>
+                     <select name="category" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
                         <option>California</option>
@@ -83,14 +77,29 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Enter Product Name</label>
-                     <input type="text" class="form-control">
+                     <input name="product_name" Placeholder="Enter Product Name" type="text" class="form-control">
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Subcategory</label>
+                     <select name="subcategory" class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Alabama</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                     </select>
                   </div>
                </div>
             </div>
-            <div class="from-group" >
-               <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-            </div> 
-         </div>         
+            <hr/>
+            <div class="from-group float-right" >
+               <button class="btn btn-success">Add +</button>
+            </div>
+         </div>
       </div>
       <div class="card card-default">
          <div class="card-header">
