@@ -1,9 +1,4 @@
-
-
-
-
-   <!-- BASIC FORM ELELEMNTS -->
-   <div class="row mt">
+<div class="row mt">
       <div class="col-lg-12">
          <div class="form-panel form-horizontal style-form">
             {!! Form::open(['route'=>'categories.store', 'files' => true]) !!}

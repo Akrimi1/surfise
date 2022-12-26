@@ -96,7 +96,11 @@ class EquipmentsController extends Controller
             'equip_image' => 'required',
             //'equipVideos' => 'required'
         ]);*/
-
+        $filename="";
+        if($request->hasfile('logo')){
+            $file= $request->file('logo');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+        }
         $equip=new Equipments;
         $equip->idCategory = $request->idCategory;
         $equip->idSubCategory = $request->idSubCategory;
@@ -105,31 +109,19 @@ class EquipmentsController extends Controller
         $equip->product_name = $request->product_name;
         $equip->brand_name = $request->brand_name;
         $equip->website = $request->website;
-        $equip->logo = $request->logo;
+        $equip->logo = $filename;
         $equip->description = $request->description;
         $equip->save();
 
+        
         if($request->hasfile('equip_image')){
-            $files= $request->file('equip_image');
-            foreach($files as $file){
-                $img= new Images;
-                $filename = date('YmdHi').$file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/equipments'), $filename);            
-                $img->path= $filename;
-
-                $equip->images()->save($img);  
-               
-            }
-        }
-        if($request->hasfile('equip_video')){
-            $files = $request->file('equip_video');
+            $files = $request->file('equip_image');
             //dd($file);
             foreach($files as $file){
-                $vid= new Videos;
+                $vid= new Images;
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
-                $file-> move(public_path('videos/equipments'), $filename);               
+                $file-> move(public_path('images/equipments'), $filename);               
                 $vid->path= $filename;
 
                 $equip->videos()->save($vid);  

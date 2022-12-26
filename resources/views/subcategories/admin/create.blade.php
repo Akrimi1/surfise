@@ -58,7 +58,7 @@
                <label>Category</label>
                <div class="col-sm-10">
                <select class="form-control" id="category" name="idCategory">
-              <option>subcategory</option>
+              <option value="1">subcategory</option>
                   </select>
                </div>
             </div>
