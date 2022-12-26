@@ -14,26 +14,28 @@ class CreateVendorsTable extends Migration
     public function up()
     {
         Schema::create('vendors', function (Blueprint $table) {
+
+
             $table->increments('id');
-            $table->string('business_type')->nullable();
-            $table->string('vendor_name')->nullable();
-            $table->string('profession')->nullable();
-            $table->string('certification')->nullable();
-            $table->integer('rating')->nullable();
-            $table->string('logo')->nullable();
-            $table->text('description')->nullable();
-            $table->string("like")->default(0);
-            $table->string("dislike")->default(0);
+
+            $table->integer("idCategory")->unsigned()->nullable();
+            $table->integer("idSubCategory")->unsigned()->nullable();
+            $table->string('vendor_type')->nullable();
+            $table->string('business_name')->nullable();
+            $table->string('address')->nullable();
             $table->string('country')->nullable();
-            $table->string('state')->nullable();          
-            $table->string('streetAddress')->nullable();
-            $table->string('zipcode')->nullable();
+            $table->string('website')->nullable();          
+            $table->string('zipconde')->nullable();
+            $table->string('state')->nullable();
             $table->bigInteger('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('website')->nullable();
+            $table->string('description')->nullable();
             $table->text('workingDays')->nullable();
             $table->text('workingHours')->nullable();
+            $table->text('logo')->nullable();
             $table->timestamps();
+
+            $table->foreign('idCategory')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('idSubCategory')->references('id')->on('subcategories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

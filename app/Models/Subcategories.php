@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Categories;
+use App\Models\Vendors;
 
 class Subcategories extends Model
 {
@@ -20,5 +21,8 @@ class Subcategories extends Model
     }
     public function equipment(){
         return $this->hasOne(Equipments::class);
+    }
+    public function vendor(){
+        return $this->hasOne(Vendors::class);
     }
 }

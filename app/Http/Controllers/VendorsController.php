@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Vendors;
 use App\Models\Country;
 use App\Models\Images;
+use App\Models\Categories;
+use App\Models\Subcategories;
 use Auth;
 
 
@@ -82,21 +84,19 @@ class VendorsController extends Controller
             $workingHours = $request->workingFrom.$request->workingTo;                
 
         $vendor=new Vendors;
-        $vendor->vendor_name = $request->vendor_name;
-        $vendor->business_type = $request->btype;
-        $vendor->profession = $request->profession;
-        $vendor->zipcode = $request->zipcode;
-        $vendor->certification = $request->certification;
-        $vendor->description = $request->description;
+        $vendor->vendor_type = $request->vendor_type;
+        $vendor->business_name = $request->business_name;
+        $vendor->address = $request->address;
         $vendor->country = $request->country;
-        $vendor->state = $request->state;
-        $vendor->streetAddress = $request->streetAddress;
-        $vendor->email = $request->email;
-        $vendor->phone = $request->phone;
         $vendor->website = $request->website;
-        $vendor->rating = $request->rating;
+        $vendor->zipconde = $request->zipconde;
+        $vendor->state = $request->state;
+        $vendor->phone = $request->phone;
+        $vendor->description = $request->description;
         $vendor->workingDays = $request->workingDays;
-        $vendor->workingHours = $workingHours;
+        $vendor->workingHours = $request->workingHours;
+        $vendor->logo = $request->logo;
+       
         
         if($request->hasfile('vendor_logo')){
             $file= $request->file('vendor_logo');
@@ -189,15 +189,18 @@ class VendorsController extends Controller
         if ($request->fromHour && $request->toHour)
             $workingHours = $request->fromHour." ".$request->fromAP." - ".$request->toHour." ".$request->toAP;
         
-        $vendor->vendor_name = $request->vendor_name;
-        $vendor->description = $request->description;
+        $vendor->vendor_type = $request->vendor_type;
+        $vendor->business_name = $request->business_name;
+        $vendor->address = $request->address;
         $vendor->country = $request->country;
-        $vendor->state = $request->state;
-        $vendor->streetAddress = $request->streetAddress;
-        $vendor->email =  $request->email;
+        $vendor->website = $request->website;
+        $vendor->zipconde =  $request->zipconde;
+        $vendor->state =  $request->state;
         $vendor->phone =  $request->phone;
-        $vendor->website =  $request->website;
+        $vendor->description =  $description;
+        $vendor->workingDays =  $workingDays;
         $vendor->workingHours =  $workingHours;
+        $vendor->logo =  $logo;
         $vendor->update();
  
          return redirect('vendors/admin')
