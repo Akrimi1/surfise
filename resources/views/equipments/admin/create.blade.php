@@ -155,7 +155,8 @@
                      <button class="btn btn-primary" >add category</button>
                   </div>
                   <div class="form-group">
-                     <button class="btn btn-primary" >Add Subcategory</button>
+                  <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                                          
                   </div>
                </div>
             </div>
