@@ -2,6 +2,8 @@
 @section('title', 'Create Equipment')
 @section('content')
 @push('subcat-ajax')
+
+
 <script>
    $(document).ready(function(){
       $('#category').change(function(e){
@@ -136,7 +138,7 @@
                   </div>
                </div>
                
-               <div class="card-body">
+<div class="card-body">
 <div id="actions" class="row">
 <div class="col-lg-6">
 <div class="btn-group w-100">
