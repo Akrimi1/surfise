@@ -65,7 +65,7 @@ class CategoriesController extends Controller
         $cat->category = $request->category;
        
         $cat->save();
-         return redirect('categories/admin/create')->with('success','category has been added');
+        return back()->with('message', 'category added Successful !');
     }
 
     /**

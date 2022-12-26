@@ -56,7 +56,7 @@ class EquipmentsController extends Controller
     { 
         $user_id = Auth::user()->id;
 
-        $vendors = Vendors::orderBy('vendor_name')->get();
+        $vendors = Vendors::orderBy('business_name')->get();
         $categories = Categories::where('type', 'Equipments')->orderBy('category')->get();//change where type = equipments
         $scat = null;
         $subCat = "";
@@ -158,7 +158,7 @@ class EquipmentsController extends Controller
 
 
         $equip = Equipments::find($id);
-        $vendors = Vendors::orderBy('vendor_name')->get();
+        $vendors = Vendors::orderBy('business_name')->get();
         $image = Images::find($id);
         $categories = Categories::orderBy('category')->get();//change where type = equipments
         $subSelected = SubCategories::find($equip->idSubCategory);
