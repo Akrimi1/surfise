@@ -1,7 +1,5 @@
 @extends('layouts.admin')
-
 @section('title', 'Create Vendor')
-
 @section('content')
 <section class="wrapper">
    <h3><i class="fa fa-angle-right"></i> Create Vendor</h3>
@@ -26,75 +24,54 @@
                   <select class="form-control" name="btype">
                      <option>Equipments</option>
                      <option>Product</option>
-                     <option>Service</option>                    
+                     <option>Service</option>
                   </select>
                </div>
             </div>
             <div class="form-group">
                <label class="col-sm-2 col-sm-2 control-label"
-                  >Vendor name</label
+                  >Business name</label
                   >
                <div class="col-sm-10">
                   <input
                      type="text"
                      class="form-control"
-                     placeholder="vendor name"
+                     placeholder="Business name"
                      name="vendor_name"
                      />
                </div>
             </div>
             <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Vendor profession</label
-                  >
+               <label class="col-sm-2 col-sm-2 control-label">Website</label>
                <div class="col-sm-10">
                   <input
                      type="text"
                      class="form-control"
-                     placeholder="Body Composition Expert"
-                     name="profession"
+                     placeholder="Website"
+                     name="website"
                      />
                </div>
             </div>
             <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Certification</label
-                  >
+               <label class="col-sm-2 col-sm-2 control-label">Address</label>
                <div class="col-sm-10">
                   <input
                      type="text"
                      class="form-control"
-                     placeholder=""
-                     name="certification"
+                     placeholder="Address"
+                     name="Address"
                      />
                </div>
             </div>
             <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Description</label
-                  >
+               <label class="col-sm-2 col-sm-2 control-label">Zip Code</label>
                <div class="col-sm-10">
-                  <textarea
-                     id="description"
-                     placeholder="your Description"
-                     class="box form-control"
-                     cols="30"
-                     rows="10"
-                     name="description"
-                     ></textarea>
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Select Country:</label
-                  >
-               <div class="col-sm-10">
-                  <select class="form-control" name="country">
-                     <option value="United States - US" selected>United States - US</option>
-                     @foreach ($countries as $country)
-                     <option value="{{$country->name}} - {{ $country->code }}" >{{$country->name}} - {{$country->code}}</option>
-                     @endforeach
-                  </select>
+                  <input
+                     type="text"
+                     class="form-control"
+                     placeholder="Zip Code"
+                     name="zipcode"
+                     />
                </div>
             </div>
             <div class="form-group">
@@ -109,25 +86,16 @@
                </div>
             </div>
             <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Street Address</label>
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Select Country:</label
+                  >
                <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Street Address"
-                     name="streetAddress"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Zip Code</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="ZipCode"
-                     name="zipcode"
-                     />
+                  <select class="form-control" name="country">
+                     <option value="United States - US" selected>United States - US</option>
+                     @foreach ($countries as $country)
+                     <option value="{{$country->name}} - {{ $country->code }}" >{{$country->name}} - {{$country->code}}</option>
+                     @endforeach
+                  </select>
                </div>
             </div>
             <!---Info-->
@@ -154,14 +122,18 @@
                </div>
             </div>
             <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Website</label>
+               <label class="col-sm-2 col-sm-2 control-label"
+                  >Description</label
+                  >
                <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Website"
-                     name="website"
-                     />
+                  <textarea
+                     id="description"
+                     placeholder="your Description"
+                     class="box form-control"
+                     cols="30"
+                     rows="10"
+                     name="description"
+                     ></textarea>
                </div>
             </div>
             <div class="form-group">
@@ -184,23 +156,18 @@
                <div class="col-sm-10">
                   <div class="row">
                      <div class="col-sm-3">
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
- Add working days and hours
-</button>
-                  
-<input type="hidden" id="workingDays" name="workingDays"/>
-<input type="hidden" id="workingFrom" name="workingFrom"/>
-<input type="hidden" id="workingTo" name="workingTo"/>
-
-               </div>
-              
-              
-               
-               </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Add working days and hours
+                        </button>
+                        <input type="hidden" id="workingDays" name="workingDays"/>
+                        <input type="hidden" id="workingFrom" name="workingFrom"/>
+                        <input type="hidden" id="workingTo" name="workingTo"/>
+                     </div>
+                  </div>
                </div>
             </div>
             <div class="form-group last">
-               <label class="control-label col-md-3">Vendor Logo</label>
+               <label class="control-label col-md-3">Upload Logo</label>
                <div class="col-md-9">
                   <div
                      class="fileupload fileupload-new"
@@ -209,8 +176,8 @@
                      <div>
                         <span class="btn btn-theme02 btn-file">
                         <span class="fileupload-new"
-                           ><i class="fa fa-paperclip"></i> Select
-                        vendor image</span
+                           ><i class="fa fa-paperclip"></i> 
+                        Upload Logo </span
                            >
                         <span class="fileupload-exists"
                            ><i class="fa fa-undo"></i> Change</span
@@ -222,7 +189,7 @@
                </div>
             </div>
             <div class="form-group last">
-               <label class="control-label col-md-3">Other Image Upload</label>
+               <label class="control-label col-md-3">Upload Other Images</label>
                <div class="col-md-9">
                   <div
                      class="fileupload fileupload-new"
@@ -231,8 +198,8 @@
                      <div>
                         <span class="btn btn-theme02 btn-file">
                         <span class="fileupload-new"
-                           ><i class="fa fa-paperclip"></i> Select
-                        images</span
+                           ><i class="fa fa-paperclip"></i> Upload Other Images
+                        </span
                            >
                         <span class="fileupload-exists"
                            ><i class="fa fa-undo"></i> Change</span
@@ -253,65 +220,62 @@
    </div>
    <!-- /row -->
    <!-- INLINE FORM ELELEMNTS -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel">
-        Work Hours
-        </h1>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h1 class="modal-title" id="exampleModalLabel">
+                  Work Hours
+               </h1>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               @include('vendors/admin.workingHour_modal')
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="button" id="save" class="btn btn-primary">Save changes</button>
+            </div>
+         </div>
       </div>
-      <div class="modal-body">
-      @include('vendors/admin.workingHour_modal')
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="save" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript">
-   jQuery(document).ready(function(){
-      $('#save').click(function(e){
-        
-         e.preventDefault();
-         var workingDay=[];
-         var workingFrom = [];
-         var workingTo = [];
-         var i=0;
-         //$('#subcategory').empty();
-         var days = $('select[name^="input_4"]').find(":selected").val();
-         jQuery(".gf-day-dropdown select[name^='input_4']").each(function() {
-            workingDay[i] = this.value
-            i++
+   </div>
+   <script type="text/javascript">
+      jQuery(document).ready(function(){
+         $('#save').click(function(e){
+           
+            e.preventDefault();
+            var workingDay=[];
+            var workingFrom = [];
+            var workingTo = [];
+            var i=0;
+            //$('#subcategory').empty();
+            var days = $('select[name^="input_4"]').find(":selected").val();
+            jQuery(".gf-day-dropdown select[name^='input_4']").each(function() {
+               workingDay[i] = this.value
+               i++
+              
+            });
+            i = 0
+            jQuery(".gf-start-time-dropdown select[name^='input_4']").each(function() {
+               workingFrom[i] = this.value
+               i++
+            });
+            i = 0
+            jQuery(".gf-end-time-dropdown select[name^='input_4']").each(function() {
+               workingTo[i] = this.value
+               i++
+            });
+           var wd = document.getElementById("workingDays").value = workingDay
+           var wf = document.getElementById("workingFrom").value = workingFrom+","
+           var wt = document.getElementById("workingTo").value = workingTo
+           $('#exampleModal').modal('toggle');           
            
          });
-         i = 0
-         jQuery(".gf-start-time-dropdown select[name^='input_4']").each(function() {
-            workingFrom[i] = this.value
-            i++
-         });
-         i = 0
-         jQuery(".gf-end-time-dropdown select[name^='input_4']").each(function() {
-            workingTo[i] = this.value
-            i++
-         });
-        var wd = document.getElementById("workingDays").value = workingDay
-        var wf = document.getElementById("workingFrom").value = workingFrom+","
-        var wt = document.getElementById("workingTo").value = workingTo
-        $('#exampleModal').modal('toggle');
-        
-        
-      });
-   }); 
-</script>
-
+      }); 
+   </script>
    {!!Form::close()!!}
    <!-- /row -->
 </section>
