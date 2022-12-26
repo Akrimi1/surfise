@@ -38,7 +38,7 @@
       <div class="row mb-2">
          <div class="col-sm-6">
             <h1>Create Product Page</h1>
-         </div>         
+         </div>
       </div>
    </div>
 </section>
@@ -47,15 +47,11 @@
       <div class="card card-default">
          <div class="card-header">
             <h3 class="card-title"> Quick Add Product</h3>
-            
          </div>
          <div class="card-body">
             <div class="row">
                <div class="col-md-6">
-            
                   <div class="form-group">
-           
-                    
                      <label>Add To category</label>
                      <select class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
@@ -89,19 +85,18 @@
             </div>
             <div class="from-group" >
                <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-            </div> 
-         </div>         
+            </div>
+         </div>
       </div>
       <div class="card card-default">
          <div class="card-header">
             <h3 class="card-title"> Add New Product</h3>
-            
          </div>
          <div class="card-body">
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
-                     <label>Create product</label>
+                     <label>Product type</label>
                      <select class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
@@ -143,19 +138,60 @@
                      <input type="text" class="form-control">
                   </div>
                   <div class="form-group">
-                  <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-
+                     <button class="btn btn-primary" >add category</button>
                   </div>
                   <div class="form-group">
-                  <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                                          
+                     <button class="btn btn-primary" >Add Subcategory</button>
                   </div>
                </div>
             </div>
-            
-         </div>         
+         </div>
+         <div class="card-body">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>brand name</label>
+                     <input type="text" class="form-control">
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Website</label>
+                     <input type="text" class="form-control">
+                  </div>
+               </div>
+               <div class="from-group">
+                  <label>upload logo</label>
+                  <span class="btn btn-success col fileinput-button">
+                  <i class="fas fa-plus"></i>
+                  <span>Add files</span>
+                  </span>
+                  <button type="reset" class="btn btn-warning col cancel">
+                  <i class="fas fa-times-circle"></i>
+                  <span>Cancel upload</span>
+                  </button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Description</label>
+               <textarea class="form-control" rows="4" placeholder="Enter ..."></textarea>
+            </div>
+            <div class="col-md-6">
+               <div class="from-group">
+                  <label>upload other images</label>
+                  <span class="btn btn-success col fileinput-button">
+                  <i class="fas fa-plus"></i>
+                  <span>Add files</span>
+                  </span>
+                  <button type="reset" class="btn btn-warning col cancel">
+                  <i class="fas fa-times-circle"></i>
+                  <span>Cancel upload</span>
+                  </button>
+               </div>
+            </div>
+         </div>
       </div>
-      
+   </div>
    </div>
 </section>
 @endsection
