@@ -50,6 +50,7 @@
             <h3 class="card-title"> Quick Add Product</h3>
          </div>
          <div class="card-body">
+         {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
@@ -64,14 +65,11 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Add to category</label>
-                     <select name="category" class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                     <select name="idCategory"  id="category" class="form-control select2" style="width: 100%;">
+                     @foreach($categories as $c)
+                        <option value="{{ $c->id }}">{{ $c->category }}</option>
+                        
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -84,14 +82,8 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Subcategory</label>
-                     <select name="subcategory" class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                     <select name="idSubCategory"  id="subcategory" class="form-control select2" style="width: 100%;">
+                        <option selected="selected"></option>
                      </select>
                   </div>
                </div>
@@ -110,15 +102,11 @@
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
-                     <label>Select Category</label>
-                     <select name="category" class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                     <label>Add to category</label>
+                     <select name="idCategory" class="form-control select2" style="width: 100%;">
+                     @foreach($categories as $c)
+                        <option value="{{ $c->id }}">{{ $c->category }}</option>
+                     @endforeach
                      </select>
                      <a href="" class="nav-link" >add category</a>
                   </div>
@@ -128,24 +116,14 @@
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
                         <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
                      </select>
                   </div>
                </div>
                <div class="col-md-6">
-                  <div class="form-group">
-                     <label>Select Subcategory</label>
-                     <select name="subcategory" class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+               <div class="form-group">
+                     <label>Subcategory</label>
+                     <select name="idSubCategory" class="form-control select2" style="width: 100%;">
+                        <option selected="selected"></option>
                      </select>
                      <a href="" class="nav-link" >Add Subcategory</a>
                   </div>
@@ -170,13 +148,13 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Website</label>
-                     <input type="text" class="form-control">
+                     <input type="text" class="form-control" name="website">
                   </div>
                </div>
                <div class="col-md-12 pt-3">
                   <div class="form-group">
                      <label>Description</label>
-                     <textarea class="form-control" rows="4" placeholder="Enter ..."></textarea>
+                     <textarea class="form-control" name="description" rows="4" placeholder="Enter ..."></textarea>
                   </div>
                </div>
                <div class="card-body">
@@ -242,6 +220,10 @@
                   </div>
                </div>
             </div>
+            <div>
+               <button class="btn btn-primary " type="submit">Create new Product</button>
+            </div>
+            {!!Form::close()!!}
          </div>
       </div>
    </div>
