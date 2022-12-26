@@ -54,7 +54,7 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Product type</label>
-                     <select class="form-control select2" style="width: 100%;">
+                     <select name="product_type" class="form-control select2" style="width: 100%;">
                         <option>Accessory</option>
                         <option>Equipment</option>
                         <option>Product</option>
@@ -64,7 +64,7 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Add to category</label>
-                     <select name="category" class="form-control select2" style="width: 100%;">
+                     <select name="idCategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
                         <option>California</option>
@@ -73,6 +73,7 @@
                         <option>Texas</option>
                         <option>Washington</option>
                      </select>
+                     <a href="" class="nav-link" >Add Category</a>
                   </div>
                </div>
                <div class="col-md-6">
@@ -84,7 +85,7 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Subcategory</label>
-                     <select name="subcategory" class="form-control select2" style="width: 100%;">
+                     <select name="idSubcategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
                         <option>California</option>
@@ -93,6 +94,7 @@
                         <option>Texas</option>
                         <option>Washington</option>
                      </select>
+                     <a href="" class="nav-link" >Add Subcategory</a>
                   </div>
                </div>
             </div>
@@ -111,7 +113,7 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Select Category</label>
-                     <select name="category" class="form-control select2" style="width: 100%;">
+                     <select name="idCategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
                         <option>California</option>
@@ -133,12 +135,13 @@
                         <option>Texas</option>
                         <option>Washington</option>
                      </select>
+
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Select Subcategory</label>
-                     <select name="subcategory" class="form-control select2" style="width: 100%;">
+                     <select name="idSubcategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
                         <option>California</option>
@@ -176,7 +179,7 @@
                <div class="col-md-12 pt-3">
                   <div class="form-group">
                      <label>Description</label>
-                     <textarea class="form-control" rows="4" placeholder="Enter ..."></textarea>
+                     <textarea name="description" class="form-control" rows="4" placeholder="Enter ..."></textarea>
                   </div>
                </div>
                <div class="card-body">
