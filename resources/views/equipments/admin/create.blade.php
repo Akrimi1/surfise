@@ -39,6 +39,7 @@
          <div class="col-sm-6">
             <h1>Create Product Page</h1>
          </div>
+         </div>
       </div>
    </div>
 </section>
@@ -104,13 +105,12 @@
       <div class="card card-default">
          <div class="card-header">
             <h3 class="card-title"> Add New Product</h3>
-            
          </div>
          <div class="card-body">
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
-                     <label>Create product</label>
+                     <label>Product type</label>
                      <select class="form-control select2" style="width: 100%;">
                         <option selected="selected">Alabama</option>
                         <option>Alaska</option>
@@ -152,19 +152,16 @@
                      <input type="text" class="form-control">
                   </div>
                   <div class="form-group">
-                  <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-
+                     <button class="btn btn-primary" >add category</button>
                   </div>
                   <div class="form-group">
-                  <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                                          
+                     <button class="btn btn-primary" >Add Subcategory</button>
                   </div>
                </div>
             </div>
             
          </div>         
-      </div>
-      
+   </div>
    </div>
 </section>
 @endsection
