@@ -75,7 +75,7 @@ class SubCategoriesController extends Controller
        
         $subcat->save();
      
-        return redirect('subcategories/admin/create')->with('success','subcategory has been added');
+        return back()->with('message', 'subcategory added Successful !');
     }
 
     /**

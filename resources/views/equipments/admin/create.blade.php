@@ -25,9 +25,8 @@
                   option.value = result[i].id;
                   select.add(option);
                }
-            
             }
-         });     
+         }); 
       });
    });
         
@@ -67,7 +66,6 @@
                      <select name="idCategory"  id="category" class="form-control select2" style="width: 100%;">
                      @foreach($categories as $c)
                         <option value="{{ $c->id }}">{{ $c->category }}</option>
-                        
                      @endforeach
                      </select>
                      <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>
