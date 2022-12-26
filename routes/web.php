@@ -97,6 +97,7 @@ Route::get('user_login', function(){
 Route::get('register_welcome', function(){
     return view('login/register_welcome');
 });
+
 Route::get('user_register', function(){
     return view('login/register');
 });
@@ -120,7 +121,10 @@ Route::resource('equipments/admin', EquipmentsController::class, )->except('inde
     Route::get('products/admin.edit', [ProductsController::class, 'edit']);
     Route::resource('products', ProductsController::class);
     Route::get('/ajaxTest', [ProductsController::class, 'ajaxTest'])->name('ajaxTest');
-  
+    
+    Route::get('product_type', function(){
+        return view('product_type/create');
+    });
     
 //Route::get('equipments/admin.edit', [EquipmentsController::class, 'edit']);
 

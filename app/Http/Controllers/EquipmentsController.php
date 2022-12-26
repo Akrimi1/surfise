@@ -22,7 +22,7 @@ class EquipmentsController extends Controller
     {
         //$user_id = Auth::user()->id;
       
-        $equip = Equipments::orderBy('name')->get();
+        $equip = Equipments::orderBy('product_name')->get();
         $cats = Categories::where('type', 'Equipments')->orderBy('category')->get();
        
 
@@ -40,7 +40,7 @@ class EquipmentsController extends Controller
     { 
         $user_id = Auth::user()->id;
        
-        $equip = Equipments::orderBy('name')->get();
+        $equip = Equipments::orderBy('product_name')->get();
         return view('equipments/admin.index', [
             'equipments'=>$equip
           

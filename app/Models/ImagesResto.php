@@ -9,7 +9,6 @@ class ImagesResto extends Model
 {
     use HasFactory;
 
-    use HasFactory;
     public $table = "imagesresto";
 
     public $fillable = [
