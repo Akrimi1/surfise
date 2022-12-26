@@ -100,13 +100,13 @@ class EquipmentsController extends Controller
         $equip=new Equipments;
         $equip->idCategory = $request->idCategory;
         $equip->idSubCategory = $request->idSubCategory;
-        $equip->idVendor = $request->idVendor;
-        $equip->ref = $request->ref;
-        $equip->name = $request->name;
-        $equip->type = $request->type;
-        $equip->rating = $request->rating;
+       // $equip->idVendor = $request->idVendor;
+        $equip->product_type = $request->product_type;
+        $equip->product_name = $request->product_name;
+        $equip->brand_name = $request->brand_name;
+        $equip->website = $request->website;
+        $equip->logo = $request->logo;
         $equip->description = $request->description;
-        $equip->details = $request->details;
         $equip->save();
 
         if($request->hasfile('equip_image')){

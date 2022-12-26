@@ -14,16 +14,15 @@ class Equipments extends Model
     public $fillable = [
         'idCategory',
         'idSubCategory',
-        'idVendor',
-        'ref',
-        'name',
-        'like',
-        'dislike',
-        'type',
-        'rating',
-        'description',
-        'details'
+        //'idVendor',
+        'product_type',
+        'product_name',
+        'brand_name',
+        'website',
+        'logo',
+        'description'
     ];
+
 
     public function images()
     {
@@ -42,8 +41,9 @@ class Equipments extends Model
         return $this->belongsTo(Subcategories::class, 'idSubCategory');
     }
 
+    /*
     public function vendor(){
         return $this->belongsTo(Vendors::class, 'idVendor');
-    }
+    }*/
 
 }

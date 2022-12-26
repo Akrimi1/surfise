@@ -16,20 +16,18 @@ class CreateEquipmentsTable extends Migration
         Schema::create('equipments', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->integer("idVendor")->unsigned()->nullable();
+            //$table->integer("idVendor")->unsigned()->nullable();
             $table->integer("idCategory")->unsigned()->nullable();
             $table->integer("idSubCategory")->unsigned()->nullable();
-            $table->string("ref")->nullable();
-            $table->string("name")->nullable();
-            $table->string("type")->nullable();
-            $table->string("rating")->nullable();
-            $table->string("like")->default(0);
-            $table->string("dislike")->default(0);
+            $table->string("product_type")->nullable();
+            $table->string("product_name")->nullable();
+            $table->string("brand_name")->nullable();
+            $table->string("website")->nullable();
+            $table->string("logo")->nullable();
             $table->text("description")->nullable();
-            $table->text("details")->nullable();
             $table->timestamps();
 
-            $table->foreign('idVendor')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');
+            //$table->foreign('idVendor')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('idCategory')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('idSubCategory')->references('id')->on('subcategories')->onDelete('cascade')->onUpdate('cascade');
 
