@@ -7,6 +7,7 @@ use App\Models\Vendors;
 use App\Models\Country;
 use App\Models\Images;
 use App\Models\Categories;
+use App\Models\ProductType;
 use App\Models\Subcategories;
 use Auth;
 
@@ -55,9 +56,12 @@ class VendorsController extends Controller
         $user_id = Auth::user()->id;
 
         $c = Country::orderBy('name')->get();
+        $business_types=ProductType::orderby('product_type')->get();
+        
         
         return view('vendors/admin.create',[
-            'countries'=> $c
+            'countries'=> $c,
+            'business_types' => $business_types
         ]);
         
     }
@@ -222,5 +226,20 @@ class VendorsController extends Controller
 
         return redirect('vendors/admin')
             ->with('success', 'vendors deleted successfully');
+    }
+    public function categoryByBusinessType(Request $request)
+    {
+        $type = $request->type;
+        $categories = Categories::where('type', $type)->orderBy('category')->get();
+        
+        return $categories;
+    }
+    public function SubCategoryByCategory(Request $request)
+    {
+        $id = $request->id;
+        $category = Categories::findorfail($id);
+        $subcategories = $category->subcategories;
+        
+        return $subcategories;
     }
 }

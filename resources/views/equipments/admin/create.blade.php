@@ -43,47 +43,52 @@
 </section>
 <section class="content">
    <div class="container-fluid">
-      <div class="card card-default">
+      <div class="card card-default collapsed-card">
          <div class="card-header">
-            <h3 class="card-title"> Quick Add Product</h3>
+            <h3 class="card-title"><a class="btn btn-tool" data-card-widget="collapse"> Quick Add Product</a></h3>
+            <div class="card-tools">
+               <button type="button" class="btn btn-tool" data-card-widget="collapse">
+               <i class="fas fa-plus"></i>
+               </button>
+               <button type="button" class="btn btn-tool" data-card-widget="remove">
+               <i class="fas fa-times"></i>
+               </button>
+            </div>
          </div>
          <div class="card-body">
-         {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
+            {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
             <div class="row">
-               <div class="col-md-6">
+               <div class="col-md-3">
                   <div class="form-group">
                      <label>Product type</label>
                      <select name="product_type" class="form-control select2" style="width: 100%;">
-                        <option>Accessory</option>
-                        <option>Equipment</option>
-                        <option>Product</option>
+                        @foreach($product_types as $pt)
+                        <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
+                        @endforeach
                      </select>
                   </div>
-               </div>
-               <div class="col-md-6">
                   <div class="form-group">
                      <label>Add to category</label>
                      <select name="idCategory"  id="category" class="form-control select2" style="width: 100%;">
-                     @foreach($categories as $c)
+                        @foreach($categories as $c)
                         <option value="{{ $c->id }}">{{ $c->category }}</option>
-                     @endforeach
+                        @endforeach
                      </select>
-                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>
+                     <!--<a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>-->
                   </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <label>Enter Product Name</label>
-                     <input name="product_name" Placeholder="Enter Product Name" type="text" class="form-control">
-                  </div>
-               </div>
-               <div class="col-md-6">
                   <div class="form-group">
                      <label>Subcategory</label>
                      <select name="idSubCategory"  id="subcategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected"></option>
                      </select>
-                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
+                     <!--<a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>-->
+                  </div>
+               </div>
+               <div class="col-md-3"></div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Enter Product Name</label>
+                     <input name="product_name" Placeholder="Enter Product Name" type="text" class="form-control">
                   </div>
                </div>
             </div>
@@ -97,46 +102,41 @@
       <div class="card card-default">
          <div class="card-header">
             <h3 class="card-title"> Add New Product</h3>
+            <div class="card-tools">
+               <a href="#" class="btn btn-info">Add Product to Existing Business</a>
+            </div>
          </div>
          <div class="card-body">
-         {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
+            {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
             <div class="row">
-               <div class="col-md-6">
-
-                  <div class="form-group">
-
-
-                     <label>Add to category</label>
-                     <select name="idCategory" class="form-control select2" style="width: 100%;">
-                     @foreach($categories as $c)
-                        <option value="{{ $c->id }}">{{ $c->category }}</option>
-                     @endforeach
-                     </select>
-                     <a href="" class="nav-link" >add category</a>
-                  </div>
+               <div class="col-md-3">
                   <div class="form-group">
                      <label>Product type</label>
                      <select name="product_type" class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
+                        @foreach($product_types as $pt)
+                        <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
+                        @endforeach
                      </select>
-
                   </div>
-               </div>
-               <div class="col-md-6">
-               <div class="form-group">
+                  <div class="form-group">
+                     <label>Add to category</label>
+                     <select name="idCategory" class="form-control select2" style="width: 100%;">
+                        @foreach($categories as $c)
+                        <option value="{{ $c->id }}">{{ $c->category }}</option>
+                        @endforeach
+                     </select>
+                     <!--<a href="" class="nav-link" >add category</a>-->
+                  </div>
+                  <div class="form-group">
                      <label>Subcategory</label>
                      <select name="idSubCategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected"></option>
                      </select>
-                     <a href="" class="nav-link" >Add Subcategory</a>
+                     <!--<a href="" class="nav-link" >Add Subcategory</a>-->
                   </div>
                </div>
-            </div>
-            <hr>
-            <div class="row">
-               <div class="col-md-6">
+               
+               <div class="col-md-3">
                   <div class="form-group">
                      <label>Brand Name</label>
                      <input name="brand_name" type="text" class="form-control">
@@ -153,9 +153,15 @@
                         </div>
                      </div>
                   </div>
-                  
+                  <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" rows=5 placeholder="Enter Description"></textarea>
+                     </div>
+                  </div>
                </div>
-               <div class="col-md-6">
+               
+               <div class="col-md-3">
                   <div class="form-group">
                      <label>Website</label>
                      <input type="text" class="form-control" name="website">
@@ -172,13 +178,9 @@
                         </div>
                      </div>
                   </div>
+                  
                </div>
-               <div class="col-md-12 pt-3">
-                  <div class="form-group">
-                     <label>Description</label>
-                     <textarea name="description" class="form-control" rows="4" placeholder="Enter ..."></textarea>
-                  </div>
-               </div>
+                  
                
             </div>
             <div>
@@ -189,8 +191,8 @@
       </div>
    </div>
    </div>
+   </div>
 </section>
-
 <!--Categotry Modal-->
 <div class="modal fade" id="modal-category">
    <div class="modal-dialog">
@@ -232,5 +234,4 @@
       </div>
    </div>
 </div>
-
 @endsection

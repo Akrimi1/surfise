@@ -15,8 +15,12 @@ class CreateProductTypeTable extends Migration
     {
         Schema::create('product_type', function (Blueprint $table) {
             $table->id();
+            $table->integer("idEquipment")->unsigned()->nullable();
             $table->string('product_type')->nullable();
             $table->timestamps();
+
+            $table->foreign('idEquipment')->references('id')->on('equipments')->onDelete('cascade')->onUpdate('cascade');
+
         });
     }
 

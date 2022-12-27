@@ -28,6 +28,10 @@ class Equipments extends Model
     {
         return $this->hasMany(Images::class, 'idEquipment');
     }
+    public function product_types()
+    {
+        return $this->hasMany(ProductType::class, 'idEquipment');
+    }
 
     public function videos()
     {

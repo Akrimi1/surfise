@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\SubCategories;
 use App\Models\Images;
 use App\Models\Videos;
+use App\Models\ProductType;
 use Auth;
 
 class EquipmentsController extends Controller
@@ -60,6 +61,7 @@ class EquipmentsController extends Controller
         $categories = Categories::where('type', 'Equipments')->orderBy('category')->get();//change where type = equipments
         $scat = null;
         $subCat = "";
+        $product_types = ProductType::orderBy('product_type')->get();
        
         if ($request->get("scat") != null){
            // dd("test");
@@ -71,7 +73,11 @@ class EquipmentsController extends Controller
 
             //dd($subList);
         }
-        return view('equipments/admin.create')->with('vendors', $vendors)->with('categories', $categories)->with('subCat',$subCat)->with('scat', $scat);
+        return view('equipments/admin.create')
+            ->with('vendors', $vendors)
+            ->with('categories', $categories)
+            ->with('subCat',$subCat)->with('scat', $scat)
+            ->with('product_types',$product_types);
     }
 
 
