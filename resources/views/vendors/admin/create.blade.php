@@ -88,13 +88,13 @@
                      <label>Select Category</label>
                      <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
                      </select>
-                     <!--<a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>-->
+                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>
                   </div>
                   <div class="form-group">
                      <label>Select Subcategory</label>
                      <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
                      </select>
-                     <!--<a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>-->
+                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
                   </div>
                </div>
                <div class="col-md-3">

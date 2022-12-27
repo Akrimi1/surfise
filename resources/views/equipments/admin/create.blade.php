@@ -74,14 +74,14 @@
                         <option value="{{ $c->id }}">{{ $c->category }}</option>
                         @endforeach
                      </select>
-                     <!--<a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>-->
+                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>
                   </div>
                   <div class="form-group">
                      <label>Subcategory</label>
                      <select name="idSubCategory"  id="subcategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected"></option>
                      </select>
-                     <!--<a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>-->
+                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
                   </div>
                </div>
                <div class="col-md-3"></div>
@@ -125,14 +125,14 @@
                         <option value="{{ $c->id }}">{{ $c->category }}</option>
                         @endforeach
                      </select>
-                     <!--<a href="" class="nav-link" >add category</a>-->
+                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>
                   </div>
                   <div class="form-group">
                      <label>Subcategory</label>
                      <select name="idSubCategory" class="form-control select2" style="width: 100%;">
                         <option selected="selected"></option>
                      </select>
-                     <!--<a href="" class="nav-link" >Add Subcategory</a>-->
+                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
                   </div>
                </div>
                
