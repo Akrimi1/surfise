@@ -11,7 +11,7 @@
          var btype = $('#business_type').find(":selected").text();        
          $.ajax(
          {
-            url: "/categoryByBusinessType",
+            url: "{{route('categoryByBusinessType')}}",
             type: "GET",
          
             data: { type: btype},
@@ -38,7 +38,7 @@
               
          $.ajax(
          {
-            url: "/SubCategoryByCategory",
+            url: "{{route('SubCategoryByCategory')}}",
             type: "GET",
          
             data: { id: id},
