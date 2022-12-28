@@ -39,7 +39,7 @@ class VendorsController extends Controller
     { 
         $user_id = Auth::user()->id;
 
-        $vendor = Vendors::orderBy('vendor_name')->get();
+        $vendor = Vendors::orderBy('business_name')->get();
         return view('vendors/admin.index', [
             'vendors'=>$vendor
             
@@ -56,12 +56,14 @@ class VendorsController extends Controller
         $user_id = Auth::user()->id;
 
         $c = Country::orderBy('name')->get();
+        $categories = Categories::orderBy('category')->get();
         $business_types=ProductType::orderby('product_type')->get();
         
         
         return view('vendors/admin.create',[
             'countries'=> $c,
-            'business_types' => $business_types
+            'business_types' => $business_types,
+            'categories' => $categories
         ]);
         
     }

@@ -30,12 +30,5 @@ class Vendors extends Model
       
     public function images(){
         return $this->hasMany(Images::class, 'idVendor');
-    }   
-    public function category(){
-        return $this->belongsTo(Categories::class, 'idVendor');
-    }
-    public function subcategory(){
-        return $this->belongsTo(Subcategories::class, 'idVendor');
-    }
- 
+    } 
 }

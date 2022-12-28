@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Create Equipment')
 @section('content')
-<script src="{{ asset('/backend/plugins/dropzone/min/dropzone.min.js') }}"></script>
 <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
 <script>
    $(document).ready(function(){
@@ -80,7 +79,7 @@
                      <select name="vendor_type" id="business_type" class="form-control select2" style="width: 100%;">
                         <option selected></option>
                         @foreach($business_types as $pt)
-                        <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
+                           <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
                         @endforeach
                      </select>
                   </div>
@@ -205,45 +204,39 @@
       </div>
 </section>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h1 class="modal-title" id="exampleModalLabel">
-Work Hours
-</h1>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-@include('vendors/admin.workingHour_modal')
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" id="save"  data-dismiss="modal" class="btn btn-primary">Save changes</button>
-</div>
-</div>
-</div>
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h1 class="modal-title" id="exampleModalLabel">
+               Work Hours
+            </h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            @include('vendors/admin.workingHour_modal')
+         </div>
+         
+      </div>
+   </div>
 </div>
 <!--Categotry Modal-->
 <div class="modal fade" id="modal-category">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h4 class="modal-title">Default Modal</h4>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-@include('categories/admin.create')
-</div>
-<div class="modal-footer justify-content-between">
-<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary">Save changes</button>
-</div>
-</div>
-</div>
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Default Modal</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            @include('categories/admin.create')
+         </div>
+        
+      </div>
+   </div>
 </div>
 </div>
 <!--SubCategotry Modal-->
@@ -258,10 +251,6 @@ Work Hours
          </div>
          <div class="modal-body">
             @include('subcategories/admin.create')
-         </div>
-         <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
          </div>
       </div>
    </div>

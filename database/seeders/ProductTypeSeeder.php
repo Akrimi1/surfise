@@ -20,7 +20,9 @@ class ProductTypeSeeder extends Seeder
             ['product_type' => 'Equipments'],
             ['product_type' => 'Products'],
             ['product_type' => 'Accessories'],
-            
+            ['product_type' => 'Services'],
+            ['product_type' => 'Restaurants'],
+            ['product_type' => 'Clubs/Gyms'],                                 
         ];
  
         DB::table('product_type')->insert($product_type);

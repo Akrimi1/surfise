@@ -14,12 +14,7 @@ class CreateVendorsTable extends Migration
     public function up()
     {
         Schema::create('vendors', function (Blueprint $table) {
-
-
             $table->increments('id');
-
-            $table->integer("idCategory")->unsigned()->nullable();
-            $table->integer("idSubCategory")->unsigned()->nullable();
             $table->string('vendor_type')->nullable();
             $table->string('business_name')->nullable();
             $table->string('address')->nullable();
@@ -33,9 +28,6 @@ class CreateVendorsTable extends Migration
             $table->text('workingHours')->nullable();
             $table->text('logo')->nullable();
             $table->timestamps();
-
-            $table->foreign('idCategory')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('idSubCategory')->references('id')->on('subcategories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

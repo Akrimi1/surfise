@@ -6,7 +6,7 @@
             <div class="form-group">
                <label>Select type</label>
                <div class="col-sm-10">
-                  <select class="form-control" name="type" data-role="tagsinput">
+                  <select class="form-control select2" name="type">
                      <option value="Equipments">Equipments</option>
                      <option value="Products">Products</option>
                      <option value="Restaurants">Restaurants</option>
@@ -19,12 +19,13 @@
                <label>Category</label
                   >
                <div class="col-sm-10">
-                  <input type="text" class="form-control" placeholder="category"name="category"
+                  <input type="text" class="form-control" placeholder="category" name="category"
                      />
                </div>
             </div>
-            <div>
-               <button class="btn btn-primary " type="submit">Add Categories</button>
+            <div class="modal-footer justify-content-between">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button class="btn btn-info float-right" type="submit">Add Categories</button>
             </div>
             {!!Form::close()!!}
          </div>

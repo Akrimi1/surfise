@@ -23,8 +23,5 @@ class Categories extends Model
     public function subcategories(){
         return $this->hasMany(Subcategories::class, 'idCategory');
     }
-    public function vendor(){
-        return $this->hasOne(Vendors::class);
-    }
 
 }

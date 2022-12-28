@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use App\Models\SubCategories;
+use App\Models\ProductType;
 use Auth;
+use DB;
 
 class CategoriesController extends Controller  
 {
@@ -26,10 +29,17 @@ class CategoriesController extends Controller
     public function indexadmin()
     {
         $user_id = Auth::user()->id;
-        
+        $subcategories = Subcategories::orderby('subcategory')->get();
+        $product_types = ProductType::orderBy("product_type")->get();
+         
         $cat = Categories::orderBy('category')->get();
-        return view('categories/admin.index', [
-            'categories'=>$cat 
+        if($cat->count() > 50)
+            $cat = Categories::orderBy('category')->simplePaginate(50);
+
+        return view('content_field.index', [
+            'categories' => $cat ,
+            'subcategories' => $subcategories,
+            'product_types' => $product_types
              
         ]);
     }
@@ -59,12 +69,27 @@ class CategoriesController extends Controller
         $request->validate([
             'category' => 'required'
         ]);
-
-        $cat=new Categories;
-        $cat->type = $request->type;
-        $cat->category = $request->category;
-       
+        $category = $request->category;
+        $subcategory = $request->subcategory;
+        $existance_cat = Categories::where(DB::raw('upper(category)'), strtoupper($category))->first();
+        if($existance_cat != null){
+            $category = Categories::find($existance_cat->id);
+            if($subcategory != ""){
+                $subcat=new SubCategories;
+                $subcat->subcategory = $subcategory;
+                $existance_cat->subcategories()->save($subcat); 
+            } 
+        }else{
+            $cat=new Categories;
+            $cat->type = $request->type;
+            $cat->category = $request->category;               
         $cat->save();
+            if($subcategory != ""){
+                $subcat=new SubCategories;
+                $subcat->subcategory = $subcategory;
+                $cat->subcategories()->save($subcat); 
+            } 
+        }        
         return back()->with('message', 'category added Successful !');
     }
 

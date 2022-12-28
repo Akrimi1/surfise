@@ -46,13 +46,11 @@ class SubCategoriesController extends Controller
     public function create()
     {
         $user_id = Auth::user()->id;
-        $categories = Categories::where('type',"Equipments")->orderby('category')->get();//change where type = equipments
+        $categories = Categories::orderBy('category')->get();
 
         //$cat = Categories::orderBy('category')->get();
         
-        return view('subcategories/admin.create',[
-            'categeries'=> $categories
-        ]);
+        return view('subcategories/admin.create')->with('categories',$categories);
     }
 
     /**
@@ -72,7 +70,7 @@ class SubCategoriesController extends Controller
         $subcat=new Subcategories;
         $subcat->idCategory = $request->idCategory;
         $subcat->subcategory = $request->subcategory;
-       
+       dd($subcat);
         $subcat->save();
      
         return back()->with('message', 'subcategory added Successful !');

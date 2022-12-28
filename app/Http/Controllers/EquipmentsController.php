@@ -58,7 +58,7 @@ class EquipmentsController extends Controller
         $user_id = Auth::user()->id;
 
         $vendors = Vendors::orderBy('business_name')->get();
-        $categories = Categories::where('type', 'Equipments')->orderBy('category')->get();//change where type = equipments
+        $categories = Categories::orderBy('category')->get();//change where type = equipments
         $scat = null;
         $subCat = "";
         $product_types = ProductType::orderBy('product_type')->get();
@@ -124,13 +124,13 @@ class EquipmentsController extends Controller
             $files = $request->file('equip_image');
             //dd($file);
             foreach($files as $file){
-                $vid= new Images;
+                $img= new Images;
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $file-> move(public_path('images/equipments'), $filename);               
-                $vid->path= $filename;
+                $img->path= $filename;
 
-                $equip->videos()->save($vid);  
+                $equip->images()->save($img);  
                
             }
         }       

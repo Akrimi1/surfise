@@ -9,6 +9,7 @@ class ProductType extends Model
 {
     use HasFactory;
     public $table="product_type";
+    
     public $fillable = [
         'product_type'
     ];

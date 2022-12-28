@@ -41,11 +41,10 @@
          <div class="form-panel form-horizontal style-form">
             {!! Form::open(['route'=>'subcategories.store', 'files' => true]) !!}
             
-            <hr />
             <div class="form-group">
                <label>Category Type</label >
                <div class="col-sm-10">
-                  <select class="form-control" id="categoryType" name="categoryType">
+                  <select class="form-control select2" id="categoryType" name="type">
                      <option value="Equipments">Equipments</option>
                      <option value="Products">Products</option>
                      <option value="Restaurants">Restaurants</option>
@@ -57,19 +56,23 @@
             <div class="form-group">
                <label>Category</label>
                <div class="col-sm-10">
-               <select class="form-control" id="category" name="idCategory">
-              <option value="1">subcategory</option>
+               <select class="form-control select2" id="category" name="idCategory">
+               <option selected></option>
+                  @foreach($categories as $cat)
+                     <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+                  @endforeach
                   </select>
                </div>
             </div>
             <div class="form-group">
                <label>Subcategory</label>
                <div class="col-sm-10">
-                  <input type="text" class="form-control"placeholder="subcategory"name="subcategory"/>
+                  <input type="text" class="form-control"placeholder="subcategory" name="subcategory"/>
                </div>
             </div>
-            <div>
-               <button class="btn btn-primary " type="submit">Add Subcategories</button>
+            <div class="modal-footer justify-content-between">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button class="btn btn-info float-right" type="submit">Add Subcategories</button>
             </div>
             {!!Form::close()!!}
          </div>

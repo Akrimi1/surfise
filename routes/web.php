@@ -138,21 +138,19 @@ Route::resource('restaurants/admin', RestaurantsController::class)->except('inde
 Route::get('restaurants/admin/{id}', [RestaurantsController::class, 'edit']);
 
 
+Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
+Route::resource('vendors/admin', VendorsController::class)->except('index');
+Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
+
 Route::get('subcategories/admin', [SubCategoriesController::class, 'indexadmin']);
 Route::resource('subcategories/admin', SubCategoriesController::class)->except('index');
 Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
 
 
-Route::get('vendors/admin', [VendorsController::class, 'indexadmin']);
-Route::resource('vendors/admin', VendorsController::class)->except('index');
-Route::get('vendors/admin.edit', [VendorsController::class, 'edit']);
-
-
-
 
 });
-
-
+//To modify
+Route::get('content_field', [CategoriesController::class, 'indexadmin'])->name('content_field');
 
 Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
 Route::get('/categoryByBusinessType', [VendorsController::class, 'categoryByBusinessType'])->name('categoryByBusinessType');

@@ -1,37 +1,118 @@
 @extends('layouts.admin')
 @section('title', 'Create Equipment')
 @section('content')
-@push('subcat-ajax')
+<script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
+
 <script>
    $(document).ready(function(){
-      $('#category').change(function(e){
-        
+      $('#product_type').change(function(e){                
          e.preventDefault();
-         $('#subcategory').empty();
-         var idcat = $('#category').find(":selected").val();
-   
-        
+         $('#categories').empty();
+         var btype = $('#product_type').find(":selected").text();        
          $.ajax(
          {
-            url: "/ajaxTest",
+            url: "{{route('categoryByBusinessType')}}",
             type: "GET",
          
-            data: { id: idcat},
+            data: { type: btype},
             success: function (result) {
                for (var i = 0; i < result.length; i++) {
-                  var select = document.getElementById("subcategory");
+                  var select = document.getElementById("categories");
+                  var option = document.createElement("option");
+                  option.text = result[i].category;
+                  option.value = result[i].id;
+                  select.add(option);
+               }  
+               var id = $('#categories').find(":selected").val();   
+               myFunction(id) ;
+            },
+            error: function () {
+               $('#categories').empty();
+            }
+         });     
+      });
+      $('#categories').change(function(e){                
+         e.preventDefault();
+         var id = $('#categories').find(":selected").val();   
+         myFunction(id) ;
+      });
+      
+      function myFunction(id) {
+         $('#subcategories').empty();            
+         $.ajax(
+         { 
+            url: "{{route('SubCategoryByCategory')}}",
+            type: "GET",
+         
+            data: { id: id},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("subcategories");
                   var option = document.createElement("option");
                   option.text = result[i].subcategory;
                   option.value = result[i].id;
                   select.add(option);
                }
             }
-         }); 
+         });
+   }
+
+
+   $('#product_type1').change(function(e){                
+         e.preventDefault();
+         $('#categories1').empty();
+         var btype = $('#product_type1').find(":selected").text();        
+         $.ajax(
+         {
+            url: "{{route('categoryByBusinessType')}}",
+            type: "GET",
+         
+            data: { type: btype},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("categories1");
+                  var option = document.createElement("option");
+                  option.text = result[i].category;
+                  option.value = result[i].id;
+                  select.add(option);
+               }  
+               var id = $('#categories1').find(":selected").val();   
+               myFunction1(id) ;
+            },
+            error: function () {
+               $('#categories1').empty();
+            }
+         });     
       });
+      $('#categories1').change(function(e){                
+         e.preventDefault();
+         var id = $('#categories1').find(":selected").val();   
+         myFunction1(id) ;
+      });
+      
+      function myFunction1(id) {
+         $('#subcategories1').empty();            
+         $.ajax(
+         { 
+            url: "{{route('SubCategoryByCategory')}}",
+            type: "GET",
+         
+            data: { id: id},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("subcategories1");
+                  var option = document.createElement("option");
+                  option.text = result[i].subcategory;
+                  option.value = result[i].id;
+                  select.add(option);
+               }
+            }
+         });
+   }
    });
         
 </script>
-@endpush
+
 <section class="content-header">
    <div class="container-fluid">
       <div class="row mb-2">
@@ -61,7 +142,8 @@
                <div class="col-md-3">
                   <div class="form-group">
                      <label>Product type</label>
-                     <select name="product_type" class="form-control select2" style="width: 100%;">
+                     <select name="product_type" id="product_type1" class="form-control select2" style="width: 100%;">
+                     <option selected></option>
                         @foreach($product_types as $pt)
                         <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
                         @endforeach
@@ -69,7 +151,8 @@
                   </div>
                   <div class="form-group">
                      <label>Add to category</label>
-                     <select name="idCategory"  id="category" class="form-control select2" style="width: 100%;">
+                     <select name="idCategory"  id="categories1" class="form-control select2" style="width: 100%;">
+                     
                         @foreach($categories as $c)
                         <option value="{{ $c->id }}">{{ $c->category }}</option>
                         @endforeach
@@ -78,7 +161,7 @@
                   </div>
                   <div class="form-group">
                      <label>Subcategory</label>
-                     <select name="idSubCategory"  id="subcategory" class="form-control select2" style="width: 100%;">
+                     <select name="idSubCategory"  id="subcategories1" class="form-control select2" style="width: 100%;">
                         <option selected="selected"></option>
                      </select>
                      <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
@@ -102,9 +185,7 @@
       <div class="card card-default">
          <div class="card-header">
             <h3 class="card-title"> Add New Product</h3>
-            <div class="card-tools">
-               <a href="#" class="btn btn-info">Add Product to Existing Business</a>
-            </div>
+            
          </div>
          <div class="card-body">
             {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
@@ -112,7 +193,8 @@
                <div class="col-md-3">
                   <div class="form-group">
                      <label>Product type</label>
-                     <select name="product_type" class="form-control select2" style="width: 100%;">
+                     <select name="product_type"  id="product_type" class="form-control select2" style="width: 100%;">
+                     <option selected></option>
                         @foreach($product_types as $pt)
                         <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
                         @endforeach
@@ -120,7 +202,7 @@
                   </div>
                   <div class="form-group">
                      <label>Add to category</label>
-                     <select name="idCategory" class="form-control select2" style="width: 100%;">
+                     <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
                         @foreach($categories as $c)
                         <option value="{{ $c->id }}">{{ $c->category }}</option>
                         @endforeach
@@ -129,7 +211,7 @@
                   </div>
                   <div class="form-group">
                      <label>Subcategory</label>
-                     <select name="idSubCategory" class="form-control select2" style="width: 100%;">
+                     <select name="idSubCategory" id="subcategories" class="form-control select2" style="width: 100%;">
                         <option selected="selected"></option>
                      </select>
                      <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
@@ -184,7 +266,9 @@
                
             </div>
             <div>
-               <button class="btn btn-success float-right" type="submit">Add +</button>
+            
+               <button class="btn btn-info float-right" type="submit">Add Product to Existing Business</button>
+            
             </div>
             {!!Form::close()!!}
          </div>
@@ -206,10 +290,7 @@
          <div class="modal-body">
             @include('categories/admin.create')
          </div>
-         <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-         </div>
+         
       </div>
    </div>
 </div>
@@ -227,10 +308,7 @@
          <div class="modal-body">
             @include('subcategories/admin.create')
          </div>
-         <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-         </div>
+         
       </div>
    </div>
 </div>

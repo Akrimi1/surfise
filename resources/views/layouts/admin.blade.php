@@ -170,7 +170,7 @@
                         </a>                        
                      </li>                    
                      <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('content_field')}}" class="nav-link">
                            <i class="nav-icon fas fa-tachometer-alt"></i>
                            <p>
                               Add Content Field                              
