@@ -29,17 +29,21 @@ class CategoriesController extends Controller
     public function indexadmin()
     {
         $user_id = Auth::user()->id;
-        $subcategories = Subcategories::orderby('subcategory')->get();
+        $subcategories = SubCategories::orderby('subcategory')->get();
         $product_types = ProductType::orderBy("product_type")->get();
          
         $cat = Categories::orderBy('category')->get();
         if($cat->count() > 50)
             $cat = Categories::orderBy('category')->simplePaginate(50);
-
+        
+        $existant_cat = Categories::latest()->first();
+        
+        
         return view('content_field.index', [
             'categories' => $cat ,
             'subcategories' => $subcategories,
-            'product_types' => $product_types
+            'product_types' => $product_types,
+            'existant_cat' => $existant_cat
              
         ]);
     }
@@ -52,6 +56,8 @@ class CategoriesController extends Controller
     public function create()
     {
         $user_id = Auth::user()->id;
+        $existance_cat = Categories::last();
+        dd($existance_cat);
 
         return view('categories/admin.create');
     }
@@ -70,8 +76,11 @@ class CategoriesController extends Controller
             'category' => 'required'
         ]);
         $category = $request->category;
+        $category_type = $request->type;
         $subcategory = $request->subcategory;
-        $existance_cat = Categories::where(DB::raw('upper(category)'), strtoupper($category))->first();
+        $existance_cat = Categories::where(DB::raw('upper(category)'), '=', strtoupper($category))
+        ->where(DB::raw('upper(type)'), '=', strtoupper($category_type))
+        ->first();
         if($existance_cat != null){
             $category = Categories::find($existance_cat->id);
             if($subcategory != ""){
@@ -81,8 +90,8 @@ class CategoriesController extends Controller
             } 
         }else{
             $cat=new Categories;
-            $cat->type = $request->type;
-            $cat->category = $request->category;               
+            $cat->type = $category_type;
+            $cat->category = $category;               
         $cat->save();
             if($subcategory != ""){
                 $subcat=new SubCategories;

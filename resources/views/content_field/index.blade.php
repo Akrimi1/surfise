@@ -23,8 +23,13 @@
                   <div class="form-group">
                      <label>Select Primary Field of Business</label>
                      <select class="form-control select2" name="type">
+                        @if($existant_cat != null)
+                           <option selected>{{ $existant_cat->type }}</option>
+                        @endif
                         @foreach($product_types as $pt)
-                        <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
+                           @if($pt->product_type != $existant_cat->type)
+                           <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
+                           @endif
                         @endforeach
                      </select>
                   </div>
