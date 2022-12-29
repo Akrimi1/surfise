@@ -51,8 +51,8 @@
 
                      <div class="col-md-4">
                         <select class="form-control select2" id="type" name="business_type">
-                           @foreach($categories as $cat)
-                           <option>{{ $cat->type }}</option>
+                           @foreach($product_types as $pt)
+                           <option>{{ $pt->product_type }}</option>
                            @endforeach
                         </select>
                      </div>
