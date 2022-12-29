@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
-use App\Models\SubCategories;
+use App\Models\Subcategories;
 use App\Models\ProductType;
 use Auth;
 use DB;
@@ -29,7 +29,7 @@ class CategoriesController extends Controller
     public function indexadmin()
     {
         $user_id = Auth::user()->id;
-        $subcategories = SubCategories::orderby('subcategory')->get();
+        $subcategories = Subcategories::orderby('subcategory')->get();
         $product_types = ProductType::orderBy("product_type")->get();
          
         $cat = Categories::orderBy('category')->get();
