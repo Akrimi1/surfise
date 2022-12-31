@@ -25,18 +25,17 @@
                      <select class="form-control select2" name="type">
                         <?php $exist=false ?>
                         @if($existant_cat != null)
-
-                           <option selected>{{ $existant_cat->type }}</option>
-                           <?php $exist=true ?>
+                        <option selected>{{ $existant_cat->type }}</option>
+                        <?php $exist=true ?>
                         @endif
                         @foreach($product_types as $pt)
                         @if($exist == true)
-                           @if($pt->product_type != $existant_cat->type)
-                           <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
-                           @endif
-                           @else
-                           <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
-@endif
+                        @if($pt->product_type != $existant_cat->type)
+                        <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
+                        @endif
+                        @else
+                        <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
+                        @endif
                         @endforeach
                      </select>
                   </div>
@@ -51,11 +50,10 @@
                   <button class="btn btn-info float-right" type="submit">Add +</button>
                </div>
                {!!Form::close()!!}
-<div class="col-md-1"></div>
+               <div class="col-md-1"></div>
                <div class="col-md-8">
                   <div class="row">
-                  <div class="col-md-12"><label>Search Content Fields</label></div>
-
+                     <div class="col-md-12"><label>Search Content Fields</label></div>
                      <div class="col-md-4">
                         <select class="form-control select2" id="type" name="business_type">
                            @foreach($categories as $cat)
@@ -65,80 +63,65 @@
                      </div>
                      <div class="col-md-4">
                         <select class="form-control select2" id="category" name="category">
-                        @foreach($categories as $cat)
+                           @foreach($categories as $cat)
                            <option>{{ $cat->category }}</option>
-                        @endforeach
+                           @endforeach
                         </select>
                      </div>
                      <div class="col-md-4">
                         <select class="form-control select2" id="subcat" name="subcategory">
-                        @foreach($subcategories as $subcat)
+                           @foreach($subcategories as $subcat)
                            <option>{{ $subcat->subcategory }}</option>
                            @endforeach
                         </select>
                      </div>
                   </div>
-               <div class="card-body table-responsive p-0 pt-1">
-                  <table class="table table-hover text-nowrap">
-                     <thead>
-                        <tr>
-                           <th>Business Type</th>                           
-                           <th>Subcategoies</th>
-                           
-                        </tr>
-                     </thead>
-                     <tbody>
-                        @foreach($subcategories as $subcat)
-                        <tr>
-                           <td>{{ $subcat->category->type }}</td>
-                          
-                           
-                            
-                              
+                  <div class="card-body table-responsive p-0 pt-1">
+                     <table class="table table-hover text-nowrap">
+                        <thead>
+                           <tr>
+                              <th>Business Type</th>
+                              <th>Subcategoies</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           @foreach($subcategories as $subcat)
+                           <tr>
+                              <td>{{ $subcat->category->type }}</td>
                               <td>
                                  {{ $subcat->subcategory }}
-                                 </td>
-                                
-                           
-
-                           
-                           <td class="col-md-1">
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <div class="col-md-1">
-                                      <!-- <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>-->
+                              </td>
+                              <td class="col-md-1">
+                                 <div class="col-md-12">
+                                    <div class="row">
+                                       <div class="col-md-1">
+                                          <!-- <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>-->
+                                       </div>
+                                       <!-- <div class="col-md-1">
+                                          <form class="col-md-2" method="post" action="">
+                                             @csrf
+                                             @method('DELETE')
+                                             <button class="btn btn-danger btn-xs">
+                                             <i class="fa fa-trash-o"></i>
+                                             </button>
+                                          </form>
+                                          </div>-->
                                     </div>
-                                   <!-- <div class="col-md-1">
-                                       <form class="col-md-2" method="post" action="">
-                                          @csrf
-                                          @method('DELETE')
-                                          <button class="btn btn-danger btn-xs">
-                                          <i class="fa fa-trash-o"></i>
-                                          </button>
-                                       </form>
-                                    </div>-->
                                  </div>
-                              </div>
-                           </td>
-                        </tr>
-                       @endforeach
-                     </tbody>
-                  </table>
-   
-             
-
+                              </td>
+                           </tr>
+                           @endforeach
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="float-right">
+                     @if($subcategories->count()>=50)
+                     {{ $subcategories->links() }}
+                     @endif
+                  </div>
                </div>
-               <div class="float-right">
-                  @if($subcategories->count()>=50)
-               {{ $subcategories->links() }}
-               @endif
-</div>
-               </div>
-               
             </div>
-            
          </div>
-         
       </div>
    </div>
 </section>

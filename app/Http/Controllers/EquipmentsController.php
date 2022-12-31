@@ -151,6 +151,14 @@ class EquipmentsController extends Controller
         return view('equipments.show')->with('equip', $equipment)
         ->with('categories', $categories);
     }
+    public function showadmin($id, Request $request)
+    {
+       // $user_id = Auth::user()->id;
+        $categories = Categories::where('type', 'Equipments')->orderby('category')->get();
+        $equipment = Equipments::findorfail($id);
+        return view('equipments/admin.show')->with('equip', $equipment)
+        ->with('categories', $categories);
+    }
 
     /**
      * Show the form for editing the specified resource.
