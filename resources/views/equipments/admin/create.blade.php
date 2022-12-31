@@ -2,6 +2,7 @@
 @section('title', 'Create Equipment')
 @section('content')
 <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <script>
    $(document).ready(function(){
@@ -185,8 +186,12 @@
       <div class="card card-default">
          <div class="card-header">
             <h3 class="card-title"> Add New Product</h3>
-            
          </div>
+         <div calss="row">
+            <button class="btn btn-info float-right m-2" type="submit">Add Product to Existing Business</button>
+         </div>
+         
+        
          <div class="card-body">
             {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
             <div class="row">
@@ -201,20 +206,27 @@
                      </select>
                   </div>
                   <div class="form-group">
-                     <label>Add to category</label>
+                     <label>Select Category</label>
+                     <div class="row">
+                     <div class="col-md-10 p-0">
+                        
                      <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
-                        @foreach($categories as $c)
-                        <option value="{{ $c->id }}">{{ $c->category }}</option>
-                        @endforeach
                      </select>
-                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>
+</div>
+<div class="col-md-2 p-0">
+                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a></div>    
+</div>
                   </div>
                   <div class="form-group">
-                     <label>Subcategory</label>
-                     <select name="idSubCategory" id="subcategories" class="form-control select2" style="width: 100%;">
-                        <option selected="selected"></option>
-                     </select>
-                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
+                     <label>Select Subcategory</label>
+                     <div class="row">
+                     <div class="col-md-10 p-0">
+                     <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
+                     </select></div>
+                     <div class="col-md-2 p-0">
+                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
+</div>
+</div>
                   </div>
                </div>
                
@@ -265,11 +277,13 @@
                   
                
             </div>
-            <div>
-            
-               <button class="btn btn-info float-right" type="submit">Add Product to Existing Business</button>
-            
+<hr/>
+            <div class="row float-right">
+               <div class="from-group" >
+                  <button class="btn btn-success">Add +</button>
+               </div>
             </div>
+           
             {!!Form::close()!!}
          </div>
       </div>

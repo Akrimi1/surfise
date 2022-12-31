@@ -16,7 +16,7 @@ class CreateEquipmentsTable extends Migration
         Schema::create('equipments', function (Blueprint $table) {
             $table->increments('id');
             
-            //$table->integer("idVendor")->unsigned()->nullable();
+            $table->integer("idVendor")->unsigned()->nullable();
             $table->integer("idCategory")->unsigned()->nullable();
             $table->integer("idSubCategory")->unsigned()->nullable();
             $table->string("product_type")->nullable();
@@ -27,7 +27,7 @@ class CreateEquipmentsTable extends Migration
             $table->text("description")->nullable();
             $table->timestamps();
 
-            //$table->foreign('idVendor')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('idVendor')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('idCategory')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('idSubCategory')->references('id')->on('subcategories')->onDelete('cascade')->onUpdate('cascade');
 

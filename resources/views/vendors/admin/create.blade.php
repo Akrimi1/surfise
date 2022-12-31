@@ -2,6 +2,7 @@
 @section('title', 'Create Equipment')
 @section('content')
 <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script>
    $(document).ready(function(){
       $('#business_type').change(function(e){        
@@ -85,15 +86,26 @@
                   </div>
                   <div class="form-group">
                      <label>Select Category</label>
+                     <div class="row">
+                     <div class="col-md-10 p-0">
+                        
                      <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
                      </select>
-                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" >Add Category</a>
+</div>
+<div class="col-md-2 p-0">
+                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a></div>    
+</div>
                   </div>
                   <div class="form-group">
                      <label>Select Subcategory</label>
+                     <div class="row">
+                     <div class="col-md-10 p-0">
                      <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
-                     </select>
-                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link">Add Subcategory</a>
+                     </select></div>
+                     <div class="col-md-2 p-0">
+                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
+</div>
+</div>
                   </div>
                </div>
                <div class="col-md-3">

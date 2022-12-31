@@ -14,7 +14,7 @@ class Equipments extends Model
     public $fillable = [
         'idCategory',
         'idSubCategory',
-        //'idVendor',
+        'idVendor',
         'product_type',
         'product_name',
         'brand_name',
@@ -44,10 +44,8 @@ class Equipments extends Model
     public function subcategory(){
         return $this->belongsTo(Subcategories::class, 'idSubCategory');
     }
-
-    /*
     public function vendor(){
         return $this->belongsTo(Vendors::class, 'idVendor');
-    }*/
+    }
 
 }

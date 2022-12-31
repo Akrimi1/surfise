@@ -194,10 +194,10 @@
                         </a>                        
                      </li>                    
                      <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ url('/equipments/admin') }}" class="nav-link">
                            <i class="nav-icon fas fa-tachometer-alt"></i>
                            <p>
-                             Brand/Product Library                       
+                             Brand/Product Library                      
                            </p>
                         </a>                        
                      </li>                    
