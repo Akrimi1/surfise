@@ -83,25 +83,20 @@
                      <thead>
                         <tr>
                            <th>Business Type</th>                           
-                           <th>Subcategoies</th>
+                           <th>Categoies</th>
                            
                         </tr>
                      </thead>
                      <tbody>
-                        @foreach($subcategories as $subcat)
+                        @foreach($categories as $cat)
                         <tr>
-                           <td>{{ $subcat->category->type }}</td>
-                          
-                           
-                            
-                              
+                           <td>{{ $cat->type }}</td>
                               <td>
-                                 {{ $subcat->subcategory }}
-                                 </td>
-                                
-                           
+                              
+                             <a href="{{ route('categories.show', $cat->id) }}" >
+                             {{ $cat->category }}
+                                  </td>
 
-                           
                            <td class="col-md-1">
                               <div class="col-md-12">
                                  <div class="row">

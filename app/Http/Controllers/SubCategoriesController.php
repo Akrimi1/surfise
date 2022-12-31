@@ -139,8 +139,8 @@ class SubCategoriesController extends Controller
         $subcat=SubCategories::find($id);
         $subcat->delete();
 
-        return redirect('subcategories/admin')
-            ->with('success', 'subcategories deleted successfully');
+        return back()->with('message', 'subcategories deleted successfully');
+   
     }
     public function categorySelect(Request $request)
     {

@@ -48,6 +48,8 @@ class CategoriesController extends Controller
         ]);
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -57,8 +59,7 @@ class CategoriesController extends Controller
     {
         $user_id = Auth::user()->id;
         $existance_cat = Categories::last();
-        dd($existance_cat);
-
+       // dd($existance_cat);
         return view('categories/admin.create');
     }
 
@@ -102,16 +103,21 @@ class CategoriesController extends Controller
         return back()->with('message', 'category added Successful !');
     }
 
-    /**
+   /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-       //
+       // $user_id = Auth::user()->id;
+        $category = Categories::find($id);
+        $subcategories = $category->subcategories;
+        return view('content_field.show')->with('subcategories', $subcategories);
+       
     }
+
 
     /**
      * Show the form for editing the specified resource.
