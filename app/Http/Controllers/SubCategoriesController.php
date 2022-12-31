@@ -70,7 +70,7 @@ class SubCategoriesController extends Controller
         $subcat=new Subcategories;
         $subcat->idCategory = $request->idCategory;
         $subcat->subcategory = $request->subcategory;
-       dd($subcat);
+       
         $subcat->save();
      
         return back()->with('message', 'subcategory added Successful !');
