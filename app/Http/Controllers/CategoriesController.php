@@ -29,15 +29,15 @@ class CategoriesController extends Controller
     public function indexadmin()
     {
         $user_id = Auth::user()->id;
-        $subcategories = Subcategories::orderby('subcategory')->get();
         $product_types = ProductType::orderBy("product_type")->get();
-         
         $cat = Categories::orderBy('category')->get();
-        if($cat->count() > 50)
-            $cat = Categories::orderBy('category')->simplePaginate(50);
+        $subcategories = Subcategories::orderby('subcategory')->get();
+
+        if($subcategories->count() > 50)
+            $subcategories = Subcategories::orderBy('subcategory')->simplePaginate(50);
         
         $existant_cat = Categories::latest()->first();
-        
+       
         
         return view('content_field.index', [
             'categories' => $cat ,

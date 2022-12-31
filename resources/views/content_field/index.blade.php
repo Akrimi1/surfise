@@ -82,23 +82,26 @@
                   <table class="table table-hover text-nowrap">
                      <thead>
                         <tr>
-                           <th>Business Type</th>
-                           <th>Categories</th>
+                           <th>Business Type</th>                           
                            <th>Subcategoies</th>
                            
                         </tr>
                      </thead>
                      <tbody>
-                        @foreach($categories as $cat)
+                        @foreach($subcategories as $subcat)
                         <tr>
-
-                           <td>{{ $cat->type }}</td>
-                           <td>{{ $cat->category }}</td>
-                           <td>
-                              @foreach($cat->subcategories as $subcat)
+                           <td>{{ $subcat->category->type }}</td>
+                          
+                           
+                            
+                              
+                              <td>
                                  {{ $subcat->subcategory }}
-                              @endforeach
-                           </td>
+                                 </td>
+                                
+                           
+
+                           
                            <td class="col-md-1">
                               <div class="col-md-12">
                                  <div class="row">
@@ -126,8 +129,8 @@
 
                </div>
                <div class="float-right">
-                  @if($categories->count()>=50)
-               {{ $categories->links() }}
+                  @if($subcategories->count()>=50)
+               {{ $subcategories->links() }}
                @endif
 </div>
                </div>
