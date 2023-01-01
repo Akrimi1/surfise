@@ -73,6 +73,7 @@
             <h3 class="card-title"> Profile page</h3>
          </div>
          <div class="card-body">
+         {!! Form::open(['route'=>'vendors.store', 'files' => true]) !!}
             <div class="row">
                <div class="col-md-3">
                   <div class="form-group">
@@ -213,8 +214,10 @@
                </div>
             </div>
          </div>
+         {!!Form::close()!!}
       </div>
 </section>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
