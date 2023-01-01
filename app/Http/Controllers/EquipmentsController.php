@@ -40,8 +40,9 @@ class EquipmentsController extends Controller
     public function indexadmin()
     { 
         $user_id = Auth::user()->id;
-       
+       //yetbadel vendor
         $equip = Equipments::orderBy('product_name')->get();
+
         return view('equipments/admin.index', [
             'equipments'=>$equip
           
@@ -151,14 +152,16 @@ class EquipmentsController extends Controller
         return view('equipments.show')->with('equip', $equipment)
         ->with('categories', $categories);
     }
+
+
     public function showadmin($id, Request $request)
     {
-       // $user_id = Auth::user()->id;
-        $categories = Categories::where('type', 'Equipments')->orderby('category')->get();
-        $equipment = Equipments::findorfail($id);
-        return view('equipments/admin.show')->with('equip', $equipment)
-        ->with('categories', $categories);
+       
+        return view('equipments/admin.show');           
     }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -190,12 +193,13 @@ class EquipmentsController extends Controller
 
             //dd($subList);
         //}
-        return view('equipments/admin.edit')->with('vendors', $vendors)
-        ->with('categories', $categories)
-        ->with('subCat',$subCat)
-        ->with('subSelected',$subSelected)
-        ->with('equip',$equip)
-        ->with('scat', $scat);
+        return view('equipments/admin.edit')
+            ->with('vendors', $vendors)
+            ->with('categories', $categories)
+            ->with('subCat',$subCat)
+            ->with('subSelected',$subSelected)
+            ->with('equip',$equip)
+            ->with('scat', $scat);
        
     }
 
@@ -239,11 +243,13 @@ class EquipmentsController extends Controller
 
 
         $equip=Equipments::find($id);
+
         $equip->delete();
 
         return redirect('equipments/admin')
             ->with('success', 'equipments deleted successfully');
     }
+
     public function ajaxTest(Request $request)
     {
 

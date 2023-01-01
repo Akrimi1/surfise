@@ -37,7 +37,7 @@
         <h3><i class="fa fa-angle-right"></i> Equipment management</h3>
         <!-- BASIC FORM ELELEMNTS -->
        
-        <form method="post" class="form-horizontal style-form" action="{{ route('equipments.update', $equip->id) }}">
+        <form method="post" class="form-horizontal style-form" action="{{-- {{ route('equipments.update', $equip->id) }} --}}">
         @method('PATCH') 
             @csrf
         <div class="row mt">
@@ -50,9 +50,9 @@
                <div class="col-sm-10">
                   <select class="form-control"  
                      name="idVendor">
-                     @foreach($vendors as $v)
-                     <option value="{{ $v->id }}">{{ $v->vendor_name }}</option>
-                     @endforeach
+                     
+                     <option value=""></option>
+                    
                   </select>
                </div>
             </div>
@@ -66,7 +66,7 @@
                class="form-control"
                placeholder="idVendor"
                readonly
-               value="{{ $v->vendor_name }}"
+               value="{{-- {{ $v->vendor_name }} --}}"
                />
          </div>
       </div>
@@ -79,8 +79,8 @@
                      id="category"
                      name="idCategory">
                      @foreach($categories as $c)
-                     <option value="{{ $c->id }}">{{ $c->category }}</option>
-                     <option style="display:none">{{ $c->id }}</option>
+                     <option value="{{-- {{ $c->id }} --}}">{{-- {{ $c->category }} --}}</option>
+                     <option style="display:none">{{-- {{ $c->id }} --}}</option>
                      @endforeach
                   </select>
                </div>
@@ -94,7 +94,7 @@
                type="text"
                class="form-control"
                readonly
-               value="{{ $c->category }}"
+               value="{{-- {{ $c->category }} --}}"
                />
          </div>
       </div>
@@ -106,10 +106,10 @@
                   <select class="form-control"  
                      name="subcategory"
                      id="subcategory">
-                     <option value="{{ $subSelected }}" selected>{{ $subSelected->subcategory }}</option> 
+                     <option value="{{-- {{ $subSelected }} --}}" selected>{{-- {{ $subSelected->subcategory }} --}}</option> 
                      @foreach($subCat as $s)
                         @while($s->subcategory != $subSelected->subcategory)
-                        <option value="{{ $s->subcategory }}">{{  $s->subcategory }}</option> 
+                        <option value="{{-- {{ $s->subcategory }} --}}">{{-- {{  $s->subcategory }} --}}</option> 
                         @endwhile
                      @endforeach            
                   </select>
@@ -128,7 +128,7 @@
                class="form-control"
                placeholder="Referance"
                name="ref"
-               value="{{ $equip->ref }}"
+               value="{{-- {{ $equip->ref }} --}}"
                />
          </div>
       </div>
@@ -140,7 +140,7 @@
                class="form-control"
                placeholder="name"
                name="name"
-               value="{{ $equip->name }}"
+               value="{{-- {{ $equip->name }} --}}"
                />
          </div>
       </div>
@@ -152,7 +152,7 @@
                class="form-control"
                placeholder="type"
                name="type"
-               value="{{ $equip->type }}"
+               value="{{-- {{ $equip->type }} --}}"
                />
          </div>
       </div>
@@ -168,7 +168,7 @@
                cols="30"
                rows="10"
                name="description"      
-               >{{ $equip->description }}</textarea>
+               >{{-- {{ $equip->description }} --}}</textarea>
          </div>
       </div>
       <div class="form-group">
@@ -183,7 +183,7 @@
                cols="30"
                rows="10"
                name="details"
-               >{{ $equip->details }}</textarea>
+               >{{-- {{ $equip->details }} --}}</textarea>
          </div>
       </div>
       <div class="form-group">
@@ -193,7 +193,7 @@
                <div class="col-sm-10">
                   <select class="form-control"  
                      name="rating">
-                     <option value="{{ $equip->rating }}" selected>{{ $equip->rating }}</option>
+                     <option value="{{-- {{ $equip->rating }} --}}" selected>{{-- {{ $equip->rating }} --}}</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>

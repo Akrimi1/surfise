@@ -76,49 +76,56 @@
                         </select>
                      </div>
                   </div>
-                  <div class="card-body table-responsive p-0 pt-1">
-                     <table class="table table-hover text-nowrap">
-                        <thead>
-                           <tr>
-                              <th>Business Type</th>
-                              <th>Subcategoies</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           @foreach($subcategories as $subcat)
-                           <tr>
-                              <td>{{ $subcat->category->type }}</td>
+               <div class="card-body table-responsive p-0 pt-1">
+                  <table class="table table-hover text-nowrap">
+                     <thead>
+                        <tr>
+                           <th>Business Type</th>                           
+                           <th>Categoies</th>
+                           
+                        </tr>
+                     </thead>
+                     <tbody>
+                        @foreach($categories as $cat)
+                        <tr>
+                           <td>{{ $cat->type }}</td>
                               <td>
-                                 {{ $subcat->subcategory }}
-                              </td>
-                              <td class="col-md-1">
-                                 <div class="col-md-12">
-                                    <div class="row">
-                                       <div class="col-md-1">
-                                          <!-- <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>-->
-                                       </div>
-                                       <!-- <div class="col-md-1">
-                                          <form class="col-md-2" method="post" action="">
-                                             @csrf
-                                             @method('DELETE')
-                                             <button class="btn btn-danger btn-xs">
-                                             <i class="fa fa-trash-o"></i>
-                                             </button>
-                                          </form>
-                                          </div>-->
+                              
+                             <a href="{{ route('categories.show', $cat->id) }}" >
+                             {{ $cat->category }}
+                                  </td>
+
+                           <td class="col-md-1">
+                              <div class="col-md-12">
+                                 <div class="row">
+                                    <div class="col-md-1">
+                                      <!-- <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>-->
                                     </div>
+                                   <!-- <div class="col-md-1">
+                                       <form class="col-md-2" method="post" action="">
+                                          @csrf
+                                          @method('DELETE')
+                                          <button class="btn btn-danger btn-xs">
+                                          <i class="fa fa-trash-o"></i>
+                                          </button>
+                                       </form>
+                                    </div>-->
                                  </div>
-                              </td>
-                           </tr>
-                           @endforeach
-                        </tbody>
-                     </table>
-                  </div>
-                  <div class="float-right">
-                     @if($subcategories->count()>=50)
-                     {{ $subcategories->links() }}
-                     @endif
-                  </div>
+                              </div>
+                           </td>
+                        </tr>
+                       @endforeach
+                     </tbody>
+                  </table>
+   
+             
+
+               </div>
+               <div class="float-right">
+                  @if($subcategories->count()>=50)
+               {{ $subcategories->links() }}
+               @endif
+</div>
                </div>
             </div>
          </div>

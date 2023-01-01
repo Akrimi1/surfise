@@ -70,7 +70,6 @@
                            </tr>
                         </thead>
                         <tbody>
-                           
                            <tr>
                               <td>Category - subcategory</td>
                               <td>Product name</td>
@@ -117,4 +116,5 @@
       </div>
    </div>
 </section>
+
 @endsection

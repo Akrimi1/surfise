@@ -6,13 +6,7 @@
             <div class="form-group">
                <label>Select type</label>
                <div class="col-sm-10">
-                  <select class="form-control select2" name="type">
-                     <option value="Equipments">Equipments</option>
-                     <option value="Products">Products</option>
-                     <option value="Restaurants">Restaurants</option>
-                     <option value="Services">Services</option>
-                     <option value="Clubs/Gyms">Clubs/Gyms</option>
-                  </select>
+                  <input class="form-control" name="type" id="type" value="" readonly>                  
                </div>
             </div>
             <div class="form-group">
@@ -31,3 +25,13 @@
          </div>
       </div>
       <!-- col-lg-12-->
+      <script>
+          $(document).ready(function(){
+            $('a#addCat').click(function(){   
+               var current_catType = document.getElementById('type');
+         var business_type = $('#business_type').find(":selected").text();
+               current_catType.value = business_type
+            });
+         })
+      </script>
+      

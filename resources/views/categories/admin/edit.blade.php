@@ -1,18 +1,11 @@
-@extends('layouts.admin')
-@section('title', 'Edit Admin Categories')
-@section('content')
-<section class="wrapper">
-   <h3><i class="fa fa-angle-right"></i> categories management</h3>
-   <!-- BASIC FORM ELELEMNTS -->
-   <form method="post" action="{{ route('categories.update', $cat->id) }}">
+   <form method="post" action="{{ route('categories.update', $category->id) }}">
         @method('PATCH') 
             @csrf
    <div class="row mt">
    <div class="col-lg-12">
       <div class="form-panel">
          <div class="form-group">
-            <label class="col-sm-2 col-sm-2 control-label"
-               >category</label
+            <label>Change Category</label
                >
             <div class="col-sm-10">
                <input
@@ -20,11 +13,13 @@
                   class="form-control"
                   placeholder="Category Name"
                   name="category"
-                  value="{{ $cat->category }}"
+                  value="{{ $category->category }}"
                   />
             </div>
-            <div>
-               <button class="btn btn-primary " type="submit">Update categories</button>
+</div>
+            <div class="modal-footer justify-content-between">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button class="btn btn-info float-right" type="submit">Update Category</button>
             </div>
             {!!Form::close()!!}
          </div>
@@ -32,5 +27,3 @@
       <!-- col-lg-12-->
    </div>
    </form> 
-</section>
-@endsection

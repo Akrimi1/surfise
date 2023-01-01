@@ -64,6 +64,7 @@
                      </div>
                         </div>
                         <ol>
+
                            @foreach($equipments as $equip)
                            @if ($equip->brand_name != null)
                               <li>{{ $equip->brand_name }}</li>

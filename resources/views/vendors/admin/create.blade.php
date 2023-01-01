@@ -93,7 +93,7 @@
                      </select>
 </div>
 <div class="col-md-2 p-0">
-                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a></div>    
+                     <a href="" data-toggle="modal" id="addCat" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a></div>    
 </div>
                   </div>
                   <div class="form-group">
@@ -238,7 +238,7 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h4 class="modal-title">Default Modal</h4>
+            <h4 class="modal-title">Add Category</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
