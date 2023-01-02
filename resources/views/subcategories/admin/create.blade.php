@@ -44,30 +44,22 @@
             <div class="form-group">
                <label>Category Type</label >
                <div class="col-sm-10">
-                  <select class="form-control select2" id="categoryType" name="type">
-                     <option value="Equipments">Equipments</option>
-                     <option value="Products">Products</option>
-                     <option value="Restaurants">Restaurants</option>
-                     <option value="Services">Services</option>
-                     <option value="Clubs/Gyms">Clubs/Gyms</option>
-                  </select>
+                  <input type="text" class="form-control" id=categoryType name="type" value readonly/>
                </div>
             </div>
             <div class="form-group">
                <label>Category</label>
                <div class="col-sm-10">
-               <select class="form-control select2" id="category" name="idCategory">
-               <option selected></option>
-                  @foreach($categories as $cat)
-                     <option value="{{ $cat->id }}">{{ $cat->category }}</option>
-                  @endforeach
-                  </select>
+               <input type="hidden" class="form-control" id="idCategory" value name="idCategory"/>
+
+               <input type="text" class="form-control" id=category  value readonly/>
+               
                </div>
             </div>
             <div class="form-group">
                <label>Subcategory</label>
                <div class="col-sm-10">
-                  <input type="text" class="form-control"placeholder="subcategory" name="subcategory"/>
+                  <input type="text" class="form-control" placeholder="subcategory" id="subcategoryy" name="subcategory"/>
                </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -83,3 +75,18 @@
    <!-- INLINE FORM ELELEMNTS -->
    <!-- /row -->
 </section>
+<script>
+          $(document).ready(function(){
+            $('a#addsubCat').click(function(){   
+               var current_cat = document.getElementById('category');
+               var current_cattype = document.getElementById('categoryType');
+               var current_catid = document.getElementById('idCategory');
+               var categories = $('#categories').find(":selected").text();
+               var categories_val = $('#categories').find(":selected").val();
+               var business_type = $('#business_type').find(":selected").text();
+               current_cat.value = categories;
+               current_cattype.value = business_type;
+               current_catid.value = categories_val;
+            });
+         })
+      </script>

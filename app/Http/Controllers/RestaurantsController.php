@@ -117,7 +117,6 @@ class RestaurantsController extends Controller
         }
         if($request->hasfile('restaurant_video')){
             $files = $request->file('restaurant_video');
-            //dd($file);
             foreach($files as $file){
                 $vid= new VideosResto;
                 $filename = date('YmdHi').$file->getClientOriginalName();

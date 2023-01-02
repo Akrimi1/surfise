@@ -100,8 +100,7 @@ class VendorsController extends Controller
         $vendor->phone = $request->phone;
         $vendor->description = $request->description;
         $vendor->workingDays = $request->workingDays;
-        $vendor->workingHours = $request->workingHours;
-        $vendor->logo = $request->logo;
+        $vendor->workingHours = $workingHours;
        
         
         if($request->hasfile('vendor_logo')){
@@ -134,7 +133,7 @@ class VendorsController extends Controller
             }
         }
       
-        return redirect('vendors/admin/create')->with('success','vendors has been added');
+        return redirect('vendors/admin/create')->with('success','Profile has been added');
     }
 
     /**
@@ -210,7 +209,7 @@ class VendorsController extends Controller
         $vendor->update();
  
          return redirect('vendors/admin')
-             ->with('success', 'vendors updated successfully');
+             ->with('success', 'Profile updated successfully');
     }
 
     /**
@@ -227,7 +226,7 @@ class VendorsController extends Controller
         $vendor->delete();
 
         return redirect('vendors/admin')
-            ->with('success', 'vendors deleted successfully');
+            ->with('success', 'Profile has been deleted successfully');
     }
     public function categoryByBusinessType(Request $request)
     {

@@ -23,7 +23,7 @@ class CreateVendorsTable extends Migration
             $table->string('zipconde')->nullable();
             $table->string('state')->nullable();
             $table->bigInteger('phone')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->text('workingDays')->nullable();
             $table->text('workingHours')->nullable();
             $table->text('logo')->nullable();

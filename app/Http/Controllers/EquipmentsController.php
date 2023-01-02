@@ -65,14 +65,12 @@ class EquipmentsController extends Controller
         $product_types = ProductType::orderBy('product_type')->get();
        
         if ($request->get("scat") != null){
-           // dd("test");
             $categorie = Categories::find(intval($request->get("id")));//change where type = equipments
             $subCat = $categorie->subcategories;
             $subList = [];
             foreach($subCat as $s)
                 $subList[] = $s;
 
-            //dd($subList);
         }
         return view('equipments/admin.create')
             ->with('vendors', $vendors)
@@ -110,8 +108,8 @@ class EquipmentsController extends Controller
         }
         $equip=new Equipments;
         $equip->idCategory = $request->idCategory;
-        $equip->idSubCategory = $request->idSubCategory;
-       // $equip->idVendor = $request->idVendor;
+        $equip->idSubCategory = $request->idSubcategory;
+        $equip->idVendor = $request->idVendor;
         $equip->product_type = $request->product_type;
         $equip->product_name = $request->product_name;
         $equip->brand_name = $request->brand_name;
@@ -121,9 +119,8 @@ class EquipmentsController extends Controller
         $equip->save();
 
         
-        if($request->hasfile('equip_image')){
-            $files = $request->file('equip_image');
-            //dd($file);
+        if($request->hasfile('equip_images')){
+            $files = $request->file('equip_images');
             foreach($files as $file){
                 $img= new Images;
                 $filename = date('YmdHi').$file->getClientOriginalName();
@@ -135,7 +132,20 @@ class EquipmentsController extends Controller
                
             }
         }       
-        return redirect('equipments/admin/create')->with('success','equipments has been added');
+        if($request->hasfile('equip_videos')){
+            $files = $request->file('equip_videos');
+            foreach($files as $file){
+                $vid= new Videos;
+                $filename = date('YmdHi').$file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $file-> move(public_path('videos/equipments'), $filename);               
+                $vid->path= $filename;
+
+                $equip->videos()->save($vid);  
+               
+            }
+        }       
+        return redirect('equipments/admin/create')->with('success','Product has been added successfully!');
     }
 
     /**
@@ -184,14 +194,12 @@ class EquipmentsController extends Controller
         $subCat = "";
         
         //if ($request->get("scat") != null){
-           // dd("test");
             $categorie = Categories::find($id);//change where type = equipments
             $subCat = $categorie->subcategories;
             $subList = [];
             foreach($subCat as $s)
                 $subList[] = $s;
 
-            //dd($subList);
         //}
         return view('equipments/admin.edit')
             ->with('vendors', $vendors)
@@ -228,7 +236,7 @@ class EquipmentsController extends Controller
         $equip->update($request->all());
 
         return redirect('equipments/admin')
-            ->with('success', 'euqipments updated successfully');
+            ->with('success', 'Product has been updated successfully');
     }
 
     /**
@@ -247,7 +255,7 @@ class EquipmentsController extends Controller
         $equip->delete();
 
         return redirect('equipments/admin')
-            ->with('success', 'equipments deleted successfully');
+            ->with('success', 'Product has been deleted successfully');
     }
 
     public function ajaxTest(Request $request)

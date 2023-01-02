@@ -23,10 +23,14 @@
                   option.value = result[i].id;
                   select.add(option);
                }  
-               var id = $('#categories').find(":selected").val();   
+               var id = $('#categories').find(":selected").val();  
                myFunction(id) ;
             }
          });     
+      });
+      $('#categories').change(function(e){ 
+         var id = $('#categories').find(":selected").val(); 
+         myFunction(id) ;
       });
       
       
@@ -51,8 +55,7 @@
                   select.add(option);
                }            
             }
-         });     
-   
+         });        
    }
    });
         
@@ -104,7 +107,7 @@
                      <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
                      </select></div>
                      <div class="col-md-2 p-0">
-                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
+                     <a href="" data-toggle="modal" id="addsubCat" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
 </div>
 </div>
                   </div>
@@ -183,7 +186,7 @@
                      <label for="exampleInputFile">Upload logo</label>
                      <div class="input-group">
                         <div class="custom-file">
-                           <input type="file" class="custom-file-input" name="logo" id="exampleInputFile">
+                           <input type="file" class="custom-file-input" name="vendor_logo" id="exampleInputFile">
                            <label class="custom-file-label" for="exampleInputFile">Upload Logo</label>
                         </div>
                         <div class="input-group-append">
@@ -197,7 +200,7 @@
                      <label for="exampleInputFile">Upload Other Images</label>
                      <div class="input-group">
                         <div class="custom-file">
-                           <input type="file" class="custom-file-input" name="logo" id="exampleInputFile">
+                           <input type="file" class="custom-file-input" name="vendor_images[]" id="exampleInputFile" multiple>
                            <label class="custom-file-label" for="exampleInputFile">Upload Other Images</label>
                         </div>
                         <div class="input-group-append">
@@ -271,7 +274,7 @@
    </div>
 </div>
 <script type="text/javascript">
-   jQuery(document).ready(function(){
+   $(document).ready(function(){
       $('#save').click(function(e){
         
          e.preventDefault();
@@ -281,25 +284,25 @@
          var i=0;
          //$('#subcategory').empty();
          var days = $('select[name^="input_4"]').find(":selected").val();
-         jQuery(".gf-day-dropdown select[name^='input_4']").each(function() {
+         $(".gf-day-dropdown select[name^='input_4']").each(function() {
             workingDay[i] = this.value
             i++
            
          });
          i = 0
-         jQuery(".gf-start-time-dropdown select[name^='input_4']").each(function() {
+         $(".gf-start-time-dropdown select[name^='input_4']").each(function() {
             workingFrom[i] = this.value
             i++
          });
          i = 0
-         jQuery(".gf-end-time-dropdown select[name^='input_4']").each(function() {
+         $(".gf-end-time-dropdown select[name^='input_4']").each(function() {
             workingTo[i] = this.value
             i++
          });
         var wd = document.getElementById("workingDays").value = workingDay
         var wf = document.getElementById("workingFrom").value = workingFrom+","
         var wt = document.getElementById("workingTo").value = workingTo
-        $('#exampleModal').modal('toggle');           
+          
         
       });
    }); 

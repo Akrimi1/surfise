@@ -81,7 +81,7 @@
                      <thead>
                         <tr>
                            <th>Business Type</th>                           
-                           <th>Categoies</th>
+                           <th>Categories</th>
                            
                         </tr>
                      </thead>
@@ -91,25 +91,23 @@
                            <td>{{ $cat->type }}</td>
                               <td>
                               
-                             <a href="{{ route('categories.show', $cat->id) }}" >
+                             <a title="Show Subcategories" href="{{ route('categories.show', $cat->id) }}" >
                              {{ $cat->category }}
                                   </td>
 
                            <td class="col-md-1">
                               <div class="col-md-12">
                                  <div class="row">
-                                    <div class="col-md-1">
-                                      <!-- <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>-->
-                                    </div>
-                                   <!-- <div class="col-md-1">
+                                    
+                                   
                                        <form class="col-md-2" method="post" action="">
                                           @csrf
                                           @method('DELETE')
                                           <button class="btn btn-danger btn-xs">
-                                          <i class="fa fa-trash-o"></i>
+                                          <i class="fa fa-trash"></i>
                                           </button>
                                        </form>
-                                    </div>-->
+                                   
                                  </div>
                               </div>
                            </td>
@@ -132,4 +130,58 @@
       </div>
    </div>
 </section>
+<!--For Filtering-->
+<script>
+   $(document).ready(function(){
+      $('#business_type').change(function(e){        
+         e.preventDefault();
+        
+         var btype = $('#business_type').find(":selected").text();        
+         $.ajax(
+         {
+            url: "{{route('filterByType')}}",
+            type: "GET",
+         
+            data: { type: btype},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("categories");
+                  var option = document.createElement("option");
+                  option.text = result[i].category;
+                  option.value = result[i].id;
+                  select.add(option);
+               }  
+               var id = $('#categories').find(":selected").val();  
+               myFunction(id) ;
+            }
+         });     
+      });
+      
+      function myFunction(id) {
+   
+        
+         $('#subcategories').empty();
+   
+              
+         $.ajax(
+         {
+            url: "{{route('SubCategoryByCategory')}}",
+            type: "GET",
+         
+            data: { id: id},
+            success: function (result) {
+               for (var i = 0; i < result.length; i++) {
+                  var select = document.getElementById("subcategories");
+                  var option = document.createElement("option");
+                  option.text = result[i].subcategory;
+                  option.value = result[i].id;
+                  select.add(option);
+               }            
+            }
+         });        
+   }
+   });
+
+</script>
+<!-- end filtering -->
 @endsection

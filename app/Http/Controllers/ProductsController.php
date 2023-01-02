@@ -61,14 +61,12 @@ class ProductsController extends Controller
         $subCat = "";
        
         if ($request->get("scat") != null){
-           // dd("test");
             $categorie = Categories::find(intval($request->get("id")));//change where type = products
             $subCat = $categorie->subcategories;
             $subList = [];
             foreach($subCat as $s)
                 $subList[] = $s;
 
-            //dd($subList);
         }
         return view('products/admin.create')->with('vendors', $vendors)->with('categories', $categories)->with('subCat',$subCat)->with('scat', $scat);
     }
@@ -119,7 +117,6 @@ class ProductsController extends Controller
         }
         if($request->hasfile('product_video')){
             $files = $request->file('product_video');
-            //dd($file);
             foreach($files as $file){
                 $vid= new VideosProd;
                 $filename = date('YmdHi').$file->getClientOriginalName();
@@ -166,14 +163,12 @@ class ProductsController extends Controller
         $subCat = "";
         
         //if ($request->get("scat") != null){
-           // dd("test");
             $categorie = Categories::find($id);//change where type = products
             $subCat = $categorie->subcategories;
             $subList = [];
             foreach($subCat as $s)
                 $subList[] = $s;
 
-            //dd($subList);
         //}
         return view('products/admin.edit')->with('vendors', $vendors)
         ->with('categories', $categories)

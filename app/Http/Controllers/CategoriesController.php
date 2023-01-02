@@ -59,7 +59,6 @@ class CategoriesController extends Controller
     {
         $user_id = Auth::user()->id;
         $existance_cat = Categories::last();
-       // dd($existance_cat);
         return view('categories/admin.create');
     }
 
@@ -100,7 +99,7 @@ class CategoriesController extends Controller
                 $cat->subcategories()->save($subcat); 
             } 
         }        
-        return back()->with('success', 'category added Successful !');
+        return back()->with('success', 'Content Field has been added Successful !');
     }
 
    /**
@@ -157,7 +156,7 @@ class CategoriesController extends Controller
          $cat->update($request->all());
  
          return redirect('categories/admin')
-             ->with('success', 'categories updated successfully');  
+             ->with('success', 'Content Field has updated successfully');  
     }
 
     /**
@@ -174,7 +173,7 @@ class CategoriesController extends Controller
         $cat->delete();
 
         return redirect('categories/admin')
-            ->with('success', 'categories deleted successfully');
+            ->with('success', 'Content Field has been deleted successfully');
   
     }
 

@@ -4,7 +4,7 @@
             {!! Form::open(['route'=>'categories.store', 'files' => true]) !!}
             
             <div class="form-group">
-               <label>Select type</label>
+               <label>Category type</label>
                <div class="col-sm-10">
                   <input class="form-control" name="type" id="type" value="" readonly>                  
                </div>
@@ -13,8 +13,7 @@
                <label>Category</label
                   >
                <div class="col-sm-10">
-                  <input type="text" class="form-control" placeholder="category" name="category"
-                     />
+                  <input type="text" class="form-control" placeholder="category" name="category"/>
                </div>
             </div>
             <div class="modal-footer justify-content-between">

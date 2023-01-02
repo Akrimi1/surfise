@@ -97,7 +97,11 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <button class="button gf-add-work-hours-row">Add</button>
+                                    <button id="save" class="button gf-add-work-hours-row mb-3">Add another</button>
+                                    <div class="modal-footer justify-content-between float-right">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Add</button>
+            </div>
+
                                  </div>
                               </li>
                            </ul>

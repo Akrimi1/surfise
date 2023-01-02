@@ -6,10 +6,10 @@
 
 <script>
    $(document).ready(function(){
-      $('#product_type').change(function(e){                
+      $('#business_type').change(function(e){                
          e.preventDefault();
          $('#categories').empty();
-         var btype = $('#product_type').find(":selected").text();        
+         var btype = $('#business_type').find(":selected").text();        
          $.ajax(
          {
             url: "{{route('categoryByBusinessType')}}",
@@ -188,7 +188,7 @@
             <h3 class="card-title"> Add New Product</h3>
          </div>
          <div calss="row">
-            <button class="btn btn-info float-right m-2" type="submit">Add Product to Existing Business</button>
+            <button class="btn btn-info float-right m-2" data-toggle="modal" data-target="#modal-vendors">Add Product to Existing Business</button>
          </div>
          
         
@@ -198,7 +198,7 @@
                <div class="col-md-3">
                   <div class="form-group">
                      <label>Product type</label>
-                     <select name="product_type"  id="product_type" class="form-control select2" style="width: 100%;">
+                     <select name="product_type"  id="business_type" class="form-control select2" style="width: 100%;">
                      <option selected></option>
                         @foreach($product_types as $pt)
                         <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
@@ -214,7 +214,7 @@
                      </select>
 </div>
 <div class="col-md-2 p-0">
-                     <a href="" data-toggle="modal" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a></div>    
+                     <a href="" id="addCat" data-toggle="modal" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a></div>    
 </div>
                   </div>
                   <div class="form-group">
@@ -224,7 +224,7 @@
                      <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
                      </select></div>
                      <div class="col-md-2 p-0">
-                     <a href="" data-toggle="modal" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
+                     <a href="" data-toggle="modal" id="addsubCat" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
 </div>
 </div>
                   </div>
@@ -234,6 +234,7 @@
                   <div class="form-group">
                      <label>Brand Name</label>
                      <input name="brand_name" type="text" class="form-control">
+                     <input name="idVendor" id="idVendor" type="hidden" class="form-control">
                   </div>
                   <div class="form-group">
                      <label for="exampleInputFile">Upload logo</label>
@@ -247,12 +248,7 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-12">
-                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea name="description" class="form-control" rows=5 placeholder="Enter Description"></textarea>
-                     </div>
-                  </div>
+                  
                </div>
                
                <div class="col-md-3">
@@ -264,8 +260,20 @@
                      <label for="exampleInputFile">Upload Other Images</label>
                      <div class="input-group">
                         <div class="custom-file">
-                           <input type="file" name="equip_image[]" class="custom-file-input" multiple />
+                           <input type="file" name="equip_images[]" class="custom-file-input" multiple />
                            <label class="custom-file-label" for="exampleInputFile">Upload Other Images</label>
+                        </div>
+                        <div class="input-group-append">
+                           <span class="input-group-text">Upload</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputFile">Upload Videos</label>
+                     <div class="input-group">
+                        <div class="custom-file">
+                           <input type="file" name="equip_videos[]" class="custom-file-input" multiple />
+                           <label class="custom-file-label" for="exampleInputFile">Upload Videos</label>
                         </div>
                         <div class="input-group-append">
                            <span class="input-group-text">Upload</span>
@@ -274,6 +282,14 @@
                   </div>
                   
                </div>
+               <div class="col-md-3"></div>
+               <div class="col-md-3"></div>
+               <div class="col-md-6">
+                     <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" rows=5 placeholder="Enter Description"></textarea>
+                     </div>
+                  </div>
                   
                
             </div>
@@ -326,4 +342,43 @@
       </div>
    </div>
 </div>
+<!--vendors Modal-->
+<div class="modal fade" id="modal-vendors">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Add product to existing business</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class=form-group>
+               <label>Choose from existing business</label>
+               <select class="form-control select2" id="vendors" name="vendors">
+                  <option selected></option>
+                  @foreach($vendors as $v)
+                     <option value="{{ $v->id }}">{{ $v->business_name }}</option>
+                  @endforeach
+               </select>
+            </div>            
+         </div>
+         <div class="modal-footer justify-content-between">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button class="btn btn-info float-right" id="vendors_btn" type="button">Add to </button>
+            </div>
+         
+      </div>
+   </div>
+</div>
+<script>
+   $(document).ready(function(){
+      $('#vendors_btn').click(function(){
+         var id = $('#vendors').find(":selected").val();
+         var idVendor = document.getElementById('idVendor')    
+         idVendor.value = id;
+         $("#modal-vendors").modal('toggle');
+      });
+   });
+</script>
 @endsection

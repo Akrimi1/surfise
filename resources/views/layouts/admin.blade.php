@@ -214,6 +214,9 @@
             </div>
          </aside>
          <div class="content-wrapper">
+            <div>
+             @include('flash-message')
+</div>
             @yield('content')
          </div>
          <footer class="main-footer">

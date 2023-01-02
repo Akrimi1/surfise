@@ -73,7 +73,7 @@ class SubCategoriesController extends Controller
        
         $subcat->save();
      
-        return back()->with('message', 'subcategory added Successful !');
+        return back()->with('message', 'Subcategory has been added Successful !');
     }
 
     /**
@@ -121,7 +121,7 @@ class SubCategoriesController extends Controller
              'subcategory' => 'required'  
          ]);
          $subcat->update($request->all());
-        return back()->with('success', 'subcategories updated successfully !');
+        return back()->with('success', 'Subcategory has been updated successfully!');
          /*return redirect('subcategories/admin')
              ->with('success', 'subcategories updated successfully');  */
     }
@@ -139,7 +139,7 @@ class SubCategoriesController extends Controller
         $subcat=SubCategories::find($id);
         $subcat->delete();
 
-        return back()->with('success', 'subcategories deleted successfully');
+        return back()->with('success', 'Subcategory has been deleted successfully!');
    
     }
     public function categorySelect(Request $request)
