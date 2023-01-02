@@ -139,7 +139,7 @@
          var btype = $('#business_type').find(":selected").text();        
          $.ajax(
          {
-            url: "{{route('filterByType')}}",
+            url: "{{-- {{route('filterByType')}} --}",
             type: "GET",
          
             data: { type: btype},
