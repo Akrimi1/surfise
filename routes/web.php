@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SubCategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RestaurantsController;
+use App\Http\Controllers\TeamController;
 
 
 /*
@@ -105,6 +106,8 @@ Route::get('user_register', function(){
 
 
 
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -147,6 +150,11 @@ Route::resource('subcategories/admin', SubCategoriesController::class)->except('
 Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit']);
 
 
+Route::get('team', [TeamController::class, 'index']);
+Route::resource('team', TeamController::class)->except('index');
+Route::get('team.edit', [TeamController::class, 'edit']);
+
+
 
 });
 //To modify
@@ -155,6 +163,7 @@ Route::get('content_field', [CategoriesController::class, 'indexadmin'])->name('
 Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
 Route::get('/equipments/admin/brands/{id}', [EquipmentsController::class, 'showadmin'])->name('showadmin');
 Route::get('/categoryByBusinessType', [VendorsController::class, 'categoryByBusinessType'])->name('categoryByBusinessType');
+Route::get('/equipmentByType', [EquipmentsController::class, 'equipmentByType'])->name('equipmentByType');
 Route::get('/SubCategoryByCategory', [VendorsController::class, 'SubCategoryByCategory'])->name('SubCategoryByCategory');
 Route::get('/categorySelect', [SubCategoriesController::class, 'categorySelect'])->name('categorySelect');
 
