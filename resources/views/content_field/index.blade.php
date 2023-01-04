@@ -100,7 +100,7 @@
                               <div class="col-md-12">
                                  <div class="row">
                                    
-                                       <form class="col-md-2" method="post" action="">
+                                       <form class="col-md-2" method="post" action="{{ route('categories.destroy', $cat->id) }}">
                                           @csrf
                                           @method('DELETE')
                                           <button class="btn btn-danger btn-xs">
