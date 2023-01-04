@@ -66,6 +66,7 @@
                            </tr>
                         </thead>
                         <tbody>
+                           @if(!$equipments->isEmpty())
                            @foreach($equipments as $equip)
                            <tr data-widget="expandable-table" aria-expanded="false">
                               <td width="20%">{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
@@ -86,7 +87,7 @@
                                          <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>
                                        </div>
                                        <div class="col-md-1">
-                                          <form class="col-md-2" method="post" action="">
+                                          <form class="col-md-2" method="post" action="{{ route('equipments.destroy', $equip->id) }}">
                                              @csrf
                                              @method('DELETE')
                                              <button class="btn btn-danger btn-xs">
@@ -105,7 +106,8 @@
                          </p>
                             </td>
 </tr>
-                           @endforeach                        
+                           @endforeach   
+                           @endif                     
                         </tbody>
                      </table>
                      
