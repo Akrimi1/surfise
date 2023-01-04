@@ -66,19 +66,19 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <?php if(!empty($equipments)) { ?>
+                         
                               
                            @foreach($equipments as $equip)
                            <tr data-widget="expandable-table" aria-expanded="false">
                               <td width="20%">{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
                               @if($equip->product_name != null)
-                                 <td width="20%">Product name</td>
+                                 <td width="20%">{{ $equip->product_name }}</td>
                               @endif
                               @if($equip->brand_name != null)
-                                 <td width="20%">Product name</td>
+                                 <td width="20%">{{$equip->brand_name}}</td>
                               @endif
                               <td width="20%">{{ Str::limit($equip->description,50, "...(show more)") }}</td>
-                              <td width="20%"><img src="{{ asset('images/equipments/'.$equip->images[0]->path) }}" class="img-thumbnail" alt=""></td>
+                              <td width="20%"><img src="{{-- {{ asset('images/equipments/'.$equip->images[0]->path) }} --}}" class="img-thumbnail" alt=""></td>
                               
                              
                               <td width="20%" class="col-md-1">
@@ -108,7 +108,7 @@
                             </td>
 </tr>
                            @endforeach   
-                           <?php } ?>                     
+                                 
                         </tbody>
                      </table>
                      
