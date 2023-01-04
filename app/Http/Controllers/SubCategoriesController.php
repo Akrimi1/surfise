@@ -96,12 +96,12 @@ class SubCategoriesController extends Controller
     public function edit($id)
     {
         $user_id = Auth::user()->id;
-
+        
         $subcat = SubCategories::find($id);
-        return view('subcategories/admin.edit',[
-            'subcat'=>$subcat
-            ]
-        );
+      
+       
+        return view('subcategories/admin.edit')->with('subcat', $subcat);
+       
     }
 
     /**

@@ -77,8 +77,8 @@
             <span aria-hidden="true">&times;</span>
             </button>
          </div>
-         <div class="modal-body">
-            @include('categories/admin.edit')
+         <div class="modal-body">           
+               @include('categories/admin.edit')
          </div>
          
       </div>
@@ -96,7 +96,9 @@
             </button>
          </div>
          <div class="modal-body">
+            @if(!$subcategories->isEmpty())
             @include('subcategories/admin.edit')
+            @endif
          </div>
          
       </div>

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Create Equipment')
+
 @section('content')
 <section class="content-header">
    <div class="container-fluid">
@@ -98,7 +99,7 @@
                            <td class="col-md-1">
                               <div class="col-md-12">
                                  <div class="row">
-                                    
+                                 <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-editsub"><i class="fa fa-pencil"></i></a>
                                    
                                        <form class="col-md-2" method="post" action="">
                                           @csrf
