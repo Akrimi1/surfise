@@ -31,4 +31,7 @@ class Vendors extends Model
     public function images(){
         return $this->hasMany(Images::class, 'idVendor');
     } 
+    public function equipments(){
+        return $this->hasMany(Equipments::class, 'idVendor');
+    } 
 }

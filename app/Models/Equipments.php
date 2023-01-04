@@ -41,9 +41,11 @@ class Equipments extends Model
     public function category(){
         return $this->belongsTo(Categories::class, 'idCategory');
     }
+    
     public function subcategory(){
         return $this->belongsTo(Subcategories::class, 'idSubCategory');
     }
+
     public function vendor(){
         return $this->belongsTo(Vendors::class, 'idVendor');
     }

@@ -164,15 +164,6 @@ class EquipmentsController extends Controller
     }
 
 
-    public function showadmin($id, Request $request)
-    {
-       
-        return view('equipments/admin.show');           
-    }
-
-
-
-
     /**
      * Show the form for editing the specified resource.
      *

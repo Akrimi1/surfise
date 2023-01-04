@@ -45,6 +45,16 @@ class VendorsController extends Controller
             
         ]);
     }
+    public function showadmin($id, Request $request)
+    {
+        $vendor = Vendors::find($id);
+        $equipments = $vendor->equipments()->get();        
+       
+        return view('vendors/admin.show')
+            ->with('vendor', $vendor)
+            ->with('equipments', $equipments);
+    }
+
 
     /**
      * Show the form for creating a new resource.

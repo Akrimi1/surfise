@@ -17,12 +17,12 @@ class ProductTypeSeeder extends Seeder
         DB::table('product_type')->truncate();
  
         $product_type = [
-            ['product_type' => 'Equipments'],
-            ['product_type' => 'Products'],
-            ['product_type' => 'Accessories'],
-            ['product_type' => 'Services'],
-            ['product_type' => 'Restaurants'],
-            ['product_type' => 'Clubs/Gyms'],                                 
+            ['product_type' => 'Equipment'],
+            ['product_type' => 'Product'],
+            ['product_type' => 'Accessorie'],
+            ['product_type' => 'Service'],
+            ['product_type' => 'Restaurant'],
+            ['product_type' => 'Club/Gym'],                                 
         ];
  
         DB::table('product_type')->insert($product_type);

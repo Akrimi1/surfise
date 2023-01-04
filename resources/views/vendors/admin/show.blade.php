@@ -42,7 +42,7 @@
                            <div class="row p-3">
                               <div class="col-md-3">
                            <!--when click on the link it will be changed to "-->
-                           <label>Jay Flex Fitnes 3 Products</label>
+                           <label>{{ $vendor->business_name }} 3 Products</label>
                </div>
                         <div class="col-md-4">
                            <div class="input-group input-group-sm">
@@ -70,12 +70,17 @@
                            </tr>
                         </thead>
                         <tbody>
+                           @foreach($equipments as $equip)
                            <tr>
-                              <td>Category - subcategory</td>
-                              <td>Product name</td>
-                              <td>Product name</td>
-                              <td>Description</td>
-                              <td>image</td>
+                              <td>{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
+                              @if($equip->product_name != null)
+                                 <td>Product name</td>
+                              @endif
+                              @if($equip->brand_name != null)
+                                 <td>Product name</td>
+                              @endif
+                              <td>{{ $equip->description }}</td>
+                              <td><img src="{{ asset('images/equipments/'.$equip->images[0]->path) }}" class="img-thumbnail" alt=""></td>
                               
                               <td>
                                  delete & edit
@@ -98,7 +103,8 @@
                                     </div>
                                  </div>
                               </td>
-                           </tr>                          
+                           </tr>  
+                           @endforeach                        
                         </tbody>
                      </table>
                   </div>

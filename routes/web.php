@@ -153,7 +153,7 @@ Route::get('subcategories/admin.edit', [SubCategoriesController::class, 'edit'])
 Route::get('content_field', [CategoriesController::class, 'indexadmin'])->name('content_field');
 
 Route::get('/ajaxTest', [EquipmentsController::class, 'ajaxTest'])->name('ajaxTest');
-Route::get('/equipments/admin/brands/{id}', [EquipmentsController::class, 'showadmin'])->name('showadmin');
+Route::get('/vendors/admin/brands/{id}', [VendorsController::class, 'showadmin'])->name('showadmin');
 Route::get('/categoryByBusinessType', [VendorsController::class, 'categoryByBusinessType'])->name('categoryByBusinessType');
 Route::get('/SubCategoryByCategory', [VendorsController::class, 'SubCategoryByCategory'])->name('SubCategoryByCategory');
 Route::get('/categorySelect', [SubCategoriesController::class, 'categorySelect'])->name('categorySelect');
