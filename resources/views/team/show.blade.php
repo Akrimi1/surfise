@@ -41,7 +41,7 @@
                            <div class="row p-3">
                               <div class="col-md-3">
                            <!--when click on the link it will be changed to "-->
-                           <label>{{ $user->name }} 3 Products</label>
+                           <label>{{ $user->name }} {{ $number = $vendor->equipments->count() }} @if($number>1) Products @else Product @endif</label>
                </div>
                         <div class="col-md-4 ">
                            <div class="input-group input-group-sm">
@@ -70,7 +70,7 @@
                               
                            @foreach($equipments as $equip)
                            <tr data-widget="expandable-table" aria-expanded="false">
-                              <td width="20%">{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
+                              <td width="20%">@if($equip->category){{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}@endif</td>
                               @if($equip->product_name != null)
                                  <td width="20%">{{ $equip->product_name }}</td>
                               @endif
@@ -78,7 +78,7 @@
                                  <td width="20%">{{$equip->brand_name}}</td>
                               @endif
                               <td width="20%">{{ Str::limit($equip->description,50, "...(show more)") }}</td>
-                              <td width="20%"><img src="{{-- {{ asset('images/equipments/'.$equip->images[0]->path) }} --}}" class="img-thumbnail" alt=""></td>
+                              <td width="20%">@if($equip->images!=null)<img src=" {{ asset('images/equipments/'.$equip->images[0]->path) }} --}}" class="img-thumbnail" alt="">@endif</td>
                               
                              
                               <td width="20%" class="col-md-1">

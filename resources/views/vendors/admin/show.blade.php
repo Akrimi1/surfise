@@ -74,7 +74,7 @@
                         <tbody>
                            @foreach($equipments as $equip)
                            <tr data-widget="expandable-table" aria-expanded="false">
-                              <td width="20%">{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
+                              <td width="20%">@if($equip->category){{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}@endif</td>
                               @if($equip->product_name != null)
                                  <td width="20%">Product name</td>
                               @endif
@@ -82,7 +82,7 @@
                                  <td width="20%">Product name</td>
                               @endif
                               <td width="20%">{{ Str::limit($equip->description,50, "...(show more)") }}</td>
-                              <td width="20%"><img src="{{ asset('images/equipments/'.$equip->images[0]->path) }}" class="img-thumbnail" alt=""></td>
+                              <td width="20%">@if($equip->images!=null)<img src="{{ asset('images/equipments/'.$equip->images[0]->path) }}" class="img-thumbnail" alt="">@endif</td>
                               
                              
                               <td width="20%" class="col-md-1">
