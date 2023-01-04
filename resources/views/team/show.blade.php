@@ -66,7 +66,8 @@
                            </tr>
                         </thead>
                         <tbody>
-                           @if(!$equipments->isEmpty())
+                           <?php if(!empty($equipments)) { ?>
+                              
                            @foreach($equipments as $equip)
                            <tr data-widget="expandable-table" aria-expanded="false">
                               <td width="20%">{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
@@ -107,7 +108,7 @@
                             </td>
 </tr>
                            @endforeach   
-                           @endif                     
+                           <?php } ?>                     
                         </tbody>
                      </table>
                      
