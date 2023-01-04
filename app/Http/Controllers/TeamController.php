@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Equipments;
 use Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class TeamController extends Controller
 {
@@ -45,9 +48,11 @@ class TeamController extends Controller
         $user=new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password =  Hash::make($request->password);
         
         $user->save();
+        return redirect('team')
+        ->with('success', 'team has been updated successfully');
     }
 
     /**
@@ -58,7 +63,9 @@ class TeamController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $equipments = Equipments::orderby('brand_name')->get();
+        return view('team.show')->with('user', $user)->with('equipments', $equipments);
     }
 
     /**

@@ -7,18 +7,27 @@
    <div class="container-fluid">
       <div class="row mb-2">
          <div class="col-sm-6">
-            <h1>Team </h1>
+            <h1>My Team</h1>
          </div>
       </div>
    </div>
 </section>
 <section class="content">
-   <div class="container-fluid">  
-   <div class="card-body table-responsive p-0 pt-1">
-                  <table class="table table-hover text-nowrap">
+   <div class="container-fluid">
+      <div class="card card-default">
+         <div class="card-header">
+            <h3 class="card-title"> Team List</h3>
+         </div>
+         <div class="card-body">
+            <div class="row">
+              
+               
+                     <div class="col-md-12"><label></label></div>   
+               <div class="card-body table-responsive p-0 pt-1">
+               <table class="table table-hover text-nowrap">
                      <thead>
                         <tr>
-                           <th>name</th>                           
+                           <th>Name</th>                           
                            <th>Email</th>
                            
                         </tr>
@@ -26,12 +35,11 @@
                      <tbody>
                         @foreach($team as $user)
                         <tr>
-                           <td>{{ $user->name }}</td>
+                           <td><a href="{{ route('team.show', $user->id) }}">{{ $user->name }}</a></td>
                               <td>
                               {{ $user->email }}
                                   </td>
 
-                           <td class="col-md-1">
                            <td class="col-md-1">
                               <div class="col-md-12">
                                  <div class="row">
@@ -55,6 +63,8 @@
                      </tbody>
                   </table>
                </div>
-   </div>              
+            
+      </div>
+   </div>
 </section>
 @endsection

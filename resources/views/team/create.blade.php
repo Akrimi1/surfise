@@ -3,42 +3,41 @@
 @section('content')
 <section class="content-header">
    <div class="container-fluid">
-      <div class="row mb-2">
-         <div class="col-sm-6">
-            <h1>Create Team Page</h1>
-         </div>
-      </div>
+            <h1>Add Team Member</h1>
    </div>
 </section>
+
 <section class="content">
    <div class="container-fluid">
-     
-         <div class="card card-default collapsed-card">
-            {!! Form::open(['route'=>'team.store', 'files' => true])  !!}
+      <div class="card card-default">
+         <div class="card-header">
+            <h3 class="card-title"> Add Team Member</h3>
+         </div>
+         <div class="card-body">
             <div class="row">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
+          <div class="col-md-3"></div>
+               <div class="form-panel form-horizontal style-form col-10 col-md-8 col-lg-6">
+               {!! Form::open(['route'=>'team.store', 'files' => true])  !!}
                   <div class="form-group">
                      <label>Name</label>
-                     <input name="name" Placeholder="Name" type="text" class="form-control">
+                     <input type="text" class="form-control" placeholder="Name" name="name" />
                   </div>
                   <div class="form-group">
                      <label>Email</label>
-                     <input name="email" Placeholder="email" type="text" class="form-control">
+                     <input type="text" class="form-control" placeholder="Email" name="email" />
                   </div>
                   <div class="form-group">
-                     <label>password</label>
-                     <input name="password" Placeholder="password" type="password" class="form-control">
+                     <label>Password</label>
+                     <input type="password" class="form-control" placeholder="Password" name="password" />
                   </div>
+                  <button class="btn btn-info float-right"  type="submit">Add Team member</button>
                </div>
-            </div>
-            <hr/>
-            <div class="from-group float-right" >
-               <button type="submit" class="btn btn-success">Add Team member</button>
-            </div>
-         </div>
-         {!!Form::close()!!}
-      </div>              
+               </div>
+               {!!Form::close()!!}
+            
+      </div>
+   </div>
 </section>
       
 @endsection
+

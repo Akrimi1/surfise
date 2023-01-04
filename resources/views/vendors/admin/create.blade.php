@@ -3,63 +3,7 @@
 @section('content')
 <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script>
-   $(document).ready(function(){
-      $('#business_type').change(function(e){        
-         e.preventDefault();
-         $('#categories').empty();
-         var btype = $('#business_type').find(":selected").text();        
-         $.ajax(
-         {
-            url: "{{route('categoryByBusinessType')}}",
-            type: "GET",
-         
-            data: { type: btype},
-            success: function (result) {
-               for (var i = 0; i < result.length; i++) {
-                  var select = document.getElementById("categories");
-                  var option = document.createElement("option");
-                  option.text = result[i].category;
-                  option.value = result[i].id;
-                  select.add(option);
-               }  
-               var id = $('#categories').find(":selected").val();  
-               myFunction(id) ;
-            }
-         });     
-      });
-      $('#categories').change(function(e){ 
-         var id = $('#categories').find(":selected").val(); 
-         myFunction(id) ;
-      });
-      
-      
-      function myFunction(id) {
-   
-        
-         $('#subcategories').empty();
-   
-              
-         $.ajax(
-         {
-            url: "{{route('SubCategoryByCategory')}}",
-            type: "GET",
-         
-            data: { id: id},
-            success: function (result) {
-               for (var i = 0; i < result.length; i++) {
-                  var select = document.getElementById("subcategories");
-                  var option = document.createElement("option");
-                  option.text = result[i].subcategory;
-                  option.value = result[i].id;
-                  select.add(option);
-               }            
-            }
-         });        
-   }
-   });
-        
-</script>
+
 <section class="content-header">
    <div class="container-fluid">
       <div class="row mb-2">
@@ -94,6 +38,10 @@
                      <div class="col-md-10 p-0">
                         
                      <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
+                     <option value="" selected></option>
+                     @foreach($categories as $c)
+                        <option value="{{ $c->id }}">{{ $c->category }}</option>
+                        @endforeach
                      </select>
 </div>
 <div class="col-md-2 p-0">
@@ -105,6 +53,12 @@
                      <div class="row">
                      <div class="col-md-10 p-0">
                      <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
+                     <option value="" selected></option>
+                     @foreach($categories as $c)
+                   @foreach($c->subcategories as $subcat)
+                        <option value="{{ $subcat->id }}">{{ $subcat->subcategory }}</option>
+                      @endforeach
+                        @endforeach
                      </select></div>
                      <div class="col-md-2 p-0">
                      <a href="" data-toggle="modal" id="addsubCat" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
@@ -190,7 +144,6 @@
                            <label class="custom-file-label" for="exampleInputFile">Upload Logo</label>
                         </div>
                         <div class="input-group-append">
-                           <span class="input-group-text">Upload</span>
                         </div>
                      </div>
                   </div>
@@ -204,7 +157,6 @@
                            <label class="custom-file-label" for="exampleInputFile">Upload Other Images</label>
                         </div>
                         <div class="input-group-append">
-                           <span class="input-group-text">Upload</span>
                         </div>
                      </div>
                   </div>

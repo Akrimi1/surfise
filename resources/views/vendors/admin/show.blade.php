@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('title', 'Vendors Management')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 @section('content')
 <section class="content-header">
    <div class="container-fluid">
@@ -42,7 +44,7 @@
                            <div class="row p-3">
                               <div class="col-md-3">
                            <!--when click on the link it will be changed to "-->
-                           <label>{{ $vendor->business_name }} 3 Products</label>
+                           <label>{{ $vendor->business_name }} {{ $number = $vendor->equipments->count() }} @if($number>1) Products @else Product @endif</label>
                </div>
                         <div class="col-md-4">
                            <div class="input-group input-group-sm">
@@ -63,7 +65,7 @@
                      </div>
                         </div>
                         <div class="card-body table-responsive p-0 pt-1">
-                     <table class="table table-hover text-nowrap">
+                        <table class="table table-hover ">
                         <thead>
                            <tr>
                               
@@ -71,39 +73,44 @@
                         </thead>
                         <tbody>
                            @foreach($equipments as $equip)
-                           <tr>
-                              <td>{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
+                           <tr data-widget="expandable-table" aria-expanded="false">
+                              <td width="20%">{{ $equip->category->category }} - {{ $equip->subcategory->subcategory }}</td>
                               @if($equip->product_name != null)
-                                 <td>Product name</td>
+                                 <td width="20%">Product name</td>
                               @endif
                               @if($equip->brand_name != null)
-                                 <td>Product name</td>
+                                 <td width="20%">Product name</td>
                               @endif
-                              <td>{{ $equip->description }}</td>
-                              <td><img src="{{ asset('images/equipments/'.$equip->images[0]->path) }}" class="img-thumbnail" alt=""></td>
+                              <td width="20%">{{ Str::limit($equip->description,50, "...(show more)") }}</td>
+                              <td width="20%"><img src="{{ asset('images/equipments/'.$equip->images[0]->path) }}" class="img-thumbnail" alt=""></td>
                               
-                              <td>
-                                 delete & edit
-                              </td>
-                              <td class="col-md-1">
+                             
+                              <td width="20%" class="col-md-1">
                                  <div class="col-md-12">
                                     <div class="row">
                                        <div class="col-md-1">
-                                          <!-- <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>-->
+                                         <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>
                                        </div>
-                                       <!-- <div class="col-md-1">
+                                       <div class="col-md-1">
                                           <form class="col-md-2" method="post" action="">
                                              @csrf
                                              @method('DELETE')
                                              <button class="btn btn-danger btn-xs">
-                                             <i class="fa fa-trash-o"></i>
+                                             <i class="fa fa-trash"></i>
                                              </button>
                                           </form>
-                                          </div>-->
+                                          </div>
                                     </div>
                                  </div>
                               </td>
                            </tr>  
+                           <tr class="expandable-body d-none">
+                            <td colspan="5">
+                            <p style="display: none;">
+                            {{ $equip->description }}                           
+                         </p>
+                            </td>
+</tr>
                            @endforeach                        
                         </tbody>
                      </table>
