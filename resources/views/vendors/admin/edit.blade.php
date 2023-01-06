@@ -1,246 +1,200 @@
 @extends('layouts.admin')
-@section('title', 'Edit Vendor')
+@section('title', 'Create Equipment')
 @section('content')
-<section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Create Vendor</h3>
-        <!-- BASIC FORM ELELEMNTS -->
-        <form method="post" action="{{ route('vendors.update', $vendor->id) }}">
-        @method('PATCH') 
-            @csrf
-        <div class="row mt">
-          <div class="col-lg-12">
-          <div class="form-panel form-horizontal style-form">
-          
-          <div class="row">
-                  <div class="col-md-6">
-               <div class="col-md-6">
-               <a class="btn btn-primary "  href="/vendors/admin" >Back to list</a>  
+<script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<section class="content-header">
+   <div class="container-fluid">
+      <div class="row mb-2">
+         <div class="col-sm-6">
+            <h1>Create Profile Page</h1>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="content">
+   <div class="container-fluid">
+      <div class="card card-default">
+         <div class="card-header">
+            <h3 class="card-title"> Profile page</h3>
+         </div>
+         <div class="card-body">
+            {!! Form::open(['route'=>'vendors.store', 'files' => true]) !!}
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label>Add Business type</label>
+                     <select name="vendor_type" id="business_type" class="form-control select2" style="width: 100%;">
+                        <option value="{{ $vendor->vendor_type }}" selected>{{ $vendor->vendor_type }}</option>
+                        @foreach($business_types as $pt)
+                        <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
+                        @endforeach
+                     </select>
                   </div>
-               </div>
-               </div>
-               <hr />
-              <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Vendor name</label
-                  >
-                  <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="vendor name"
-                     name="vendor_name"
-                     value="{{ $vendor->vendor_name }}"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-         <label class="col-sm-2 col-sm-2 control-label"
-            >Description</label
-            >
-         <div class="col-sm-10">
-            <textarea
-               id="description"
-               placeholder="your Description"
-               class="box form-control"
-               cols="30"
-               rows="10"
-               name="description"
-               >{{ $vendor->description }}</textarea>
-         </div>
-      </div>
-
-
-
-      <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"
-                  >Change Country:</label
-                  >
-               <div class="col-sm-10">
-               <select class="form-control" name="country">
-                  <option value="{{$vendor->country}}">{{$vendor->country}}</option>
-               @foreach ($countries as $country)
-                 <option value="{{$country->name}} - {{$country->code}}" >{{$country->name}} - {{$country->code}}</option>
-                  @endforeach
-                  </select>
-               </div>
-            </div> 
-
-<div class="form-group">
-         <label class="col-sm-2 col-sm-2 control-label">Country</label>
-         <div class="col-sm-10">
-            <input
-               type="text"
-               class="form-control"
-               placeholder="country"
-               name="oldcountry"
-               readonly
-               value="{{$vendor->country}}"
-               />
-         </div>
-      </div>
-
-
-      <div class="form-group">
-         <label class="col-sm-2 col-sm-2 control-label">State</label>
-         <div class="col-sm-10">
-            <input
-               type="text"
-               class="form-control"
-               placeholder="State"
-               name="state"
-               value="{{ $vendor->state }}"
-               />
-         </div>
-      </div>
-      <div class="form-group">
-         <label class="col-sm-2 col-sm-2 control-label">Street Address</label>
-         <div class="col-sm-10">
-            <input
-               type="text"
-               class="form-control"
-               placeholder="Street Address"
-               name="streetAddress"
-               value="{{ $vendor->streetAddress }}"
-               />
-         </div>
-      </div>
-
-      <!---Info-->
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Email</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Email"
-                     name="email"
-                     value="{{ $vendor->email }}"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Phone Number</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Phone Number"
-                     name="phone"
-                     value="{{ $vendor->phone }}"
-                     />
-               </div>
-               </div>
-               <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Website</label>
-               <div class="col-sm-10">
-                  <input
-                     type="text"
-                     class="form-control"
-                     placeholder="Website Number"
-                     name="website"
-                     value="{{ $vendor->website }}"
-                     />
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label">Working Hours</label>
-               <div class="col-sm-10">
-               <label class="control-label">{{ $vendor->workingHours }}</label>
-               </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 col-sm-2 control-label"></label>
-              
-
-               <div class="col-sm-10">
-
-                  <div class="row">
-                     <div class="col-sm-3">
-                  <input type="text" class="form-control" placeholder="From 11:30" name="fromHour" />
                   
                </div>
-               <div class="col-sm-2">
-               <select class="form-control" name="fromAP">
-                     <option value="AM" selected>AM</option>
-                     <option value="PM">PM<option>
-                  </select>
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label>Business name</label>
+                     <input name="business_name" Placeholder="Enter Product Name" value="{{ $vendor->business_name }}" type="text" class="form-control">
                   </div>
-               <div class="col-sm-3">
-                  <input type="text" class="form-control" placeholder="To 11:30" name="toHour" />
-               </div>
-               <div class="col-sm-2">
-               <select class="form-control" name="toAP">
-                     <option value="AM">AM</option>
-                     <option value="PM" selected>PM<option>
-                  </select>
+                  <div class="form-group">
+                     <label>Address</label>
+                     <input name="address" Placeholder="Enter Address" value="{{ $vendor->address }}" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                     <label>Country</label>
+                     <select name="country" class="form-control select2" style="width: 100%;">
+                        <option value="{{ $vendor->country}}" selected>{{ $vendor->country}}</option>
+                        @foreach($countries as $c)
+                        <option value="{{ $c->name }}">{{ $c->name }} - {{ $c->code }}</option>
+                        @endforeach
+                     </select>
                   </div>
                </div>
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label>Website</label>
+                     <input class="form-control" type="text" value="{{ $vendor->website }}" name="website" Placeholder="Website">
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>Zip Code</label>
+                           <input class="form-control" type="text" value="{{ $vendor->zipcode }}" name="zipconde" Placeholder="Zip code">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>State</label>
+                           <input class="form-control" type="text" value="{{ $vendor->state }}" name="state" Placeholder="State">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Phone</label>
+                     <input class="form-control" type="text" value="{{ $vendor->phone }}" name="phone" Placeholder="Phone">
+                  </div>
                </div>
             </div>
-      
-     <!-- <div class="form-group last">
-               <label class="control-label col-md-3">Image Vendor Upload</label>
-               <div class="col-md-9">
-                  <div
-                     class="fileupload fileupload-new"
-                     data-provides="fileupload"
-                     >
-                     <div>
-                        <span class="btn btn-theme02 btn-file">
-                        <span class="fileupload-new"
-                           ><i class="fa fa-paperclip"></i> Select
-                        image vendor</span
-                           >
-                        <span class="fileupload-exists"
-                           ><i class="fa fa-undo"></i> Change</span
-                           >
-                        <input type="file" name="vendor_image[]" class="default" multiple />
-                        </span>
-                       
+            <div class="row">
+               <div class="col-md-3"></div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Description</label>
+                     <textarea name="description"  class="form-control"> {{ $vendor->description }}</textarea>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-3"></div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label>Working hours</label>
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                     Workng Hours
+                     </button>
+                     <div class="row">
+                        <span></span>
+                     </div>
+
+                     <input type="hidden" id="workingDays" name="workingDays" value=""/>
+                     <input type="hidden" id="workingFrom" name="workingFrom" value=""/>
+                     <input type="hidden" id="workingTo" name="workingTo" value=""/>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-3"></div>
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label for="exampleInputFile">Upload logo</label>
+                     <div class="input-group">
+                        <div class="custom-file">
+                           <input type="file" class="custom-file-input" name="vendor_logo" id="exampleInputFile">
+                           <label class="custom-file-label" for="exampleInputFile">Upload Logo</label>
+                        </div>
+                        <div class="input-group-append">
+                        </div>
                      </div>
                   </div>
                </div>
-            </div> 
-            <div class="form-group last">
-               <label class="control-label col-md-3">Logo Upload</label>
-               <div class="col-md-9">
-                  <div
-                     class="fileupload fileupload-new"
-                     data-provides="fileupload"
-                     >
-                     <div>
-                        <span class="btn btn-theme02 btn-file">
-                        <span class="fileupload-new"
-                           ><i class="fa fa-paperclip"></i> Select
-                        Logo</span
-                           >
-                        <span class="fileupload-exists"
-                           ><i class="fa fa-undo"></i> Change</span
-                           >
-                        <input type="file" name="vendor_logo[]" class="default" multiple/>
-                        </span>
-                        
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label for="exampleInputFile">Upload Other Images</label>
+                     <div class="input-group">
+                        <div class="custom-file">
+                           <input type="file" class="custom-file-input" name="vendor_images[]" id="exampleInputFile" multiple>
+                           <label class="custom-file-label" for="exampleInputFile">Upload Other Images</label>
+                        </div>
+                        <div class="input-group-append">
+                        </div>
                      </div>
                   </div>
                </div>
-            </div>-->
-         <div>
-      <button class="btn btn-primary " type="submit">Update Vendor</button>
-      </div>
-     
-      </div>
-    
-            
-
-
             </div>
-          </div>
-          <!-- col-lg-12-->
-        </div>
-        <!-- /row -->
-        <!-- INLINE FORM ELELEMNTS -->
-        </from>
-     
-        <!-- /row -->
-      </section>
-      @endsection
+            <hr/>
+            <div class="row float-right">
+               <div class="from-group" >
+                  <button class="btn btn-success">Add +</button>
+               </div>
+            </div>
+         </div>
+         {!!Form::close()!!}
+      </div>
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+         <h1 class="modal-title" id="exampleModalLabel">
+         Work Hours
+         </h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            @include('vendors/admin.workingHour_modal')
+            </div>
+   </div>
+   </div>
+</div>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('#save').click(function(e){
+        
+         e.preventDefault();
+         var workingDay=[];
+         var workingFrom = [];
+         var workingTo = [];
+         var i=0;
+         //$('#subcategory').empty();
+         var days = $('select[name^="input_4"]').find(":selected").val();
+         $(".gf-day-dropdown select[name^='input_4']").each(function() {
+            workingDay[i] = this.value
+            i++
+           
+         });
+         i = 0
+         $(".gf-start-time-dropdown select[name^='input_4']").each(function() {
+            workingFrom[i] = this.value
+            i++
+         });
+         i = 0
+         $(".gf-end-time-dropdown select[name^='input_4']").each(function() {
+            workingTo[i] = this.value
+            i++
+         });
+        var wd = document.getElementById("workingDays").value = workingDay
+        var wf = document.getElementById("workingFrom").value = workingFrom+","
+        var wt = document.getElementById("workingTo").value = workingTo
+          
+        
+      });
+   }); 
+</script>
+{!!Form::close()!!}
+</section>
+@endsection

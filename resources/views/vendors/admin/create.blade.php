@@ -3,7 +3,6 @@
 @section('content')
 <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <section class="content-header">
    <div class="container-fluid">
       <div class="row mb-2">
@@ -20,7 +19,7 @@
             <h3 class="card-title"> Profile page</h3>
          </div>
          <div class="card-body">
-         {!! Form::open(['route'=>'vendors.store', 'files' => true]) !!}
+            {!! Form::open(['route'=>'vendors.store', 'files' => true]) !!}
             <div class="row">
                <div class="col-md-3">
                   <div class="form-group">
@@ -28,42 +27,43 @@
                      <select name="vendor_type" id="business_type" class="form-control select2" style="width: 100%;">
                         <option selected></option>
                         @foreach($business_types as $pt)
-                           <option value="{{ $pt->id }}">{{ $pt->product_type }}</option>
+                        <option value="{{ $pt->product_type }}">{{ $pt->product_type }}</option>
                         @endforeach
                      </select>
                   </div>
                   <div class="form-group">
                      <label>Select Category</label>
                      <div class="row">
-                     <div class="col-md-10 p-0">
-                        
-                     <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
-                     <option value="" selected></option>
-                     @foreach($categories as $c)
-                        <option value="{{ $c->id }}">{{ $c->category }}</option>
-                        @endforeach
-                     </select>
-</div>
-<div class="col-md-2 p-0">
-                     <a href="" data-toggle="modal" id="addCat" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a></div>    
-</div>
+                        <div class="col-md-10 p-0">
+                           <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
+                              <option value="" selected></option>
+                              @foreach($categories as $c)
+                              <option value="{{ $c->id }}">{{ $c->category }}</option>
+                              @endforeach
+                           </select>
+                        </div>
+                        <div class="col-md-2 p-0">
+                           <a href="" data-toggle="modal" id="addCat" data-target="#modal-category" class="nav-link" ><i class="fa-solid fa-circle-plus"></i></a>
+                        </div>
+                     </div>
                   </div>
                   <div class="form-group">
                      <label>Select Subcategory</label>
                      <div class="row">
-                     <div class="col-md-10 p-0">
-                     <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
-                     <option value="" selected></option>
-                     @foreach($categories as $c)
-                   @foreach($c->subcategories as $subcat)
-                        <option value="{{ $subcat->id }}">{{ $subcat->subcategory }}</option>
-                      @endforeach
-                        @endforeach
-                     </select></div>
-                     <div class="col-md-2 p-0">
-                     <a href="" data-toggle="modal" id="addsubCat" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
-</div>
-</div>
+                        <div class="col-md-10 p-0">
+                           <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
+                              <option value="" selected></option>
+                              @foreach($categories as $c)
+                              @foreach($c->subcategories as $subcat)
+                              <option value="{{ $subcat->id }}">{{ $subcat->subcategory }}</option>
+                              @endforeach
+                              @endforeach
+                           </select>
+                        </div>
+                        <div class="col-md-2 p-0">
+                           <a href="" data-toggle="modal" id="addsubCat" data-target="#modal-subcategory" class="nav-link"><i class="fa-solid fa-circle-plus"></i></a>
+                        </div>
+                     </div>
                   </div>
                </div>
                <div class="col-md-3">
@@ -78,7 +78,7 @@
                   <div class="form-group">
                      <label>Country</label>
                      <select name="country" class="form-control select2" style="width: 100%;">
-                        <option value="United States" selected>United States - US</option>
+                        <option value="United States - US" selected>United States - US</option>
                         @foreach($countries as $c)
                         <option value="{{ $c->name }}">{{ $c->name }} - {{ $c->code }}</option>
                         @endforeach
@@ -172,41 +172,38 @@
          {!!Form::close()!!}
       </div>
 </section>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-         <div class="modal-header">
-            <h1 class="modal-title" id="exampleModalLabel">
-               Work Hours
-            </h1>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-         </div>
-         <div class="modal-body">
-            @include('vendors/admin.workingHour_modal')
-         </div>
-         
-      </div>
-   </div>
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h1 class="modal-title" id="exampleModalLabel">
+Work Hours
+</h1>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+@include('vendors/admin.workingHour_modal')
+</div>
+</div>
+</div>
 </div>
 <!--Categotry Modal-->
 <div class="modal fade" id="modal-category">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <h4 class="modal-title">Add Category</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-         </div>
-         <div class="modal-body">
-            @include('categories/admin.create')
-         </div>
-        
-      </div>
-   </div>
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Add Category</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+@include('categories/admin.create')
+</div>
+</div>
+</div>
 </div>
 </div>
 <!--SubCategotry Modal-->

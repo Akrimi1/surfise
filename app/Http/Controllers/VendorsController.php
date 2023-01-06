@@ -171,10 +171,14 @@ class VendorsController extends Controller
 
         $countries = Country::orderBy('name')->get();
         $vendor = Vendors::find($id);
+        $business_type =  ProductType::orderby('product_type')->get();
+        $categories = Categories::orderby('category')->get();
         
         return view('vendors/admin.edit',[
             'vendor'=>$vendor,
             'countries' =>$countries,
+            'business_types' => $business_type,
+            'categories' => $categories
             ]
         );
     }

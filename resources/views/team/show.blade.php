@@ -41,7 +41,7 @@
                            <div class="row p-3">
                               <div class="col-md-3">
                            <!--when click on the link it will be changed to "-->
-                           <label>{{ $user->name }} {{ $number = $vendor->equipments->count() }} @if($number>1) Products @else Product @endif</label>
+                           <label>{{ $user->name }} {{ $number = $equipments->count() }} @if($number>1) Products @else Product @endif</label>
                </div>
                         <div class="col-md-4 ">
                            <div class="input-group input-group-sm">
@@ -78,7 +78,7 @@
                                  <td width="20%">{{$equip->brand_name}}</td>
                               @endif
                               <td width="20%">{{ Str::limit($equip->description,50, "...(show more)") }}</td>
-                              <td width="20%">@if($equip->images!=null)<img src=" {{ asset('images/equipments/'.$equip->images[0]->path) }} --}}" class="img-thumbnail" alt="">@endif</td>
+                              <td width="20%">@if(!$equip->images->isEmpty())<img src=" {{ asset('images/equipments/'.$equip->images[0]->path) }} --}}" class="img-thumbnail" alt="">@endif</td>
                               
                              
                               <td width="20%" class="col-md-1">
