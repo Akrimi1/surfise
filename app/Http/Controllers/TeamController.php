@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Equipments;
+use App\Models\ProductType;
+use App\Models\Categories;
+use App\Models\Vendors;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -76,7 +79,12 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product_type = ProductType::orderby('product_type')->get();
+        $categories = Categories::orderby('category')->get();
+        $vendor = Vendors::where('id', $id)->orderby('business_name')->get();
+        return view('team.edit')->with('product_types', $product_type)
+            ->with('categories', $categories)
+            ->with('vendor', $vendor);
     }
 
     /**

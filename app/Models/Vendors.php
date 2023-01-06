@@ -18,7 +18,7 @@ class Vendors extends Model
         'address',
         'country',
         'website',
-        'zipconde',
+        'zipcode',
         'state',
         'phone',
         'description',

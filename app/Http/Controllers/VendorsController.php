@@ -105,7 +105,7 @@ class VendorsController extends Controller
         $vendor->address = $request->address;
         $vendor->country = $request->country;
         $vendor->website = $request->website;
-        $vendor->zipconde = $request->zipconde;
+        $vendor->zipcode = $request->zipcode;
         $vendor->state = $request->state;
         $vendor->phone = $request->phone;
         $vendor->description = $request->description;
@@ -213,7 +213,7 @@ class VendorsController extends Controller
         $vendor->address = $request->address;
         $vendor->country = $request->country;
         $vendor->website = $request->website;
-        $vendor->zipconde =  $request->zipconde;
+        $vendor->zipcode =  $request->zipcode;
         $vendor->state =  $request->state;
         $vendor->phone =  $request->phone;
         $vendor->description =  $description;
