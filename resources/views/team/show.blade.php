@@ -85,7 +85,7 @@
                                  <div class="col-md-12">
                                     <div class="row">
                                        <div class="col-md-1">
-                                         <a class="btn btn-primary btn-xs" href=""> <i class="fa fa-pencil"></i> </a>
+                                         <a class="btn btn-primary btn-xs" href="{{ route('equipments.edit', $equip->id) }}"> <i class="fa fa-pencil"></i> </a>
                                        </div>
                                        <div class="col-md-1">
                                           <form class="col-md-2" method="post" action="{{ route('equipments.destroy', $equip->id) }}">

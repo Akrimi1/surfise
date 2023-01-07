@@ -79,6 +79,8 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
+        $user_id = Auth::user()->id;
+        
         $product_type = ProductType::orderby('product_type')->get();
         $categories = Categories::orderby('category')->get();
         $vendor = Vendors::where('id', $id)->orderby('business_name')->get();

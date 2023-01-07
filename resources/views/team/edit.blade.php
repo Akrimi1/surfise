@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Create Equipment')
+@section('title', 'Update Equipment')
 @section('content')
 <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -24,10 +24,10 @@
          <div calss="row">
             <!--<button class="btn btn-info float-right m-2" data-toggle="modal" data-target="#modal-vendors">Add Product to Existing Business</button>-->
          </div>
-         
-        
          <div class="card-body">
-            {!! Form::open(['route'=>'equipments.store', 'files' => true])  !!}
+         <form method="post" action="{{ route('equipments.update', $equip->id) }}">
+        @method('PATCH') 
+            @csrf
             <div class="row">
                <div class="col-md-3">
                   <div class="form-group">
@@ -45,7 +45,7 @@
                      <div class="col-md-10 p-0">
                         
                      <select name="idCategory" id="categories" class="form-control select2" style="width: 100%;">
-                     <option value="" selected></option>
+                     <option value="{{ $equip->category->id}}" selected> {{ $equip->category->category}} </option>
                      @foreach($categories as $c)
                         <option value="{{ $c->id }}">{{ $c->category }}</option>
                         @endforeach
@@ -60,7 +60,7 @@
                      <div class="row">
                      <div class="col-md-10 p-0">
                      <select name="idSubcategory" id="subcategories" class="form-control select2" style="width: 100%;">
-                     <option value="" selected></option>
+                     <option value="{{ $equip->subcategory->id}}" selected> {{ $equip->subcategory->subcategory}} </option>
                      @foreach($categories as $c)
                    @foreach($c->subcategories as $subcat)
                         <option value="{{ $subcat->id }}">{{ $subcat->subcategory }}</option>
@@ -81,7 +81,8 @@
                   </div>
                   <div class="form-group">
                      <label>Brand Name</label>
-                     <input name="brand_name" value="{{ $vendor->brand_name }}" type="text" class="form-control">
+               
+                   <input name="brand_name" value="@if($equip->product_name =!null) {{ $equip->product_name }} @else {{ $equip->brand_name}} @endif" type="text" class="form-control">
                   </div>
                   <div class="form-group">
                      <label for="exampleInputFile">Upload logo</label>
@@ -100,7 +101,7 @@
                <div class="col-md-3">
                   <div class="form-group">
                      <label>Website</label>
-                     <input type="text" class="form-control" value="{{ $vendor->website }}" name="website">
+                     <input type="text" class="form-control" value="{{ $equip->website }}" name="website">
                   </div>
                   <div class="form-group">
                      <label for="exampleInputFile">Upload Other Images</label>
@@ -131,7 +132,7 @@
                <div class="col-md-6">
                      <div class="form-group">
                         <label>Description</label>
-                        <textarea name="description" class="form-control" rows=5 placeholder="Enter Description">{{ $vendor->description }}</textarea>
+                        <textarea name="description" class="form-control" rows=5 placeholder="Enter Description">{{ $equip->description }}</textarea>
                      </div>
                   </div>
                   
@@ -144,7 +145,7 @@
                </div>
             </div>
            
-            {!!Form::close()!!}
+</from>
          </div>
       </div>
    </div>

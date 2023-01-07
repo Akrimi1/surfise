@@ -178,6 +178,7 @@ class EquipmentsController extends Controller
         $equip = Equipments::find($id);
         $vendors = Vendors::orderBy('business_name')->get();
         $image = Images::find($id);
+        $product_types = ProductType::orderBy('product_type')->get();
         $categories = Categories::orderBy('category')->get();//change where type = equipments
         $subSelected = SubCategories::find($equip->idSubCategory);
 
@@ -192,8 +193,9 @@ class EquipmentsController extends Controller
                 $subList[] = $s;
 
         //}
-        return view('equipments/admin.edit')
+        return view('team.edit')
             ->with('vendors', $vendors)
+            ->with('product_types',$product_types)
             ->with('categories', $categories)
             ->with('subCat',$subCat)
             ->with('subSelected',$subSelected)

@@ -119,6 +119,7 @@ Route::middleware([
     })->name('dashboard');
     Route::get('equipments/admin', [EquipmentsController::class, 'indexadmin']);
     Route::resource('equipments/admin', EquipmentsController::class, )->except('index');
+    Route::get('equipments/admin/{id}', [EquipmentsController::class, 'edit']);
     
     Route::get('products/admin', [ProductsController::class, 'indexadmin','test']);
     Route::resource('products/admin', ProductsController::class)->except('index');
