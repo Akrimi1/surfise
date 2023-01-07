@@ -15,7 +15,9 @@
                   <div class="inner">
                     <h3>Catergories</h3>
                     <ul>
+                      
                       @foreach($categories as $c)
+                      
                       <li>
                         <!-- Add filter with ajax call to a controller method-->
                         <a
@@ -132,15 +134,15 @@
                   @foreach($equipments as $equip)
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog_block">
                       <div class="product_block">
-                         <img src="{{ asset('/images/equipments/'.$equip->images[0]->path) }}"  alt=""  class="img-responsive col"/>
+                         <img src="{{ asset('/images/equipments/'.$equip->images[0]->path) }}"  alt=""  class="img-responsive col" />
                          <div class="prod_info">
                             <h4>
                                <a
                                   href="{{ route('equipments.show', $equip->id) }}"
-                                  >{{$equip->name}}</a>
+                                  >{{$equip->product_name}}</a>
                             </h4>
                             <p>
-                              {{ Illuminate\Support\Str::limit($equip->details, 100)}}
+                              {{ Illuminate\Support\Str::limit($equip->description, 30)}}
                             </p>
                             <!--Rating--> 
                             <div class="row">
@@ -174,8 +176,8 @@
                             <div class="row">
                               <div class="col-md-3">
                                 <img
-                                  src="{{ asset('/images/vendors/'.$equip->vendor->photo) }}"
-                                  alt="Avatar"
+                                  src="{{ asset('/images/vendors/'.$equip->logo) }}"
+                                  alt=""
                                   style="
                                     position: relative;
                                     width: 50px;
@@ -185,7 +187,7 @@
                                   "
                                 />
                               </div>
-                              <div class="col-md-9"><a href="{{ route('vendors.show', $equip->vendor->id) }}">{{ $equip->vendor->vendor_name }}</a></div>
+                              <div class="col-md-9"><a href="{{ route('vendors.show', $equip->vendor->id) }}">{{ $equip->vendor->business_name }}</a></div>
                             </div>
                               <!-- <div class="row">
                                   <div class="col">

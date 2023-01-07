@@ -12,7 +12,7 @@
               <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 prof_info">
                   <img
-                    src=""
+                    src="{{ asset('/images/vendors/'.$equip->logo) }}"
                     alt=""
                     class="top_logo_res img-thumbnail"
                   />
