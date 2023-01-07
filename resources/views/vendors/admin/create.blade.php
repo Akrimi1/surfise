@@ -108,6 +108,20 @@
                      <label>Phone</label>
                      <input class="form-control" type="text" name="phone" Placeholder="Phone">
                   </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>like</label>
+                           <input class="form-control" type="text" name="like" Placeholder="like">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>dislike</label>
+                           <input class="form-control" type="text" name="dislike" Placeholder="dislike">
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
             <div class="row">

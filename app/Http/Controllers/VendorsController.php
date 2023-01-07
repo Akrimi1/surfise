@@ -106,6 +106,8 @@ class VendorsController extends Controller
         $vendor->country = $request->country;
         $vendor->website = $request->website;
         $vendor->zipcode = $request->zipcode;
+        $vendor->like = $request->like;
+        $vendor->dislike = $request->dislike;
         $vendor->state = $request->state;
         $vendor->phone = $request->phone;
         $vendor->description = $request->description;

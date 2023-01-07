@@ -21,6 +21,8 @@ class CreateVendorsTable extends Migration
             $table->string('country')->nullable();
             $table->string('website')->nullable();          
             $table->string('zipcode')->nullable();
+            $table->string('like')->nullable();
+            $table->string('dislike')->nullable();
             $table->string('state')->nullable();
             $table->bigInteger('phone')->nullable();
             $table->text('description')->nullable();

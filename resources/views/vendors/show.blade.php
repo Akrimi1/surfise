@@ -12,17 +12,17 @@
               <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 prof_info">
                   <img
-                    src="{{ asset('/images/vendors/'.$equip->logo) }}"
+                    src="{{ asset('/images/vendors/'.$vendor->logo) }}" 
                     alt=""
                     class="top_logo_res img-thumbnail"
                   />
-                  <!--<div class="prof_pic">
+                  <div class="prof_pic">
                     <img src="{{-- {{ asset('images/profile.jpg') }} --}}" alt="" />
                     <ul>
-                      <li class="like"><a href="#">107</a></li>
-                      <li class="dislike"><a href="#">13</a></li>
+                      <li class="like"><a href="#">{{ $vendor->like }}</a></li>
+                      <li class="dislike"><a href="#">{{ $vendor->dislike }}</a></li>
                     </ul>
-                  </div>-->
+                  </div>
                   <div class="rating">
                     <h4>Rating</h4>
                     <ul>
@@ -48,9 +48,10 @@
                   <div class="container bg-white pb-1 pt-1">
                     <h3>purchase membership</h3>
                   </div>
-                  <h3 class="pt-4">{{ $vendor->profession }}</h3>
+                  <h3 class="pt-4">{{ $vendor->business_name }}</h3>
+                  <h3 class="pt-4">{{ $vendor->vendor_type }}</h3>
                   <p class="text-justify">
-                    {{ $vendor->description }}
+                    
                   </p>
 
                   <div class="row">
@@ -95,9 +96,10 @@
                   
 
                   <ul class="bot_info last">
-                    <div class="ml-1"><li class="pin">{{$vendor->streetAddress}}</li></div>
+                    <div class="ml-1"><li class="pin">{{ $vendor->address }}</li></div>
                     <div class="row ml-1">
-                      <div class="mr-3"><li class="email"><a href="#">{{$vendor->email}}</a></li></div>
+                      <div class="mr-3">
+                        <li class="web"><a href="#">{{ $vendor->website }}</a></li></div>
                       <li class="phone"><a href="#">{{ $vendor->phone }}</a></li>
                     </div>
                   </ul>
@@ -157,6 +159,7 @@
             </div>
           </section>
         </div>
+  
       </header>
     </section>
 
