@@ -134,7 +134,7 @@
                   @foreach($equipments as $equip)
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog_block">
                       <div class="product_block">
-                         <img src="{{ asset('/images/equipments/'.$equip->images[0]->path) }}"  alt=""  class="img-responsive col" />
+                         <img src="@if(!$equip->images->isEmpty()){{ asset('/images/equipments/'.$equip->images[0]->path) }}@endif"  alt=""  class="img-responsive col" />
                          <div class="prod_info">
                             <h4>
                                <a
@@ -176,7 +176,7 @@
                             <div class="row">
                               <div class="col-md-3">
                                 <img
-                                  src="{{ asset('/images/vendors/'.$equip->logo) }}"
+                                  src="@if($equip->vendor->logo != null){{ asset('/images/vendors/'.$equip->vendor->logo) }}@endif"
                                   alt=""
                                   style="
                                     position: relative;

@@ -9,7 +9,7 @@
 					<div class="row">
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 prof_info">
 							<div class="prof_pic">
-								<img src="{{ asset('/images/equipments/'.$equip->images[0]->path) }}" alt="">
+								<img src="@if(!$equip->images->isEmpty()){{ asset('/images/equipments/'.$equip->images[0]->path) }}@endif" alt="">
 								<ul>
 									<li class="like"><a href="#">{{ $equip->like}}</a></li>
 									<li class="dislike"><a href="#">{{ $equip->dislike }}</a></li>
@@ -47,9 +47,9 @@
 								<a href="#">Hours</a>
 							</form>
 							<ul class="bot_info">
-								<li class="web"><a href="#">{{ $equip->vendor->website }}</a></li>
+							@if($equip->vendor != null)<li class="web"><a href="#">{{ $equip->vendor->website }}</a></li>
 								<li class="email"><a href="#">{{ $equip->vendor->email }}</a></li>
-								<li class="phone"><a href="#">{{ $equip->vendor->phone }}</a></li>
+								<li class="phone"><a href="#">{{ $equip->vendor->phone }}</a></li>@endif
 							</ul>
 							<form name="form2" method="post" action="" class="location clearfix">
 								<select>
@@ -57,7 +57,7 @@
 								</select>
 							</form>
 							<ul class="bot_info last">
-								<li class="pin">{{ $equip->vendor->streetAddress }}</li>
+								@if($equip->vendor!=null)<li class="pin">{{ $equip->vendor->address }}</li>@endif
 								<li class="msg"><a href="#">Messages</a></li>
 								<li class="live"><a href="#">Live stream</a></li>
 							</ul>
@@ -126,173 +126,35 @@
 		  <div class="region region-maincontent">
 		
 		<section class="mid_slide">
+			<div class="row">
 			<div class="shop_float">
 				<a href="javascript:void(0);" class="shop_link">Shop</a>
 				<ul class="cat_list">
-					<li>
-						<a href="javascript:void(0);">{{ $equip->category->category }}</a>
-						<div class="prod_list">
-							<h3>Category 1</h3>
-							<ul class="clearfix">
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-							</ul>
-						</div>
-					</li>
+					@foreach($categories as $cat)
 					
 					<li>
-						<a href="javascript:void(0);">Category 2</a>
+						<a href="javascript:void(0);">{{ $cat->category }}</a>
 						<div class="prod_list">
-							<h3>Category 2</h3>
+							<h3>{{ $cat->category }}</h3>
 							<ul class="clearfix">
+								@foreach($cat->equipments as $equip)
+							
 								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
+									@if(!$equip->images->isEmpty())<img src="{{ asset('/images/equipments/'.$equip->images[0]->path) }}" class="" width="100%" alt="">@endif
+									<h4><a href="#">{{ $equip->brand_name }}</a></h4>
+									<p>{{ Illuminate\Support\Str::limit($equip->description, 60) }}</p>
 								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
+								@endforeach
 							</ul>
 						</div>
 					</li>
-					<li>
-						<a href="javascript:void(0);">Category 3</a>
-						<div class="prod_list">
-							<h3>Category 3</h3>
-							<ul class="clearfix">
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Category 4</a>
-						<div class="prod_list">
-							<h3>Category 4</h3>
-							<ul class="clearfix">
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Category 5</a>
-						<div class="prod_list">
-							<h3>Category 5</h3>
-							<ul class="clearfix">
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Category 6</a>
-						<div class="prod_list">
-							<h3>Category 6</h3>
-							<ul class="clearfix">
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Category 7</a>
-						<div class="prod_list">
-							<h3>Category 7</h3>
-							<ul class="clearfix">
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-								<li>
-									<img src="{{ asset('/images/prod_img.png') }}" alt="">
-									<h4><a href="#">Item name</a></h4>
-									<p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod.</p>
-								</li>
-							</ul>
-						</div>
-					</li>
+					@endforeach
+					
+					
+					
 				</ul>
 			</div>
+</div>
 			<ul class="rslides" id="midSlider">
 				<li style="background-image: url(./mid_slidr.jpg') }});">
 					<img src="{{ asset('/images/mid_slidr.jpg') }}" alt="">

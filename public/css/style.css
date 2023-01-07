@@ -1203,7 +1203,7 @@ main{}
 			.shop_float .cat_list{background-color: #fff; font-size: 14px; line-height: 24px; padding: 0; margin: 0; display: none;}
 				.shop_float .cat_list li > a{display: block; color: #252525; padding: 13px 20px; background: url(../images/blank.png) 93% 50% no-repeat transparent; transition: none;}
 					.shop_float .cat_list li:hover > a{background: url(../images/side_arrow.png) 93% 50% no-repeat #252525; color: #fff; text-decoration: none;}
-			.shop_float .prod_list{position: absolute; left: -1000px; top: 0; height: 100%; background-color: rgba(255, 255, 255, 0.9); padding: 15px 30px 30px; width: 500px;}
+			.shop_float .prod_list{position: absolute; left: -1000px; top: 0; background-color: rgba(255, 255, 255, 0.9); padding: 15px 30px 30px; width: 500px;}
 				.shop_float .prod_list h3{font-size: 16px; line-height: 24px; text-transform: uppercase; font-weight: 400; color: #252525; margin-bottom: 15px;}
 				.shop_float .prod_list ul{padding: 0; margin: 0;}
 					.shop_float .prod_list ul li{float: left; margin: 0 30px 0 0; width: 28%;}

@@ -11,6 +11,7 @@ use App\Models\Images;
 use App\Models\Videos;
 use App\Models\ProductType;
 use Auth;
+use DB;
 
 class EquipmentsController extends Controller
 {
@@ -159,8 +160,10 @@ class EquipmentsController extends Controller
        // $user_id = Auth::user()->id;
         $categories = Categories::where('type', 'Equipments')->orderby('category')->get();
         $equipment = Equipments::findorfail($id);
-        return view('equipments.show')->with('equip', $equipment)
-        ->with('categories', $categories);
+       
+        return view('equipments.show')
+            ->with('equip', $equipment)
+            ->with('categories', $categories);
     }
 
 
