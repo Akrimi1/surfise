@@ -175,8 +175,9 @@
                             <hr size="10" />
                             <div class="row">
                               <div class="col-md-3">
+                              @if($equip->vendor != null)
                                 <img
-                                  src="@if($equip->vendor->logo != null){{ asset('/images/vendors/'.$equip->vendor->logo) }}@endif"
+                                  src="{{ asset('/images/vendors/'.$equip->vendor->logo) }}"
                                   alt=""
                                   style="
                                     position: relative;
@@ -186,8 +187,9 @@
                                     border-radius: 50%;
                                   "
                                 />
+                                @endif
                               </div>
-                              <div class="col-md-9"><a href="{{ route('vendors.show', $equip->vendor->id) }}">{{ $equip->vendor->business_name }}</a></div>
+                              <div class="col-md-9">@if($equip->vendor != null)<a href="{{ route('vendors.show', $equip->vendor->id) }}">{{ $equip->vendor->business_name }}</a>@endif</div>
                             </div>
                               <!-- <div class="row">
                                   <div class="col">

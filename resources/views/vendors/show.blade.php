@@ -2,6 +2,7 @@
 @section('title', 'Vendor')
 @push('styles')
 <link rel="stylesheet" href="{{ asset('/css/vanilla-calendar.css') }}"/>
+<link rel="stylesheet" href="{{ asset('/css/style.css') }}"/>
 @endpush
 
     
@@ -51,7 +52,7 @@
                   <h3 class="pt-4">{{ $vendor->business_name }}</h3>
                   <h3 class="pt-4">{{ $vendor->vendor_type }}</h3>
                   <p class="text-justify">
-                    
+                   {{$vendor->description}}
                   </p>
 
                   <div class="row">
