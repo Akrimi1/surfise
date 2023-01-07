@@ -20,6 +20,8 @@ class Vendors extends Model
         'website',
         'zipcode',
         'state',
+        'like',
+        'dislike',
         'phone',
         'description',
         'workingDays',
